@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Deneme1 -->
+    <item android:id="@+id/action_context_deneme1"
+        android:icon="@mipmap/ic_my_info"
+        android:title="@string/action_my_info"
+        app:showAsAction="ifRoom|withText"/>
+    <!-- Deneme2 -->
+    <item android:id="@+id/action_context_deneme2"
+        android:icon="@mipmap/ic_my_info"
+        android:title="@string/action_my_info"
+        app:showAsAction="ifRoom|withText"/>
+</menu>

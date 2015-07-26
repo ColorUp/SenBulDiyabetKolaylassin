@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_categories">
+        <item>Açlık Kan Şekeri</item>
+        <item>Ara Öğün</item>
+        <item>Kahvaltı Öncesi</item>
+        <item>Kahvaltı</item>
+        <item>Kahvaltı Sonrası</item>
+        <item>Öğle Yemeği Öncesi</item>
+        <item>Öğle Yemeği</item>
+        <item>Öğle Yemeği Sonrası</item>
+        <item>Akşam Yemeği Öncesi</item>
+        <item>Akşam Yemeği</item>
+        <item>Akşam Yemeği Sonrası</item>
+        <item>Uyku Öncesi</item>
+        <item>Gece</item>
+        <item>Egzersiz Öncesi</item>
+        <item>Egzersiz Sonrası</item>
+        <item>Diğer</item>
+    </array>
+</resources>

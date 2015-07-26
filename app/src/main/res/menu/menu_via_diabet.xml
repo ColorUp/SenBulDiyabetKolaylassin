@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".ViaDiabet">
+
+    <!-- My Info -->
+    <item android:id="@+id/action_my_info"
+        android:icon="@mipmap/ic_my_info"
+        android:title="@string/action_my_info"
+        app:showAsAction="ifRoom|withText"/>
+
+    <!-- Logs -->
+    <item android:id="@+id/action_logs"
+        android:icon="@mipmap/ic_logs"
+        android:title="@string/action_logs"
+        app:showAsAction="ifRoom|withText"/>
+
+    <!-- Tools -->
+    <item android:id="@+id/action_tools"
+        android:title="@string/action_tools"/>
+
+    <!-- Settings -->
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"/>
+
+    <!-- About -->
+    <item android:id="@+id/action_about"
+        android:title="@string/action_about"/>
+
+    <!-- Help -->
+    <item android:id="@+id/action_help"
+        android:title="@string/action_help"/>
+
+    <!-- Twitter -->
+    <item android:id="@+id/action_twitter"
+        android:title="@string/action_twitter"/>
+
+    <!-- Facebook -->
+    <item android:id="@+id/action_facebook"
+        android:title="@string/action_facebook"/>
+
+    <!-- Check updates -->
+    <item android:id="@+id/action_updates"
+        android:title="@string/action_check_updates"/>
+
+    <!-- Logout -->
+    <item android:id="@+id/action_logout"
+        android:title="@string/action_logout"/>
+</menu>

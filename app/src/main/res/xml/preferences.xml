@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="display_settings">
+    <CheckBoxPreference
+        android:key="PREF_UPDATE"
+        android:title="@string/checkbox_auto_update"
+        android:defaultValue="true"
+        android:summary="@string/summary_auto_update"/>
+    <CheckBoxPreference
+        android:key="PREF_SEND_MAIL_DOCTOR"
+        android:title="@string/checkbox_send_mail_doctor"
+        android:defaultValue="true"
+        android:summary="@string/summary_send_mail_doctor"/>
+    <EditTextPreference
+        android:key="PREF_DOCTOR_MAIL"
+        android:title="@string/textview_doctor_mail"
+        android:summary="@string/edittext_doctor_mail"
+        android:inputType="textEmailAddress"/>
+    <CheckBoxPreference
+        android:key="PREF_SHOW_LUNCH_TIME_ALERT"
+        android:title="@string/checkbox_show_lunch_time_alert"
+        android:defaultValue="false"
+        android:summary="@string/summary_show_lunch_time_alert"/>
+    <CheckBoxPreference
+        android:key="PREF_IMMEDIATE_CALL"
+        android:title="@string/checkbox_use_immediate_call"
+        android:defaultValue="false"
+        android:summary="@string/summary_use_immediate_call"/>
+    <EditTextPreference
+        android:key="PREF_IMMEDIATE_CALL_NUMBER"
+        android:title="@string/textview_immediate_call"
+        android:summary="@string/edittext_immediate_call"
+        android:inputType="phone"/>
+    <CheckBoxPreference
+        android:key="PREF_SHOW_YOUR_LOGS_TO_FRIEND"
+        android:title="@string/checkbox_show_your_logs_to_friend"
+        android:defaultValue="false"
+        android:summary="@string/summary_show_your_logs_to_friend"/>
+    <EditTextPreference
+        android:key="PREF_FRIEND_NAME"
+        android:title="@string/button_find_your_friend"
+        android:summary="@string/edittext_find_your_friend"/>
+</PreferenceScreen>

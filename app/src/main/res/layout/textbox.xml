@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/textbox_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".3"
+        android:gravity="center">
+    <TextView
+        android:id="@+id/textbox_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:paddingBottom ="10dip"
+        android:text="?android:attr/label"
+        android:textColor="@color/black"
+        android:textSize="20dip"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:typeface="sans"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".7"
+        android:id="@+id/textbox_text"
+        android:layout_toRightOf="@+id/textbox_label"
+        android:gravity="center">
+    <EditText
+        android:id="@+id/textbox_editText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="?android:attr/hint"
+        android:singleLine="true"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey"
+        android:textSize="20dip"
+        android:text="?android:attr/text"
+        android:paddingBottom ="10dip"/>
+    </LinearLayout>
+</RelativeLayout>

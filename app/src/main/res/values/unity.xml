@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unity_insuline">uIU/mL</string>
+    <string name="unity_mg_decilitre">mg/dL</string>
+    <string name="unity_gram">gram</string>
+    <string name="unity_iu">IU</string>
+</resources>
