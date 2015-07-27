@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class DietList extends AppCompatActivity {
 
@@ -36,8 +37,8 @@ public class DietList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void button(View view)
+    public void click(View view)
     {
-
+        Toast.makeText(DietList.this, "To Calculator, ID = "+view.getId(), Toast.LENGTH_SHORT).show();
     }
 }

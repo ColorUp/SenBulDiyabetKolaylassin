@@ -36,7 +36,8 @@
                     android:id="@+id/textView2"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:onClick="button" />
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -57,7 +58,9 @@
                     android:text="Meyve"
                     android:id="@+id/textView4"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -78,7 +81,9 @@
                     android:text="Atıştırmalık"
                     android:id="@+id/textView6"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -99,7 +104,9 @@
                     android:text="İçecek"
                     android:id="@+id/textView8"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -120,7 +127,9 @@
                     android:text="Sebze"
                     android:id="@+id/textView10"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -141,7 +150,9 @@
                     android:text="Meyve"
                     android:id="@+id/textView12"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -162,7 +173,9 @@
                     android:text="Atıştırmalık"
                     android:id="@+id/textView14"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -183,7 +196,9 @@
                     android:text="İçecek"
                     android:id="@+id/textView16"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="click"
+                    android:clickable="true" />
             </TableRow>
 
 
