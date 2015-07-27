@@ -1,10 +1,15 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -13,11 +18,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.RemoteViews;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ViaDiabet extends BaseViaDiabetActivity
@@ -147,6 +156,33 @@ public class ViaDiabet extends BaseViaDiabetActivity
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void createNotification(View v) {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+
+        Intent i = new Intent(this, ViaDiabet.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent intent = PendingIntent.getActivity(this, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(intent);
+
+        builder.setTicker("Şekerini ölç");
+
+        builder.setSmallIcon(R.drawable.cast_ic_notification_0);
+
+        builder.setAutoCancel(true);
+
+        Notification notification = builder.build();
+
+        if (Build.VERSION.SDK_INT >= 16) {
+            RemoteViews expandedView =
+                    new RemoteViews(getPackageName(), R.layout.notification_expanded);
+            notification.bigContentView = expandedView;
+        }
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(0, notification);
     }
 
     //BURASI PREFERENCEACTIVITY KULLANILACAGI ZAMAN BU SEKILDE YAPILMALI

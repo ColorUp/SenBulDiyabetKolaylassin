@@ -204,7 +204,8 @@
         android:text="@string/button_reports"
         android:id="@+id/button_reports"
         android:layout_weight=".33"
-        android:clickable="true" />
+        android:clickable="true"
+        android:onClick="createNotification" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_database"
