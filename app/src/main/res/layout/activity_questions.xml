@@ -33,120 +33,276 @@
         app:text="Lütfen kilonuzu giriniz"
         android:inputType="number"
         app:label="@string/weight"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meslek"
+            style="@style/textViewStyle"/>
     <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:entries="@array/array_name"
         android:spinnerMode="dialog"
         android:id="@+id/spinner_meslek"
-        android:dropDownWidth="fill_parent"/>
-    <TextView
-        android:layout_width="wrap_content"
+        android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView6" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView7" />
-
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medeni_durum"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/spinner_medeni_durum"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView8" />
-
-    <TextView
+        android:text="@string/life_style"
+        android:id="@+id/textViewLifeStyle"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uyanma_saati"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/wake_up_time"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uyuma_saati"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/sleep_time"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView9" />
-
-    <TextView
+        app:text="Var,Yok"
+        app:label="@string/spor_aktivitesi"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sport_cyclic"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/sport_cyclic"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sport_time"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/sport_time"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView10" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView11" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView12" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView13" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView14" />
-
+        app:text="Evet,Hayır"
+        app:label="@string/seyahat"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView15" />
-
-    <TextView
-        android:layout_width="wrap_content"
+        android:text="@string/meals"
+        android:id="@+id/textViewMeals"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView16" />
-
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/breakfast_time"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/breakfast_time"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
     <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_choose_breakfast"
+        android:text="@string/choose_breakfast"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button" />
-
-    <RadioButton
+        app:text="Evet,Hayır"
+        app:label="@string/snack_after_breakfast"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lunch_time"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/lunch_time"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_choose_lunch"
+        android:text="@string/choose_lunch"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton" />
+        app:text="Evet,Hayır"
+        app:label="@string/snack_after_lunch"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dinner_time"
+            style="@style/textViewStyle"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_name"
+            android:spinnerMode="dialog"
+            android:id="@+id/dinner_time"
+            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_choose_dinner"
+        android:text="@string/choose_dinner"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="Evet,Hayır"
+        app:label="@string/snack_after_dinner"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="Lütfen içtiğiniz su miktarını giriniz"
+        android:inputType="numberDecimal"
+        app:label="@string/water"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lovely_meals"
+            style="@style/textViewStyle" android:layout_weight=".4"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_choose_lovely_meals"
+            android:text="@string/button_choose_lovely_meals" android:layout_weight=".6"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disliked_meals"
+            style="@style/textViewStyle" android:layout_weight=".4"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_choose_disliked_meals"
+            android:text="@string/button_choose_disliked_meals" android:layout_weight=".6"/>
+    </LinearLayout>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="Evet,Hayır"
+        app:label="@string/smoke"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="Evet,Hayır"
+        app:label="@string/alcohol"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="Evet,Hayır"
+        app:label="@string/allergia"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="Evet,Hayır"
+        app:label="@string/medicine"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/comments"
+        android:id="@+id/textViewComments"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/editTextComments"/>
 </LinearLayout>

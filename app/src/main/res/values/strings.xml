@@ -72,6 +72,35 @@
     <string name="weight">Kilo</string>
     <string name="male">Erkek</string>
     <string name="female">Erkek</string>
+    <string name="meslek">Meslek</string>
+    <string name="medeni_durum">Medeni Durum</string>
+    <string name="life_style">Yaşam Tarzı</string>
+    <string name="uyanma_saati">Uyanma Saati</string>
+    <string name="uyuma_saati">Uyuma Saati</string>
+    <string name="spor_aktivitesi">Spor Aktivitesi</string>
+    <string name="sport_cyclic">Sıklık</string>
+    <string name="sport_time">Süresi</string>
+    <string name="seyahat">Seyahat ediyor musunuz?</string>
+    <string name="meals">Beslenme</string>
+    <string name="breakfast_time">Kahvaltı Zamanı</string>
+    <string name="lunch_time">Öğle Yemeği Zamanı</string>
+    <string name="dinner_time">Akşam Yemeği Zamanı</string>
+    <string name="choose_breakfast">Kahvaltı Yiyeceklerinizi Seçin</string>
+    <string name="choose_lunch">Öğle Yemeği Yiyeceklerinizi Seçin</string>
+    <string name="choose_dinner">Akşam Yiyeceklerinizi Seçin</string>
+    <string name="snack_after_breakfast">Kahvaltı Sonrası Ara Öğün</string>
+    <string name="snack_after_lunch">Öğle Yemeği Sonrası Ara Öğün</string>
+    <string name="snack_after_dinner">Akşam Yemeği Sonrası Ara Öğün</string>
+    <string name="water">Günde Kaç Litre Su İçiyorsun</string>
+    <string name="lovely_meals">Sevdiğin Yiyecekler</string>
+    <string name="button_choose_lovely_meals">Yiyecek Seç</string>
+    <string name="disliked_meals">Yiyemediğin Yiyecekler</string>
+    <string name="button_choose_disliked_meals">Yiyecek Seç</string>
+    <string name="smoke">Sigara Kullanıyor Musun?</string>
+    <string name="alcohol">Alkol Kullanıyor Musun?</string>
+    <string name="allergia">Alerji veya başka bir rahatsızlığınız var mı?</string>
+    <string name="medicine">İlaç Kullanıyor Musun?</string>
+    <string name="comments">Paylaşmak İstedikleriniz</string>
 
     <!-- Activity titles -->
     <string name="activity_main">VIADIABET</string>
@@ -102,9 +131,9 @@
     <string name="select_Category">Select Company</string>
 
     <string-array name="array_name">
-        <item>Array Item One</item>
-        <item>Array Item Two</item>
-        <item>Array Item Three</item>
+        <item>Seçiniz</item>
+        <item>Item Two</item>
+        <item>Item Three</item>
     </string-array>
     <string name="title_activity_diet_list">DietList</string>
 
