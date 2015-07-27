@@ -106,5 +106,6 @@
         <item>Array Item Two</item>
         <item>Array Item Three</item>
     </string-array>
+    <string name="title_activity_diet_list">DietList</string>
 
 </resources>
