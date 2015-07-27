@@ -35,7 +35,8 @@
                     android:text="Sebze"
                     android:id="@+id/textView2"
                     android:layout_weight="1"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="button" />
             </TableRow>
 
             <TableRow android:layout_margin="10dp">
@@ -44,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="10:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView3"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -54,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Meyve"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView4"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
@@ -65,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="12:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView5"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -75,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Atıştırmalık"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView6"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
@@ -86,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="14:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView7"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -96,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="İçecek"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView8"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
@@ -107,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="16:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView9"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -117,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Sebze"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView10"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
@@ -128,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="18:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView11"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -138,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Meyve"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView12"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
@@ -149,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="20:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView13"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -159,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Atıştırmalık"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView14"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
@@ -170,7 +171,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="22:00"
-                    android:id="@+id/textView"
+                    android:id="@+id/textView15"
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:textSize="22sp" />
@@ -180,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="İçecek"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView16"
                     android:layout_weight="1"
                     android:textSize="22sp" />
             </TableRow>
