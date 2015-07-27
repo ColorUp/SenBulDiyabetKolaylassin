@@ -25,24 +25,30 @@
             android:icon="@mipmap/ic_actionbar"
             android:label="@string/activity_main"
             android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+        </activity>
         <activity
             android:name=".Settings"
             android:icon="@mipmap/ic_actionbar"
-            android:label="@string/activity_settings"></activity>
+            android:label="@string/activity_settings">
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateVisible"></activity>
+        android:name=".LoginActivity"
+        android:label="@string/title_activity_login"
+        android:windowSoftInputMode="adjustResize|stateVisible">
+    </activity>
+        <activity
+            android:name=".Questions"
+            android:label="@string/activity_questions">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".DietList"
             android:label="@string/title_activity_diet_list">

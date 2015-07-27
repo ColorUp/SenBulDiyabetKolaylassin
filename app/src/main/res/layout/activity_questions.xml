@@ -4,6 +4,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scroll_questions">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -301,8 +309,16 @@
         android:text="@string/comments"
         android:id="@+id/textViewComments"/>
     <EditText
+    android:layout_width="fill_parent"
+    android:layout_height="60dip"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:id="@+id/editTextComments"/>
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="60dip"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/editTextComments"/>
+        android:id="@+id/button_mainpage"
+        android:text="@string/complete_signup"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

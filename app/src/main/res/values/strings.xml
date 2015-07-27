@@ -2,6 +2,7 @@
     <string name="app_name">ViaDiabet</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="activity_questions">Kendinizi Bize Tanıtın</string>
 
     <string name="ad">Ad</string>
     <string name="soyad">Soyad</string>
@@ -101,6 +102,7 @@
     <string name="allergia">Alerji veya başka bir rahatsızlığınız var mı?</string>
     <string name="medicine">İlaç Kullanıyor Musun?</string>
     <string name="comments">Paylaşmak İstedikleriniz</string>
+    <string name="complete_signup">Kayıt İşlemini Tamamla</string>
 
     <!-- Activity titles -->
     <string name="activity_main">VIADIABET</string>
