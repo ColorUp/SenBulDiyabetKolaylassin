@@ -1,0 +1,14 @@
+<resources>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Kullanıcı Adı</string>
+    <string name="prompt_password">Parola</string>
+    <string name="action_sign_in">Giriş Yap</string>
+    <string name="action_sign_in_short">Giriş Yap</string>
+
+    <string name="error_invalid_email">Kullanıcı adı geçersiz</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">Boş Bırakılamaz</string>
+</resources>
