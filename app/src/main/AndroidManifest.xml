@@ -25,10 +25,6 @@
             android:icon="@mipmap/ic_actionbar"
             android:label="@string/activity_main"
             android:theme="@style/AppTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Settings"
@@ -52,6 +48,10 @@
         <activity
             android:name=".DietList"
             android:label="@string/title_activity_diet_list" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Stats"
