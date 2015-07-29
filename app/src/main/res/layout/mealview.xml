@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="?android:attr/text"
+            android:text="?attr/label"
             android:id="@+id/textView18"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="15dp" />
@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="?android:attr/label"
+                android:text="?attr/yemek1"
                 android:id="@+id/textView19"
                 android:layout_gravity="right" />
 
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="?android:attr/label"
+                android:text="?attr/yemek2"
                 android:id="@+id/textView20"
                 android:layout_gravity="right" />
 

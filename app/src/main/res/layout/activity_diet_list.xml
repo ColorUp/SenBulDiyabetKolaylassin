@@ -18,6 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/view"
-            app:text="www"/>
+            app:label="Yemekler"
+            app:yemek1="Kuru fasulye"
+            app:yemek2="Pilav üstü döner"/>
     </ScrollView>
 </RelativeLayout>

@@ -113,6 +113,15 @@
     <string name="comments">Paylaşmak İstedikleriniz</string>
     <string name="complete_signup">Kayıt İşlemini Tamamla</string>
 
+    <!-- Data Bank -->
+    <string name="total_count">Toplam Kayıt</string>
+    <string name="unit">Adet</string>
+    <string name="daily_glicose_measurement">Günlük Glikoz Ölçümü</string>
+    <string name="estimated_hb1ac">Tahmini Hb1Ac</string>
+    <string name="date_time">Tarih-Saat</string>
+    <string name="process">İşlem</string>
+    <string name="value">Değer</string>
+
     <!-- Activity titles -->
     <string name="activity_main">VIADIABET</string>
     <string name="activity_settings">SETTINGS</string>

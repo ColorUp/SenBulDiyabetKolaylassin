@@ -6,5 +6,7 @@
         <attr name="android:inputType"/>
         <attr name="unit" format="string"/>
         <attr name="android:src"/>
+        <attr name="yemek1" format="string"/>
+        <attr name="yemek2" format="string"/>
     </declare-styleable>
 </resources>
