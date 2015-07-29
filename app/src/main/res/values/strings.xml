@@ -5,6 +5,7 @@
     <string name="activity_questions">Kendinizi Bize Tanıtın</string>
     <string name="activity_meal_calculator">Besin Değerlerini Hesapla</string>
     <string name="activity_input_data">Veri Girişi</string>
+    <string name="activity_data_bank">Veri Bankası</string>
 
     <string name="ad">Ad</string>
     <string name="soyad">Soyad</string>
@@ -121,6 +122,13 @@
     <string name="date_time">Tarih-Saat</string>
     <string name="process">İşlem</string>
     <string name="value">Değer</string>
+    <string name="period">Periyot</string>
+    <string name="count">Sayım</string>
+    <string name="analyze">Analiz</string>
+    <string name="average">Ort.</string>
+    <string name="min_value">Min.</string>
+    <string name="max_value">Max.</string>
+    <string name="weight_change">Değişim</string>
 
     <!-- Activity titles -->
     <string name="activity_main">VIADIABET</string>
