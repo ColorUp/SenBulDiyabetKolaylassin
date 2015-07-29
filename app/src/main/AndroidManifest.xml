@@ -65,6 +65,10 @@
             android:name=".InputData"
             android:label="@string/activity_input_data" >
         </activity>
+        <activity
+            android:name=".DataBank"
+            android:label="@string/activity_data_bank" >
+        </activity>
     </application>
 
 </manifest>

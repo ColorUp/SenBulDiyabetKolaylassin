@@ -118,6 +118,15 @@ public class ViaDiabet extends BaseViaDiabetActivity {
                 startActivity(intent);
             }
         });
+
+        Button buttonDatabase=(Button)findViewById(R.id.button_database);
+        buttonDatabase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ViaDiabet.this,DataBank.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
