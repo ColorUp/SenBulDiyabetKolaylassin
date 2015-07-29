@@ -38,9 +38,9 @@ public class Stats extends AppCompatActivity {
         valsComp2.add(c2e1);
         Entry c2e2 = new Entry(110.000f, 1); // 1 == quarter 2 ...
         valsComp2.add(c2e2);
-        LineDataSet setComp1 = new LineDataSet(valsComp1, "Company 1");
+        LineDataSet setComp1 = new LineDataSet(valsComp1, "Type 1");
         setComp1.setAxisDependency(YAxis.AxisDependency.LEFT);
-        LineDataSet setComp2 = new LineDataSet(valsComp2, "Company 2");
+        LineDataSet setComp2 = new LineDataSet(valsComp2, "Type 2");
         setComp2.setAxisDependency(YAxis.AxisDependency.LEFT);
 
         ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
