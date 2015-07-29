@@ -14,9 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 
-/**
- * Created by Burak on 01.07.2015.
- */
 public class InputData extends Activity
 {
     private String array_spinner[];
@@ -26,11 +23,13 @@ public class InputData extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data);
         Resources res = getResources();
+        DateTimePicker dateTimePicker = (DateTimePicker)findViewById(R.id.input_date_time);
+        dateTimePicker.setTime(this);
+        dateTimePicker.setDate(this);
 
         String[] array_spinner = res.getStringArray(R.array.array_categories);
         Spinner s = (Spinner) findViewById(R.id.spinner_category);
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_dropdown_item, array_spinner);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, array_spinner);
         s.setAdapter(adapter);
     }
 

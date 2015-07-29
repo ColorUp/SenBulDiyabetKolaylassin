@@ -25,6 +25,10 @@
             android:icon="@mipmap/ic_actionbar"
             android:label="@string/activity_main"
             android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Settings"
@@ -56,10 +60,10 @@
         <activity
             android:name=".MealCalculator"
             android:label="@string/activity_meal_calculator" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".InputData"
+            android:label="@string/activity_input_data" >
         </activity>
     </application>
 

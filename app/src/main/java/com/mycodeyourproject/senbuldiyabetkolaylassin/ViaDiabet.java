@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.RemoteViews;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -73,9 +74,50 @@ public class ViaDiabet extends BaseViaDiabetActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_via_diabet);
+        setButtonListener();
+    }
+
+    private void setButtonListener()
+    {
+        Button buttonInputData=(Button)findViewById(R.id.button_save_data);
+        buttonInputData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViaDiabet.this, InputData.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonCalculator = (Button)findViewById(R.id.button_calculator);
+        buttonCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ViaDiabet.this,MealCalculator.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonStats = (Button)findViewById(R.id.button_graphs);
+        buttonStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ViaDiabet.this,Stats.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonLines=(Button)findViewById(R.id.button_lines);
+        buttonLines.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ViaDiabet.this,Stats.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

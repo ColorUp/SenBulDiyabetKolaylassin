@@ -9,19 +9,23 @@
 <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    app:label="@string/carbonhydrade"/>
+    app:label="@string/carbonhydrade"
+    app:text="@string/zero"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:label="@string/lipid"/>
+        app:label="@string/lipid"
+        app:text="@string/zero"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:label="@string/protein"/>
+        app:label="@string/protein"
+        app:text="@string/zero"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:label="@string/calori"/>
+        app:label="@string/calori"
+        app:text="@string/zero"/>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
