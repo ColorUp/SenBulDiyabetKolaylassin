@@ -143,7 +143,8 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         // Take appropriate action for each action item click
         switch (item.getItemId()) {
             case R.id.action_my_info:
-                Toast.makeText(this, R.string.action_my_info, Toast.LENGTH_LONG).show();
+                Intent intent =new Intent(ViaDiabet.this,Questions.class);
+                startActivity(intent);
                 return true;
 
             case R.id.action_logs:
@@ -154,10 +155,10 @@ public class ViaDiabet extends BaseViaDiabetActivity {
                 return true;
 
             case R.id.action_settings:
-                Intent intent = new Intent(ViaDiabet.this, Settings.class);
+                Intent intentS = new Intent(ViaDiabet.this, Settings.class);
                 /*PREFERENCE ACTIVITY de bu sekilde yapilmali
                 Intent intent=new Intent(ViaDiabet.this,Preferences.class);*/
-                startActivity(intent);
+                startActivity(intentS);
                 return true;
 
             case R.id.action_about:

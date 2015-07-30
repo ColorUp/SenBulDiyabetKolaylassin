@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radio_button_yes_no"
         android:orientation="vertical"
-        android:layout_weight=".3">
+        android:layout_weight=".6">
         <TextView
             android:id="@+id/radiobutton_textview"
             android:layout_width="fill_parent"
@@ -21,9 +21,9 @@
             android:background="@color/background_floating_material_light"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight=".7">
+        android:layout_weight=".4">
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

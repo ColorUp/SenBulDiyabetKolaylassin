@@ -66,14 +66,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/medeni_durum"
-            style="@style/textViewStyle"/>
+            style="@style/textViewStyle"
+            android:layout_weight=".6"/>
         <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:entries="@array/array_name"
             android:spinnerMode="dialog"
             android:id="@+id/spinner_medeni_durum"
-            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
+            android:dropDownWidth="fill_parent" android:layout_weight=".4"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

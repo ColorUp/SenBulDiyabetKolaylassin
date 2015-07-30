@@ -71,7 +71,7 @@
         android:text="@string/text_last_check_insulin"
         android:editable="true"
         android:id="@+id/text_last_check_insulin" android:inputType="numberSigned"
-        android:layout_weight=".2" android:layout_gravity="top"/>
+        android:layout_weight=".2" android:gravity="center"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         android:editable="true" android:inputType="date"
         android:id="@+id/text_last_check_insulin_date"
         android:layout_weight=".5"
-        android:layout_gravity="center" android:gravity="center"/>
+        android:gravity="center"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
         android:id="@+id/text_last_days_view"
         android:inputType="textCapCharacters"
         android:layout_weight=".3"
-        android:layout_gravity="left"/>
+        android:gravity="right"/>
 </LinearLayout>
     </LinearLayout>
 
@@ -193,19 +193,6 @@
         android:id="@+id/button_graphs"
         android:layout_weight=".33"
         android:clickable="true" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/button_main_secondary_height"
-        android:layout_marginLeft="@dimen/button_main_secondary_margin"
-        android:layout_marginRight="@dimen/button_main_secondary_margin"
-        android:layout_marginTop="@dimen/button_main_secondary_margin"
-        android:layout_marginBottom="@dimen/button_main_secondary_margin"
-        android:text="@string/button_reports"
-        android:id="@+id/button_reports"
-        android:layout_weight=".33"
-        android:clickable="true"
-        android:onClick="showNotif" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_database"
@@ -237,18 +224,19 @@
         android:id="@+id/button_database"
         android:clickable="true"
         android:layout_weight=".33"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/button_main_secondary_height"
-        android:layout_marginLeft="@dimen/button_main_secondary_margin"
-        android:layout_marginRight="@dimen/button_main_secondary_margin"
-        android:layout_marginTop="@dimen/button_main_secondary_margin"
-        android:layout_marginBottom="@dimen/button_main_secondary_margin"
-        android:text="@string/button_settings"
-        android:id="@+id/button_settings"
-        android:clickable="true"
-        android:layout_weight=".33"/>
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/button_main_secondary_height"
+            android:layout_marginLeft="@dimen/button_main_secondary_margin"
+            android:layout_marginRight="@dimen/button_main_secondary_margin"
+            android:layout_marginTop="@dimen/button_main_secondary_margin"
+            android:layout_marginBottom="@dimen/button_main_secondary_margin"
+            android:text="@string/button_reports"
+            android:id="@+id/button_reports"
+            android:layout_weight=".33"
+            android:clickable="true"
+            android:onClick="showNotif" />
     </LinearLayout>
     <ImageView
         android:layout_width="wrap_content"
