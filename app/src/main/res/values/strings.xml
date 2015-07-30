@@ -169,5 +169,6 @@
     <string name="title_activity_diet_list">DietList</string>
     <string name="title_activity_stats">Stats</string>
     <string name="custom_notification">Şekerini ölç!</string>
+    <string name="title_activity_signup">SignupActivity</string>
 
 </resources>
