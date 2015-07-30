@@ -27,46 +27,70 @@
                 android:id="@+id/view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:label="Saat 10:00"
-                app:meal_title="Yemekler"
-                app:yemek1="Kuru fasulye"
-                app:yemek2="Pilav üstü döner"
-                app:yemek3="Pilav üstü döner"
-                app:yemek4="Pilav üstü döner"
+                app:label="Saat 9:00"
+                app:meal_title="Kahvaltı"
+                app:yemek1="2 Dilim Ekmek"
+                app:yemek2="2 Ölçü Peynir"
+                app:yemek3="3 Adet Zeytin"
+                app:yemek4="Domates, Salatalık, Biber"
                 app:yemeksayisi="4" />
 
             <com.mycodeyourproject.senbuldiyabetkolaylassin.MealView
                 android:id="@+id/view2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:label="Saat 10:00"
-                app:meal_title="Yemekler"
-                app:yemek1="Kuru fasulye"
-                app:yemek2="Pilav üstü döner"
-                app:yemek3="Pilav üstü döner"
-                app:yemek4="Pilav üstü döner"
-                app:yemeksayisi="3" />
-
-            <com.mycodeyourproject.senbuldiyabetkolaylassin.MealView
-                android:id="@+id/view3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:label="Saat 10:00"
-                app:meal_title="Yemekler"
-                app:yemek1="Kuru fasulye"
-                app:yemek2="Pilav üstü döner"
+                app:label="Saat 10:30"
+                app:meal_title="Ara Öğün"
+                app:yemek1="3 Adet Ceviz"
+                app:yemek2="1 Adet Çay (Şekersiz)"
                 app:yemek3="Pilav üstü döner"
                 app:yemek4="Pilav üstü döner"
                 app:yemeksayisi="2" />
 
             <com.mycodeyourproject.senbuldiyabetkolaylassin.MealView
+                android:id="@+id/view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:label="Saat 12:30"
+                app:meal_title="Öğle Yemeği"
+                app:yemek1="1 Porsiyon Çorba"
+                app:yemek2="1/2 Et Yemeği"
+                app:yemek3="Yoğurt"
+                app:yemek4="Pilav üstü döner"
+                app:yemeksayisi="3" />
+
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.MealView
                 android:id="@+id/view4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:label="Saat 10:00"
-                app:meal_title="Yemekler"
-                app:yemek1="Kuru fasulye"
-                app:yemek2="Pilav üstü döner"
+                app:label="Saat 15:00"
+                app:meal_title="Ara Öğün"
+                app:yemek1="1 Porsiyon Yoğurt"
+                app:yemek2="Pilav Üstü Döner"
+                app:yemek3="Pilav üstü döner"
+                app:yemek4="Pilav üstü döner"
+                app:yemeksayisi="1" />
+
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.MealView
+                android:id="@+id/view5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:label="Saat 18:30"
+                app:meal_title="Akşam Yemeği"
+                app:yemek1="1 Porsiyon Çorba"
+                app:yemek2="1 Porsiyon Sebze Yemeği"
+                app:yemek3="1 Porsiyon Yoğurt"
+                app:yemek4="Pilav üstü döner"
+                app:yemeksayisi="3" />
+
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.MealView
+                android:id="@+id/view6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:label="Saat 20:00"
+                app:meal_title="Ara Öğün"
+                app:yemek1="1 Porsiyon Meyve"
+                app:yemek2="Pilav Üstü Döner"
                 app:yemek3="Pilav üstü döner"
                 app:yemek4="Pilav üstü döner"
                 app:yemeksayisi="1" />
