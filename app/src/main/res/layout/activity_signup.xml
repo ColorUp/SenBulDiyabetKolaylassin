@@ -82,5 +82,6 @@
         android:layout_height="wrap_content"
         android:text="Kendinizi Tanıtın"
         android:id="@+id/button2"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="signUp" />
 </LinearLayout>

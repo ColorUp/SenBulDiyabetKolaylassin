@@ -1,9 +1,11 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -33,5 +35,12 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void signUp(View v)
+    {
+        finish();
+        Intent intent = new Intent(SignupActivity.this, Questions.class);
+        startActivity(intent);
     }
 }

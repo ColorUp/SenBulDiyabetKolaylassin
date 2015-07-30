@@ -42,14 +42,16 @@
                 android:id="@+id/imageButton"
                 android:src="@drawable/fbbuton"
                 android:layout_gravity="center_horizontal"
-                android:background="@null"/>
+                android:background="@null"
+                android:onClick="fbLogin" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kayıt Ol"
                 android:id="@+id/button"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:onClick="kayitOl" />
 
         </LinearLayout>
     </ScrollView>

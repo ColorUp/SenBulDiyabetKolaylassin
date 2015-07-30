@@ -90,10 +90,17 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         getLoaderManager().initLoader(0, null, this);
     }
 
-    public void fbLogin()
+    public void fbLogin(View v)
     {
         finish();
         Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
+        startActivity(intent);
+    }
+
+    public void kayitOl(View v)
+    {
+        finish();
+        Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
 
