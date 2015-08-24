@@ -26,14 +26,29 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends BaseViaDiabetActivity implements LoaderCallbacks<Cursor>
+{
+    private static String dbUrlDeneme = "http://www.viadiabet.mycodeyourproject.com/index.php?sql=TABLE&table=USER";
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -97,13 +112,45 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         startActivity(intent);
     }
 
-    public void kayitOl(View v)
+    public void kayitOl(View v) throws URISyntaxException, IOException
     {
+        try
+        {
+            String tables = this.getTables();
+            Toast.makeText(this, tables, Toast.LENGTH_LONG).show();
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this, "Exception: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
         finish();
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
 
+    public String getTables() throws MalformedURLException, URISyntaxException, IOException
+    {
+        URL url = new URL(dbUrlDeneme);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(dbUrlDeneme));
+
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+        StringBuffer sb = new StringBuffer("");
+        String line="";
+
+        while ((line = in.readLine()) != null)
+        {
+            sb.append(line);
+            break;
+        }
+
+        in.close();
+        return sb.toString();
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.

@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends BaseViaDiabetActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
