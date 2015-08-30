@@ -6,6 +6,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
 
 public class SignupActivity extends BaseViaDiabetActivity {
 
@@ -39,8 +52,28 @@ public class SignupActivity extends BaseViaDiabetActivity {
 
     public void signUp(View v)
     {
-        finish();
+        Button btnSave=(Button)findViewById(R.id.buttonSave);
+        EditText txtUserName=(EditText)findViewById(R.id.editTextUserName);
+        EditText txtPassword=(EditText)findViewById(R.id.editTextPassword);
+        EditText txtPasswordAgain=(EditText)findViewById(R.id.editTextPasswordAgain);
+        EditText txtEmail=(EditText)findViewById(R.id.editTextEmail);
+        EditText txtPhoneNumber=(EditText)findViewById(R.id.editTextPhoneNumber);
+
+        Date birthDate=new Date(2000,12,23);
+
+        DataTransferObjects.User newUser=new DataTransferObjects.User(txtUserName.getText().toString(),txtPassword.getText().toString(),
+                birthDate,1,"11971280728","Agah Burak","DEMİRKAN");
+
+        Map<String,String> userObject=newUser.getUserObject();
+        boolean result = DatabaseQuery.Insert("USER", userObject);
+
+       if(result)
+            Toast.makeText(this,"Başarılı",Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Başarısız", Toast.LENGTH_LONG).show();
+
+/*        finish();
         Intent intent = new Intent(SignupActivity.this, Questions.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

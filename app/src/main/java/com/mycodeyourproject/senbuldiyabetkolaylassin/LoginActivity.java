@@ -48,8 +48,6 @@ import java.util.List;
  */
 public class LoginActivity extends BaseViaDiabetActivity implements LoaderCallbacks<Cursor>
 {
-    private static String dbUrlDeneme = "http://www.viadiabet.mycodeyourproject.com/index.php?sql=TABLE&table=USER";
-
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -114,42 +112,9 @@ public class LoginActivity extends BaseViaDiabetActivity implements LoaderCallba
 
     public void kayitOl(View v) throws URISyntaxException, IOException
     {
-        try
-        {
-            String tables = this.getTables();
-            Toast.makeText(this, tables, Toast.LENGTH_LONG).show();
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(this, "Exception: " + ex.getMessage(), Toast.LENGTH_LONG).show();
-        }
-
         finish();
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
-    }
-
-    public String getTables() throws MalformedURLException, URISyntaxException, IOException
-    {
-        URL url = new URL(dbUrlDeneme);
-        HttpClient client = new DefaultHttpClient();
-        HttpGet request = new HttpGet();
-        request.setURI(new URI(dbUrlDeneme));
-
-        HttpResponse response = client.execute(request);
-        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-
-        StringBuffer sb = new StringBuffer("");
-        String line="";
-
-        while ((line = in.readLine()) != null)
-        {
-            sb.append(line);
-            break;
-        }
-
-        in.close();
-        return sb.toString();
     }
 
     /**
