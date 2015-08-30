@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:id="@+id/textbox_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight=".7"
-        android:gravity="center">
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
     <TextView
         android:id="@+id/textbox_textView"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip"
-        android:paddingBottom ="10dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom ="10dp"
         android:text="?android:attr/label"
-        android:textColor="@color/black"
-        android:textSize="15dip"
+        android:textColor="@color/darkGrey"
+        android:textSize="14dp"
         android:singleLine="true"
         android:textStyle="bold"
-        android:typeface="sans"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight=".3"
-        android:id="@+id/textbox_text"
-        android:layout_toRightOf="@+id/textbox_label"
-        android:gravity="center">
+        android:layout_weight=".8"/>
     <EditText
         android:id="@+id/textbox_editText"
         android:layout_width="fill_parent"
@@ -37,8 +26,10 @@
         android:singleLine="true"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
-        android:textSize="15dip"
+        android:textSize="14dp"
         android:text="?android:attr/text"
-        android:paddingBottom ="10dip"/>
-    </LinearLayout>
+        android:paddingBottom ="10dp"
+        android:layout_weight=".5"
+        android:inputType="text"
+        android:background="@drawable/edittextstyle"/>
 </LinearLayout>

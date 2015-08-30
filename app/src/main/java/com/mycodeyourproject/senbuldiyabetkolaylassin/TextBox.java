@@ -1,5 +1,6 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
@@ -17,7 +18,8 @@ import android.widget.TextView;
 
 public class TextBox extends LinearLayout
 {
-    public TextBox(Context context, AttributeSet attrs) {
+    public TextBox(Context context, AttributeSet attrs)
+    {
         super(context, attrs);
         TypedArray typedArray=context.obtainStyledAttributes(attrs,R.styleable.TextBox,0,0);
         String label = typedArray.getString(R.styleable.TextBox_label);

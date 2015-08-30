@@ -5,6 +5,7 @@
         <attr name="hint" format="string"/>
         <attr name="android:inputType"/>
         <attr name="unit" format="string"/>
+        <attr name="android:textStyle"/>
         <attr name="android:src"/>
         <attr name="meal_title" format="string"/>
         <attr name="yemeksayisi" format="integer"/>

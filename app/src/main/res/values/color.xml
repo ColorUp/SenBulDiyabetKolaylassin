@@ -13,4 +13,6 @@
     <color name="brown">#2F1700</color>
     <color name="darkgrey">#606060</color>
     <color name="lightYellow">#FFFF99</color>
+    <color name="darkGrey">#888888</color>
+    <color name="lightBlue">#bbcde3</color>
 </resources>

@@ -37,6 +37,12 @@
     <string name="button_database">Veri Bankası</string>
     <string name="text_last_days_view">daha sık ölç</string>
 
+    <!-- Sign Up-->
+    <string name="username">Kullanıcı Adı</string>
+    <string name="username_edittext">Lütfen kullanıcı adınızı giriniz</string>
+    <string name="password">Şifre</string>
+    <string name="password_edittext">Lütfen şifreinizi giriniz</string>
+
     <!-- Meal Calculator -->
     <string name="carbonhydrade">Karbonhidrat</string>
     <string name="lipid">Yağ</string>

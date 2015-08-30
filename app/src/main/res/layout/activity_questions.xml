@@ -19,7 +19,7 @@
         android:text="@string/personal_information"
         android:id="@+id/textViewPersonalInformation"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:text="Lütfen yaşınızı giriniz"
         android:inputType="number"

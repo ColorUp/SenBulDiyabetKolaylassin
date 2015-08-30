@@ -5,6 +5,7 @@
         <item name="actionBarStyle">@style/ActionBar</item>
         <item name="actionOverflowButtonStyle">@style/overflowButton</item>
         <item name="android:spinnerDropDownItemStyle">@style/customActionBarDropDownStyle</item>
+        <item name="android:background">@color/lightBlue</item>
     </style>
 
     <!--ActionBar-->
@@ -16,9 +17,20 @@
     </style>
 
     <style name="overflowButton">
-        <item name="android:src">@android:drawable/ic_menu_more</item>
-        <item name="android:showAsAction">always</item>
-        <item name="android:orientation">vertical</item>
+    <item name="android:src">@android:drawable/ic_menu_more</item>
+    <item name="android:showAsAction">always</item>
+    <item name="android:orientation">vertical</item>
+</style>
+
+    <style name="viadiabetButton">
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
     </style>
 
     <style name="customActionBarDropDownStyle" parent="@android:style/Widget.Holo.Light.ListView" >
