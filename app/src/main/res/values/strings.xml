@@ -37,11 +37,18 @@
     <string name="button_database">Veri Bankası</string>
     <string name="text_last_days_view">daha sık ölç</string>
 
-    <!-- Sign Up-->
+    <!-- Login & Sign Up -->
     <string name="username">Kullanıcı Adı</string>
     <string name="username_edittext">Lütfen kullanıcı adınızı giriniz</string>
     <string name="password">Şifre</string>
     <string name="password_edittext">Lütfen şifreinizi giriniz</string>
+    <string name="password_again">Şifre (Tekrar)</string>
+    <string name="password_again_edittext">Şifrenizi tekrar giriniz</string>
+    <string name="email">E-Posta</string>
+    <string name="email_edittext">info@mycodeyourproject.com</string>
+    <string name="phonenumber">Telefon No</string>
+    <string name="phonenumber_edittext">+90 507 504 25 70</string>
+    <string name="lifestyle">Yaşam Tarzınız -></string>
 
     <!-- Meal Calculator -->
     <string name="carbonhydrade">Karbonhidrat</string>
