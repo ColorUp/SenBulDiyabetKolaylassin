@@ -24,8 +24,6 @@ public class InputData extends Activity
         setContentView(R.layout.activity_input_data);
         Resources res = getResources();
         DateTimePicker dateTimePicker = (DateTimePicker)findViewById(R.id.input_date_time);
-        dateTimePicker.setTime(this);
-        dateTimePicker.setDate(this);
 
         String[] array_spinner = res.getStringArray(R.array.array_categories);
         Spinner s = (Spinner) findViewById(R.id.spinner_category);

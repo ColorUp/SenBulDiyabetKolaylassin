@@ -49,6 +49,13 @@
     <string name="phonenumber">Telefon No</string>
     <string name="phonenumber_edittext">+90 507 504 25 70</string>
     <string name="lifestyle">Yaşam Tarzınız -></string>
+    <string name="birthdate">Doğum Tarihi</string>
+    <string name="turkishid">T.C. Kimlik No</string>
+    <string name="turkishid_edittext">Lütfen T.C. kimlik numaranızı giriniz</string>
+    <string name="name">Ad</string>
+    <string name="name_edittext">Lütfen adınızı giriniz</string>
+    <string name="surname">Soyad</string>
+    <string name="surname_edittext">Lütfen soyadınızı giriniz</string>
 
     <!-- Meal Calculator -->
     <string name="carbonhydrade">Karbonhidrat</string>

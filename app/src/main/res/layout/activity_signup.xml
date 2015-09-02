@@ -12,45 +12,72 @@
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        app:hint="@string/username_edittext"
         android:inputType="text"
-        app:text="@string/username_edittext"
         app:label="@string/username"
         android:id="@+id/signup_username"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        app:text="@string/password_edittext"
+        app:hint="@string/password_edittext"
         app:label="@string/password"
         android:id="@+id/signup_password"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        app:text="@string/password_again_edittext"
+        app:hint="@string/password_again_edittext"
         app:label="@string/password_again"
         android:id="@+id/signup_password_again"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        app:text="@string/email_edittext"
+        app:hint="@string/email_edittext"
         app:label="@string/email"
         android:id="@+id/signup_email"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"
-        app:text="@string/phonenumber_edittext"
+        app:hint="@string/phonenumber_edittext"
         app:label="@string/phonenumber"
         android:id="@+id/signup_phone_number"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.DateTimePicker
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        app:label="@string/birthdate"
+        android:id="@+id/signup_birth_date"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        app:hint="@string/turkishid_edittext"
+        app:label="@string/turkishid"
+        android:id="@+id/signup_turkish_id"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        app:hint="@string/name_edittext"
+        app:label="@string/name"
+        android:id="@+id/signup_name"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        app:hint="@string/surname_edittext"
+        app:label="@string/surname"
+        android:id="@+id/signup_surname"/>
     <Button
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:text="@string/lifestyle"
         android:id="@+id/buttonSave"
         android:layout_gravity="right"
-        android:onClick="signUp"
+        android:onClick="setLifeStyle"
         android:background="@drawable/buttonstyle"
         style="@style/viadiabetButton"/>
 </LinearLayout>

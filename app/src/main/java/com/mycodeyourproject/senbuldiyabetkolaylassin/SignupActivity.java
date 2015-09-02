@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import java.net.URLEncoder;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
@@ -35,19 +36,38 @@ public class SignupActivity extends BaseViaDiabetActivity {
         this.SetProgressBarTextValueAndShow("Kullanıcı Bilgileri (1/2)", 50);
     }
 
-    public void signUp(View v)
+    public void setLifeStyle(View v)
     {
         Button btnSave=(Button)findViewById(R.id.buttonSave);
         EditText txtUserName=(EditText)findViewById(R.id.signup_username).findViewById(R.id.textbox_editText);
         EditText txtPassword=(EditText)findViewById(R.id.signup_password).findViewById(R.id.textbox_editText);
         EditText txtPasswordAgain=(EditText)findViewById(R.id.signup_password_again).findViewById(R.id.textbox_editText);
+        EditText txtBirthOfDate=(EditText)findViewById(R.id.signup_birth_date).findViewById(R.id.datetimepicker_editText);
+        EditText txtTurkishId=(EditText)findViewById(R.id.signup_turkish_id).findViewById(R.id.textbox_editText);
+        EditText txtName=(EditText)findViewById(R.id.signup_name).findViewById(R.id.textbox_editText);
+        EditText txtSurname=(EditText)findViewById(R.id.signup_surname).findViewById(R.id.textbox_editText);
         EditText txtEmail=(EditText)findViewById(R.id.signup_email).findViewById(R.id.textbox_editText);
         EditText txtPhoneNumber=(EditText)findViewById(R.id.signup_phone_number).findViewById(R.id.textbox_editText);
 
-        Date birthDate=new Date(2000,12,23);
+        if(txtPassword.getText()!=txtPasswordAgain.getText())
+        {
+            Toast.makeText(this,"Şifre bilgilerinizi kontrol ediniz!",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Date birthDate=null;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try
+        {
+            birthDate = format.parse(txtBirthOfDate.getText().toString());
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
 
         DataTransferObjects.User newUser=new DataTransferObjects.User(txtUserName.getText().toString(),txtPassword.getText().toString(),
-                birthDate,1,"11971280728","Agah Burak","DEMİRKAN");
+                birthDate,1,txtTurkishId.getText().toString(),txtName.getText().toString(),txtSurname.getText().toString());
 
         Map<String,String> userObject=newUser.getUserObject();
         boolean result = DatabaseQuery.Insert("USER", userObject);

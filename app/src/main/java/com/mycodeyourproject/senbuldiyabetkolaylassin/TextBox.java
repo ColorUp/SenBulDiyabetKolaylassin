@@ -24,6 +24,7 @@ public class TextBox extends LinearLayout
         TypedArray typedArray=context.obtainStyledAttributes(attrs,R.styleable.TextBox,0,0);
         String label = typedArray.getString(R.styleable.TextBox_label);
         String text=typedArray.getString(R.styleable.TextBox_text);
+        String hint=typedArray.getString(R.styleable.TextBox_hint);
         typedArray.recycle();
 
         setOrientation(LinearLayout.HORIZONTAL);
@@ -36,6 +37,7 @@ public class TextBox extends LinearLayout
         EditText editText=(EditText)findViewById(R.id.textbox_editText);
         textView.setText(label);
         editText.setText(text);
+        editText.setHint(hint);
     }
 
     public TextBox(Context context)
