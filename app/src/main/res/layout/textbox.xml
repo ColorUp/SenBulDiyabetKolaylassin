@@ -3,8 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
     <TextView
         android:id="@+id/textbox_textView"
         android:layout_width="fill_parent"

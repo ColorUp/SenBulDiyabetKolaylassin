@@ -31,27 +31,14 @@ public class RadioButtonTwoItems extends LinearLayout
         inflater.inflate(R.layout.radio_button_two_items,this,true);
 
         TextView textView = (TextView)findViewById(R.id.radiobutton_textview);
-        final RadioButton radioButton1=(RadioButton)findViewById(R.id.radio_button_1);
-        final RadioButton radioButton2=(RadioButton)findViewById(R.id.radio_button_2);
+        final RadioButton radioButton1=(RadioButton)findViewById(R.id.radiobutton_1);
+        final RadioButton radioButton2=(RadioButton)findViewById(R.id.radiobutton_2);
         textView.setText(label);
         String delims = "[,]+";
         final String[] tokens = radioButtonTexts.split(delims);
 
         radioButton1.setText(tokens[0]);
-        radioButton1.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                radioButton1.setText(getResources().getString(R.string.edittext_doctor_mail));
-            }
-        });
-
         radioButton2.setText(tokens[1]);
-        radioButton2.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                radioButton2.setText(getResources().getString(R.string.edittext_find_your_friend));
-            }
-        });
     }
 
     public RadioButtonTwoItems(Context context)

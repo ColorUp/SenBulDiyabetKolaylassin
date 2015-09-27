@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,10 +48,14 @@ public class SignupActivity extends BaseViaDiabetActivity {
         EditText txtTurkishId=(EditText)findViewById(R.id.signup_turkish_id).findViewById(R.id.textbox_editText);
         EditText txtName=(EditText)findViewById(R.id.signup_name).findViewById(R.id.textbox_editText);
         EditText txtSurname=(EditText)findViewById(R.id.signup_surname).findViewById(R.id.textbox_editText);
+        RadioGroup gender=(RadioGroup)findViewById(R.id.signup_gender).findViewById(R.id.radiobutton_radiogroup);
+        RadioButton selectedGender = (RadioButton)findViewById(gender.getCheckedRadioButtonId());
+        Integer choosenGender= Enums.SetGender(selectedGender.getText().toString()).getStatusCode();
+
         EditText txtEmail=(EditText)findViewById(R.id.signup_email).findViewById(R.id.textbox_editText);
         EditText txtPhoneNumber=(EditText)findViewById(R.id.signup_phone_number).findViewById(R.id.textbox_editText);
 
-        if(txtPassword.getText()!=txtPasswordAgain.getText())
+        if(txtPassword.getText().toString()!=txtPasswordAgain.getText().toString())
         {
             Toast.makeText(this,"Şifre bilgilerinizi kontrol ediniz!",Toast.LENGTH_LONG).show();
             return;
@@ -67,7 +73,7 @@ public class SignupActivity extends BaseViaDiabetActivity {
         }
 
         DataTransferObjects.User newUser=new DataTransferObjects.User(txtUserName.getText().toString(),txtPassword.getText().toString(),
-                birthDate,1,txtTurkishId.getText().toString(),txtName.getText().toString(),txtSurname.getText().toString());
+                birthDate,choosenGender,txtTurkishId.getText().toString(),txtName.getText().toString(),txtSurname.getText().toString());
 
         Map<String,String> userObject=newUser.getUserObject();
         boolean result = DatabaseQuery.Insert("USER", userObject);

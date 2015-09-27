@@ -97,9 +97,13 @@
     <!-- Questions -->
     <string name="personal_information">Kişisel Bilgiler</string>
     <string name="age">Yaş</string>
+    <string name="age_hint">Lütfen yaşınızı giriniz</string>
     <string name="height">Boy</string>
+    <string name="height_hint">Lütfen boyunuzu giriniz</string>
     <string name="gender">Cinsiyet</string>
+    <string name="gender_text">Erkek,Kadın</string>
     <string name="weight">Kilo</string>
+    <string name="weight_hint">Lütfen kilonuzu giriniz</string>
     <string name="male">Erkek</string>
     <string name="female">Erkek</string>
     <string name="meslek">Meslek</string>

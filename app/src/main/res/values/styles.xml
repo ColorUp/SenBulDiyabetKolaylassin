@@ -16,6 +16,21 @@
         <item name="android:icon">@mipmap/ic_actionbar</item>
     </style>
 
+    <style name="textViewDecorative">
+        <item name="android:drawableLeft">@drawable/decorativeline</item>
+        <item name="android:drawableRight">@drawable/decorativeline</item>
+        <item name="android:drawableBottom">@drawable/decorativelinebottom</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
     <style name="overflowButton">
     <item name="android:src">@android:drawable/ic_menu_more</item>
     <item name="android:showAsAction">always</item>
