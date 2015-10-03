@@ -60,14 +60,6 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
-
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
@@ -83,70 +75,37 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         startActivity(intent);
     }
 
-    public void kayitOl(View v) throws URISyntaxException, IOException
+    public void KayitOl(View v) throws URISyntaxException, IOException
     {
         finish();
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
 
-    /**
-     * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
-     */
-    public void attemptLogin() {
-        if (mAuthTask != null) {
+    public void GirisYap(View v) throws URISyntaxException, IOException
+    {
+        EditText txtUserName = (EditText) findViewById(R.id.login_username).findViewById(R.id.textbox_editText);
+        EditText txtPassword = (EditText) findViewById(R.id.login_password).findViewById(R.id.textbox_editText);
+
+        ArrayList<View> views = new ArrayList<View>();
+        views.add(txtUserName);
+        views.add(txtPassword);
+
+        if (Controls.ControlViewValues(views, getResources())) {
+            Toast.makeText(this, "Kullanıcı adı ve şifrenizi giriniz!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        // Reset errors.
-        mPasswordView.setError(null);
-
-        // Store values at the time of the login attempt.
-        String password = mPasswordView.getText().toString();
-
-        boolean cancel = false;
-        View focusView = null;
-
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
+        if(DataTransferObjects.User.UserIsValid(null,txtUserName.getText().toString(),txtPassword.getText().toString(),0)) {
+            finish();
+            Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
+            startActivity(intent);
         }
-
-//        // Check for a valid email address.
-//        if (TextUtils.isEmpty(email)) {
-//            mEmailView.setError(getString(R.string.error_field_required));
-//            focusView = mEmailView;
-//            cancel = true;
-//        } else if (!isEmailValid(email)) {
-//            mEmailView.setError(getString(R.string.error_invalid_email));
-//            focusView = mEmailView;
-//            cancel = true;
-//        }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask.execute((Void) null);
+        else
+        {
+            Toast.makeText(this, "Kullanıcı adı ve şifrenizi kontrol ediniz!", Toast.LENGTH_LONG).show();
+            return;
         }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
     }
 
     /**

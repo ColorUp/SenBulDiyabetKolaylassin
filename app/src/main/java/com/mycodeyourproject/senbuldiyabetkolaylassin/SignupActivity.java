@@ -72,8 +72,17 @@ public class SignupActivity extends BaseViaDiabetActivity {
             Toast.makeText(this, "Girişlerinizi kontrol ediniz!", Toast.LENGTH_LONG).show();
             return;
         }
-
-        if (!txtPassword.getText().toString().trim().matches(txtPasswordAgain.getText().toString().trim())) {
+        else if(Controls.IsPasswordValid(txtPassword.getText().toString()))
+        {
+            Toast.makeText(this, "Şifreniz en az 8 hane olmalıdır!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        else if(Controls.IsEmailValid(txtEmail.getText().toString()))
+        {
+            Toast.makeText(this, "Email adresinizi kontrol ediniz!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        else if (!txtPassword.getText().toString().trim().matches(txtPasswordAgain.getText().toString().trim())) {
             Toast.makeText(this, "Şifre bilgilerinizi kontrol ediniz!", Toast.LENGTH_LONG).show();
             return;
         }

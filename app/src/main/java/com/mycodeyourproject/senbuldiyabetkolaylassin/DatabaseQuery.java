@@ -85,9 +85,13 @@ public class DatabaseQuery
 
         if(condition!=null)
         {
-            conditions = parametersToString(condition, "{0}|{1},");
+            conditions = parametersToString(condition, "{0}:{1},");
             url = Extensions.Format("{0}&conditions={1}", url, conditions);
             String dataList = phpData.StartAsyncTask(url);
+
+            if(dataList.contentEquals(""))
+                return null;
+
             String[] rows=dataList.split("\n");
 
             List<Map<Object,Object>> result = new ArrayList<Map<Object, Object>>();
@@ -106,7 +110,6 @@ public class DatabaseQuery
 
             return result;
         }
-
         return null;
     }
 
@@ -136,12 +139,12 @@ public class DatabaseQuery
 
         if(columnValue!=null)
         {
-            values = parametersToString(columnValue, "{0}|{1},");
+            values = parametersToString(columnValue, "{0}:{1},");
         }
 
         if(condition!=null)
         {
-            conditions = parametersToString(condition, "{0}|{1},");
+            conditions = parametersToString(condition, "{0}:{1},");
         }
 
         switch (operation)

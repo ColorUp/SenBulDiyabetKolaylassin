@@ -30,8 +30,7 @@ public class Controls {
                 if (text.matches("")) {
                     editText.setBackgroundColor(resources.getColor(R.color.red));
                     return true;
-                }
-                else {
+                } else {
                     editText.setBackground(resources.getDrawable(R.drawable.edittextstyle));
                 }
             } else if (view instanceof RadioGroup) {
@@ -39,13 +38,26 @@ public class Controls {
                 if (radioGroup.getCheckedRadioButtonId() == -1) {
                     radioGroup.setBackgroundColor(resources.getColor(R.color.red));
                     return true;
-                }
-                else {
+                } else {
                     radioGroup.setBackgroundColor(resources.getColor(R.color.lightBlue));
                 }
             }
         }
 
         return false;
+    }
+
+    public static boolean IsEmailValid(String email) {
+        if (email.contains("@"))
+            return false;
+        else
+            return true;
+    }
+
+    public static boolean IsPasswordValid(String password) {
+        if (password.length() > 7)
+            return false;
+        else
+            return true;
     }
 }

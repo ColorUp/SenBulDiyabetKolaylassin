@@ -29,7 +29,7 @@
         <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            app:text="@string/username_edittext"
+            app:hint="@string/username_edittext"
             android:inputType="text"
             app:label="@string/username"
             android:id="@+id/login_username"/>
@@ -37,7 +37,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            app:text="@string/password_edittext"
+            app:hint="@string/password_edittext"
             app:label="@string/password"
             android:id="@+id/login_password"/>
         <LinearLayout
@@ -48,18 +48,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kayıt Ol"
-                android:id="@+id/button"
+                android:id="@+id/login_signup_button"
                 android:background="@drawable/buttonstyle"
-                android:onClick="kayitOl"
+                android:onClick="KayitOl"
                 style="@style/viadiabetButton"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".4"/>
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/login_signin_button"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:text="@string/action_sign_in"
                 android:background="@drawable/buttonstyle"
+                android:onClick="GirisYap"
                 style="@style/viadiabetButton"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".6"/>

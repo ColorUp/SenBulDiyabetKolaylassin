@@ -26,6 +26,7 @@ public class AsyncPhpConnection
     public String StartAsyncTask(String phpUrl)
     {
         MyTask task=new MyTask();
+
         task.SetTextUrl(phpUrl);
 
         try
