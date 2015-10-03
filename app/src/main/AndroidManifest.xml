@@ -20,6 +20,9 @@
         android:icon="@mipmap/ic_actionbar"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
         <activity
             android:name=".ViaDiabet"
             android:icon="@mipmap/ic_actionbar"
@@ -29,6 +32,12 @@
             android:name=".Settings"
             android:icon="@mipmap/ic_actionbar"
             android:label="@string/activity_settings"></activity>
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
 
         <meta-data
             android:name="com.google.android.gms.version"

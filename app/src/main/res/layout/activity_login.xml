@@ -64,15 +64,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".6"/>
         </LinearLayout>
-        <ImageButton
-            android:layout_width="wrap_content"
+        <fragment
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:src="@drawable/fbbuton"
-            android:layout_gravity="center"
-            android:background="@drawable/buttonstyle"
-            android:onClick="fbLogin"
-            style="@style/viadiabetButton"/>
+            android:name="com.mycodeyourproject.senbuldiyabetkolaylassin.FaceBookFragment"
+            android:id="@+id/fragment"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.2" />
     </LinearLayout>
 </LinearLayout>
 
