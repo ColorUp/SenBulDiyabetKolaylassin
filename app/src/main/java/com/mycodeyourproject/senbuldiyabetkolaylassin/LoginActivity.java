@@ -96,7 +96,7 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
             return;
         }
 
-        if(DataTransferObjects.User.UserIsValid(null,txtUserName.getText().toString(),txtPassword.getText().toString(),0)) {
+        if(DataTransferObjects.User.UserIsValid(txtUserName.getText().toString(),txtPassword.getText().toString())) {
             finish();
             Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
             startActivity(intent);
