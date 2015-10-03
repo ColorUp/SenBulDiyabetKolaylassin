@@ -50,10 +50,20 @@ public class FaceBookFragment extends Fragment {
                         @Override
                         public void run() {
 
-                            String email = null;
+                            String email = null, gender= null, birthday= null, first_name= null, last_name= null;
                             try {
-                                email = jo.getString("email");
-                                Log.e("LOGIN EMAIL", "" + email);
+                                if(jo.has("email"))
+                                    email = jo.getString("email");
+                                if(jo.has("gender"))
+                                    gender = jo.getString("gender");
+                                if(jo.has("birthday"))
+                                    birthday = jo.getString("birthday");
+                                if(jo.has("first_name"))
+                                    first_name = jo.getString("first_name");
+                                if(jo.has("last_name"))
+                                    last_name = jo.getString("last_name");
+
+                                Log.e("LOGIN EMAIL", "" + email+" "+gender+" "+birthday+" "+first_name+" "+last_name);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -65,7 +75,7 @@ public class FaceBookFragment extends Fragment {
             });
 
             Bundle bundle = new Bundle();
-            bundle.putString("fields", "email");
+            bundle.putString("fields", "email, gender, birthday, first_name, last_name");
             graphRequest.setParameters(bundle);
             graphRequest.executeAsync();
         }
