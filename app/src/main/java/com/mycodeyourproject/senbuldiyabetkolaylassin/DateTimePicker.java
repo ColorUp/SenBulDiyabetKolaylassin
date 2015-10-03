@@ -58,7 +58,7 @@ public class DateTimePicker extends LinearLayout
         day = cal.get(Calendar.DAY_OF_MONTH);
         month = cal.get(Calendar.MONTH);
         year = cal.get(Calendar.YEAR);
-        editTextDate.setText(Extensions.Format("{0}/{1}/{2}",String.valueOf(day),String.valueOf(month),String.valueOf(year)));
+        editTextDate.setText(Extensions.Format("{0}-{1}-{2}",String.valueOf(day),String.valueOf(month),String.valueOf(year)));
         editTextDate.setOnClickListener(new OnClickListener()
         {
             @Override

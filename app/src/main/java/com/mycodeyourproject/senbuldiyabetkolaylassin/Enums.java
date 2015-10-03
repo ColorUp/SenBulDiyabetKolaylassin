@@ -18,26 +18,23 @@ public class Enums {
         }
     }
 
-    public static Gender SetGender(String string)
+    public static int GetGenderNumber(String value)
     {
-        return  Gender.valueOf(string);
+        if (value.matches("Erkek"))
+            return  1;
+        else if (value.matches("Kadın"))
+            return 2;
+        else
+            return 0;
     }
 
-    public enum Gender {
-        NONE(""), MALE("Erkek"), FEMALE("Kadın");
-        private int value;
-
-        private Gender(String value) {
-            if (value == "Erkek")
-                this.value = 1;
-            else if (value == "Kadın")
-                this.value = 2;
-            else
-                this.value = 0;
-        }
-
-        public Integer getStatusCode() {
-            return value;
-        }
+    public static String GetGenderString(int value)
+    {
+        if (value == 1)
+            return  "Erkek";
+        else if (value == 2)
+            return "Kadın";
+        else
+            return null;
     }
 }

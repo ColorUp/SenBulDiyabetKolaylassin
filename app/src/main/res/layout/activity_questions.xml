@@ -64,56 +64,31 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_uyuma_saati"
                 app:label="@string/uyuma_saati"/>
-    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:text="Var,Yok"
-        app:label="@string/spor_aktivitesi"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sport_cyclic"
-            style="@style/textViewStyle"/>
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/array_name"
-            android:spinnerMode="dialog"
-            android:id="@+id/sport_cyclic"
-            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sport_time"
-            style="@style/textViewStyle"/>
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/array_name"
-            android:spinnerMode="dialog"
-            android:id="@+id/sport_time"
-            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
-    </LinearLayout>
-    <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:text="Evet,Hayır"
-        app:label="@string/seyahat"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/meals"
-        android:id="@+id/textViewMeals"/>
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:text="Var,Yok"
+                app:label="@string/spor_aktivitesi"/>
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_spor_sikligi"
+                app:label="@string/sport_cyclic"/>
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_spor_zamani"
+                app:label="@string/sport_time"/>
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:text="Evet,Hayır"
+                app:label="@string/seyahat"/>
+
+            <TextView
+                android:text="@string/meals"
+                android:id="@+id/textViewMeals"
+                style="@style/textViewDecorative"/>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
