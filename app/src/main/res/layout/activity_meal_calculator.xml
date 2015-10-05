@@ -6,60 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MealCalculator">
-<com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    app:label="@string/carbonhydrade"
-    app:text="@string/zero"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:label="@string/carbonhydrade"
+        app:text="@string/zero"
+        android:id="@+id/textbox_carbonhydrade"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:label="@string/lipid"
-        app:text="@string/zero"/>
+        app:text="@string/zero"
+        android:id="@+id/textbox_fat"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:label="@string/protein"
-        app:text="@string/zero"/>
+        app:text="@string/zero"
+        android:id="@+id/textbox_protein"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:label="@string/calori"
-        app:text="@string/zero"/>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_direction"
-            android:id="@+id/image_person"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_search"
-            android:layout_toRightOf="@+id/image_person"
-            android:id="@+id/image_favorites"/>
+        app:text="@string/zero"
+        android:id="@+id/textbox_calori"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/textViewStyle"
+            android:paddingTop="10dp"
+            style="@style/textViewDecorative"
             android:text="@string/meal_list"
             android:layout_toRightOf="@+id/image_favorites"
             android:id="@+id/textview_meal_list"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_cast_dark"
-            android:layout_toRightOf="@+id/textview_meal_list"/>
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <ExpandableListView
             android:id="@+id/listView"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
         </ExpandableListView>
-    </LinearLayout>
 </LinearLayout>

@@ -69,7 +69,7 @@
     <string name="text_glicose">Glicose</string>
     <string name="text_carbonhydrade">Carbonhydrade</string>
     <string name="text_insuline">Insuline</string>
-    <string name="zero">000</string>
+    <string name="zero">0</string>
     <string name="text_category">Category</string>
 
     <!-- Settings -->

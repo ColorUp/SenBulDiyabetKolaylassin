@@ -29,10 +29,16 @@ public class CustomSpinner extends LinearLayout {
     CustomAdapter adapter;
     CustomSpinner spinner = null;
     Spinner SpinnerSample=null;
+    String text="";
 
     public CustomSpinner(Context context, AttributeSet attrs)
     {
         super(context, attrs);
+
+        TypedArray typedArray=context.obtainStyledAttributes(attrs, R.styleable.TextBox, 0, 0);
+        String label = typedArray.getString(R.styleable.TextBox_label);
+        text=typedArray.getString(R.styleable.TextBox_text);
+        typedArray.recycle();
 
         setOrientation(LinearLayout.HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
@@ -40,14 +46,14 @@ public class CustomSpinner extends LinearLayout {
         LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.activity_custom_spinner, this, true);
 
+        TextView textView = (TextView)findViewById(R.id.custom_spinner_textView);
         SpinnerSample = (Spinner) findViewById(R.id.spinner);
+
+        textView.setText(label);
+        SpinnerSample.setPrompt(text);
 
         // Set data in arraylist
         setListData();
-
-        // Resources passed to adapter to get image
-        Resources res = getResources();
-        SpinnerSample.setPrompt(res.getString(R.string.defaultText)); //Default text atar
 
         // Create custom adapter object ( see below CustomAdapter.java )
         adapter = new CustomAdapter(getContext(), R.layout.spinner_rows, CustomListViewValuesArr, inflater);
@@ -64,7 +70,7 @@ public class CustomSpinner extends LinearLayout {
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                SpinnerSample.setPrompt(getResources().getString(R.string.defaultText)); //Default text atar
+                SpinnerSample.setPrompt(text); //Default text atar
             }
 
         });

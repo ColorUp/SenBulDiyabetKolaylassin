@@ -43,7 +43,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_meslek"
-                app:label="@string/meslek"/>
+                app:label="@string/meslek"
+                app:text="Medeni durum seçiniz"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -89,23 +90,11 @@
                 android:text="@string/meals"
                 android:id="@+id/textViewMeals"
                 style="@style/textViewDecorative"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/breakfast_time"
-            style="@style/textViewStyle"/>
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/array_name"
-            android:spinnerMode="dialog"
-            android:id="@+id/breakfast_time"
-            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
-    </LinearLayout>
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_kahvalti_zamani"
+                app:label="@string/breakfast_time"/>
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -116,24 +105,12 @@
         android:layout_height="wrap_content"
         app:text="Evet,Hayır"
         app:label="@string/snack_after_breakfast"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lunch_time"
-            style="@style/textViewStyle"/>
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/array_name"
-            android:spinnerMode="dialog"
-            android:id="@+id/lunch_time"
-            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
-    </LinearLayout>
-    <Button
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+            android:id="@+id/spinner_ogle_yemegi_zamani"
+            app:label="@string/lunch_time"/>
+            <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_choose_lunch"
@@ -143,23 +120,11 @@
         android:layout_height="wrap_content"
         app:text="Evet,Hayır"
         app:label="@string/snack_after_lunch"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dinner_time"
-            style="@style/textViewStyle"/>
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/array_name"
-            android:spinnerMode="dialog"
-            android:id="@+id/dinner_time"
-            android:dropDownWidth="fill_parent" android:layout_weight=".6"/>
-    </LinearLayout>
+            <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_aksam_yemegi_zamani"
+                app:label="@string/dinner_time"/>
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

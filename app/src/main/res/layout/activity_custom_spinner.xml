@@ -3,12 +3,21 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
         <TextView
-            android:paddingTop="20dip"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="?android:attr/label"
+            android:id="@+id/custom_spinner_textView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingBottom ="10dp"
+            android:textColor="@color/darkgrey"
+            android:textSize="16dp"
+            android:singleLine="true"
+            android:textStyle="bold"/>
         <Spinner
             android:id="@+id/spinner"
             android:drawSelectorOnTop="true"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:prompt="?android:attr/text"/>
 </LinearLayout>
