@@ -22,9 +22,17 @@ public class Alarm extends BroadcastReceiver{
     private static int index = 0;
     @Override
     public void onReceive(Context context, Intent ıntent) {
-        mNotificationManager = (NotificationManager) context.getSystemService(Context
-                .NOTIFICATION_SERVICE);
-        messages = new String[] {"Şekerini ölç", "Su iç", "Yemek ye", "Uyan", "Yat"};
+        mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        messages = new String[]
+                {
+                        "Bugün hiç şekerini ölçtün mü? Bu aralar sık olarak takip etmende yarar var",
+                        "Bol bol suyundan içmeyi unutma. Biliyorsun günde en az 2 lt su tüketmelisin",
+                        "Hadi yemeklerinden tuzu çıkar! günde bir çay kaşığı kadar tuz yeter, unutma",
+                        "Çavdar ekmeği veya tam buğday ekmeğinin çok sağlıklı olduğunu unutma...",
+                        "Iyyykkk... Yağlı yemek yemeyelim sakın...",
+                        "Havucu yemeklerimizde dikkatli ve ölçülü tüketmemiz gerektiğini biliyor musunuz? -Agah Burak DEMİRKAN",
+                };
+
         Log.e("index", ""+index);
         createNotification(context, messages[index]);
         if(++index == messages.length)
