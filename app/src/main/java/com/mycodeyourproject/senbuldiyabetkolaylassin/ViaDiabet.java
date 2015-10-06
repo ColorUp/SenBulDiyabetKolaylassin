@@ -81,6 +81,26 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         setButtonListener();
     }
 
+    // Call Back method  to get the Message form other Activity    override the method
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        // check if the request code is same as what is passed  here it is 2
+        if(requestCode==0)
+        {
+            // fetch the message String
+            String message=            data.getStringExtra("Kalori") + "kCal, "+
+            data.getStringExtra("Protein") + " kJ, " +
+            data.getStringExtra("Yağ") + " kFat, " +
+            data.getStringExtra("Karbonhidrat") + "kCal";
+            // Set the message string in textView
+            Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void setButtonListener()
     {
         Button buttonInputData=(Button)findViewById(R.id.button_save_data);
@@ -92,29 +112,29 @@ public class ViaDiabet extends BaseViaDiabetActivity {
             }
         });
 
-        Button buttonCalculator = (Button)findViewById(R.id.button_calculator);
+        Button buttonCalculator = (Button) findViewById(R.id.button_calculator);
         buttonCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ViaDiabet.this,MealCalculator.class);
-                startActivity(intent);
+                startActivityForResult(intent, 0);
             }
         });
 
-        Button buttonStats = (Button)findViewById(R.id.button_graphs);
+        Button buttonStats = (Button) findViewById(R.id.button_graphs);
         buttonStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ViaDiabet.this,Stats.class);
+                Intent intent = new Intent(ViaDiabet.this, Stats.class);
                 startActivity(intent);
             }
         });
 
-        Button buttonLines=(Button)findViewById(R.id.button_lines);
+        Button buttonLines = (Button) findViewById(R.id.button_lines);
         buttonLines.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ViaDiabet.this,Stats.class);
+                Intent intent = new Intent(ViaDiabet.this, Stats.class);
                 startActivity(intent);
             }
         });
@@ -123,7 +143,7 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         buttonDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ViaDiabet.this,DataBank.class);
+                Intent intent = new Intent(ViaDiabet.this, DataBank.class);
                 startActivity(intent);
             }
         });

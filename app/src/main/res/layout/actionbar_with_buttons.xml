@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:background="@color/actionBar"
+    android:orientation="horizontal">
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="55dp"
+        android:id="@+id/actionbar_back_button"
+        style="@style/viadiabetButton"
+        android:background="@drawable/buttonstyle"
+        android:text="GERİ"
+        android:textSize="20dp"
+        android:layout_gravity="center_vertical"
+        android:drawableLeft="@mipmap/ic_back"
+        android:drawablePadding="7dp"
+        android:layout_weight=".1"/>
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:id="@+id/actionbar_save_button"
+        style="@style/viadiabetButton"
+        android:background="@drawable/buttonstyle"
+        android:text="KAYDET"
+        android:textSize="20dp"
+        android:layout_gravity="center_vertical"
+        android:drawableLeft="@mipmap/ic_save"
+        android:drawablePadding="7dp"
+        android:layout_weight=".1"/>
+</LinearLayout>

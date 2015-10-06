@@ -1,5 +1,6 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -11,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,8 +31,12 @@ import java.util.List;
 public class MealCalculator extends BaseViaDiabetActivity {
     ArrayList<Parent> list;
     ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String[]>> listDataChild;
+    EditText textBoxCarbonhydrade;
+    EditText textBoxProtein;
+    EditText textBoxCalori;
+    EditText textBoxFat;
+    Button actionBarSave;
+    Button actionBarBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +44,47 @@ public class MealCalculator extends BaseViaDiabetActivity {
         setContentView(R.layout.activity_meal_calculator);
         expListView = (ExpandableListView) findViewById(R.id.listView);
 
+        LayoutInflater mInflater = LayoutInflater.from(this);
+        View mCustomView = mInflater.inflate(R.layout.actionbar_with_buttons, null);
+
+        actionBarBack=(Button)mCustomView.findViewById(R.id.actionbar_back_button);
+        actionBarBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent data=new Intent(Intent.ACTION_VIEW);
+                data.putExtra("Kalori","0");
+                data.putExtra("Protein","0");
+                data.putExtra("Yağ","0");
+                data.putExtra("Karbonhidrat", "0");
+                setResult(0, data);
+                finish();
+            }
+        });
+
+        actionBarSave=(Button)mCustomView.findViewById(R.id.actionbar_save_button);
+        actionBarSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent data=new Intent(Intent.ACTION_VIEW);
+                data.putExtra("Kalori",textBoxCalori.getText());
+                data.putExtra("Protein",textBoxProtein.getText());
+                data.putExtra("Yağ",textBoxFat.getText());
+                data.putExtra("Karbonhidrat",textBoxCarbonhydrade.getText());
+                setResult(0,data);
+                finish();
+            }
+        });
+
+        super.mActionBar.setCustomView(mCustomView);
+        mActionBar.setDisplayShowCustomEnabled(true);
+
         Resources res = this.getResources();
         Drawable devider = res.getDrawable(R.drawable.decorativeline);
+
+        textBoxCarbonhydrade = (EditText) findViewById(R.id.textbox_carbonhydrade).findViewById(R.id.textbox_editText);
+        textBoxProtein = (EditText) findViewById(R.id.textbox_protein).findViewById(R.id.textbox_editText);
+        textBoxCalori = (EditText) findViewById(R.id.textbox_calori).findViewById(R.id.textbox_editText);
+        textBoxFat = (EditText) findViewById(R.id.textbox_fat).findViewById(R.id.textbox_editText);
 
         // Set ExpandableListView values
         expListView.setGroupIndicator(null);
@@ -293,31 +339,24 @@ public class MealCalculator extends BaseViaDiabetActivity {
                         parentSummary.setText(parent.getSummary());
                     }
 
-                    View mealCalculator = LayoutInflater.from(getApplication()).inflate(R.layout.activity_meal_calculator, null);
-                    EditText textBoxCarbonhydrade = (EditText) mealCalculator.findViewById(R.id.textbox_carbonhydrade).findViewById(R.id.textbox_editText);
-                    EditText textBoxProtein = (EditText) mealCalculator.findViewById(R.id.textbox_protein).findViewById(R.id.textbox_editText);
-                    EditText textBoxCalori = (EditText) mealCalculator.findViewById(R.id.textbox_calori).findViewById(R.id.textbox_editText);
-                    EditText textBoxFat = (EditText) mealCalculator.findViewById(R.id.textbox_calori).findViewById(R.id.textbox_editText);
-
-                    float calori=0;
-                    float protein=0;
-                    float fat=0;
+                    float calori = 0;
+                    float protein = 0;
+                    float fat = 0;
                     for (int i = 0; i < list.size(); i++) {
                         Parent parent = list.get(i);
-                        calori=calori+parent.getTotalCal();
-                        protein=protein+parent.getTotalProtein();
-                        fat=fat+parent.getTotalFat();
+                        calori = calori + parent.getTotalCal();
+                        protein = protein + parent.getTotalProtein();
+                        fat = fat + parent.getTotalFat();
                     }
 
-                    textBoxCalori.setText(String.valueOf(calori));
-                    textBoxProtein.setText(String.valueOf(protein));
-                    textBoxFat.setText(String.valueOf(fat));
+                    textBoxCalori.setText(String.valueOf(calori) + " kCal");
+                    textBoxProtein.setText(String.valueOf(protein) + " gr");
+                    textBoxFat.setText(String.valueOf(fat) + " kJ");
                 }
             });
 
             return convertView;
         }
-
 
         @Override
         public Object getChild(int groupPosition, int childPosition) {
@@ -413,4 +452,3 @@ public class MealCalculator extends BaseViaDiabetActivity {
 
     }
 }
-
