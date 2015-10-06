@@ -4,8 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -42,6 +45,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -62,6 +66,10 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        Intent mIntent = new Intent(this, Alarm.class);
+        final PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, mIntent, 0);
+        final AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 15000, pendingIntent);
     }
 
     private void populateAutoComplete() {

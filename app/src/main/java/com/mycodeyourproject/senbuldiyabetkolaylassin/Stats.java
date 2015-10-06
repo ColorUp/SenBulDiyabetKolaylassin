@@ -12,6 +12,9 @@ import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Stats extends AppCompatActivity {
 
     @Override
@@ -19,15 +22,18 @@ public class Stats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
         BarChart mBarChart = (BarChart) findViewById(R.id.barchart);
+        //mBarChart.setFixedBarWidth(true);
 
-        mBarChart.addBar(new BarModel(2.3f, 0xFF123456));
-        mBarChart.addBar(new BarModel(2.f,  0xFF343456));
-        mBarChart.addBar(new BarModel(3.3f, 0xFF563456));
-        mBarChart.addBar(new BarModel(1.1f, 0xFF873F56));
-        mBarChart.addBar(new BarModel(2.7f, 0xFF56B7F1));
-        mBarChart.addBar(new BarModel(2.f,  0xFF343456));
-        mBarChart.addBar(new BarModel(0.4f, 0xFF1FF4AC));
-        mBarChart.addBar(new BarModel(4.f, 0xFF1BA4E6));
+        ArrayList<BarValue> barValues = new ArrayList<>();
+        float prev = 5f;
+        Random random = new Random();
+        for(int i=0; i<10; i++)
+        {
+            float newVal = prev + random.nextFloat();
+            prev = newVal;
+            barValues.add(new BarValue(newVal,""+i+".10", 0xFF123456));
+            addNewBar(barValues.get(i), mBarChart);
+        }
 
         mBarChart.startAnimation();
 
@@ -46,11 +52,11 @@ public class Stats extends AppCompatActivity {
         series.setColor(0xFF56B7F1);
 
         series.addPoint(new ValueLinePoint("Jan", 2.4f));
-        series.addPoint(new ValueLinePoint("Feb", 3.4f));
+        series.addPoint(new ValueLinePoint("Feb", 10f));
         series.addPoint(new ValueLinePoint("Mar", .4f));
         series.addPoint(new ValueLinePoint("Apr", 1.2f));
         series.addPoint(new ValueLinePoint("Mai", 2.6f));
-        series.addPoint(new ValueLinePoint("Jun", 1.0f));
+        series.addPoint(new ValueLinePoint("Jun", 4.0f));
         series.addPoint(new ValueLinePoint("Jul", 3.5f));
         series.addPoint(new ValueLinePoint("Aug", 2.4f));
         series.addPoint(new ValueLinePoint("Sep", 2.4f));
@@ -63,4 +69,42 @@ public class Stats extends AppCompatActivity {
 
 
     }
+
+    private void addNewBar(BarValue bv, BarChart bc)
+    {
+        BarModel bm = new BarModel(bv.value, bv.color);
+        bm.setLegendLabel(bv.label);
+        bc.addBar(bm);
+    }
+
+    private class BarValue{
+        public float value;
+        public String label;
+        public int color;
+
+        public BarValue(float value, String label, int color) {
+            this.value = value;
+            this.label = label;
+            this.color = color;
+        }
+    }
+
+    private void addNewSlice(PieSlice pieSlice, PieChart pieChart)
+    {
+        PieModel pieModel = new PieModel(pieSlice.label, pieSlice.value, pieSlice.color);
+        pieChart.addPieSlice(pieModel);
+    }
+
+    private class PieSlice{
+        public String label;
+        public float value;
+        public int color;
+
+        public PieSlice(String label, float value, int color) {
+            this.label = label;
+            this.value = value;
+            this.color = color;
+        }
+    }
+
 }

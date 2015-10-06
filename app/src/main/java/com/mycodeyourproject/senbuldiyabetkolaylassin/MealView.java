@@ -17,15 +17,21 @@ import java.util.List;
  */
 public class MealView extends LinearLayout
 {
+    String yemek1;
+    String yemek2;
+    String yemek3;
+    String yemek4;
+    int yemeksayisi;
+    TextView yemekler[] = new TextView[4];
     public MealView(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray=context.obtainStyledAttributes(attrs,R.styleable.TextBox,0,0);
-        int yemeksayisi = typedArray.getInt(R.styleable.TextBox_yemeksayisi, 4);
+        yemeksayisi = typedArray.getInt(R.styleable.TextBox_yemeksayisi, 4);
         String label = typedArray.getString(R.styleable.TextBox_label);
-        String yemek1 = typedArray.getString(R.styleable.TextBox_yemek1);
-        String yemek2 = typedArray.getString(R.styleable.TextBox_yemek2);
-        String yemek3 = typedArray.getString(R.styleable.TextBox_yemek3);
-        String yemek4 = typedArray.getString(R.styleable.TextBox_yemek4);
+        yemek1 = typedArray.getString(R.styleable.TextBox_yemek1);
+        yemek2 = typedArray.getString(R.styleable.TextBox_yemek2);
+        yemek3 = typedArray.getString(R.styleable.TextBox_yemek3);
+        yemek4 = typedArray.getString(R.styleable.TextBox_yemek4);
         String title = typedArray.getString(R.styleable.TextBox_meal_title);
         typedArray.recycle();
 
@@ -36,7 +42,7 @@ public class MealView extends LinearLayout
         inflater.inflate(R.layout.mealview,this,true);
 
         TextView textView = (TextView)findViewById(R.id.textView18);
-        TextView yemekler[] = new TextView[4];
+
         yemekler[0] = (TextView)findViewById(R.id.textView19);
         yemekler[1] = (TextView)findViewById(R.id.textView20);
         yemekler[2] = (TextView)findViewById(R.id.textView21);
@@ -54,6 +60,48 @@ public class MealView extends LinearLayout
             yemekler[i-1].setVisibility(GONE);
         }
 
+    }
+
+    public void setYemek1(String txt)
+    {
+        yemek1 = txt;
+        yemekler[0].setText(yemek1);
+        invalidate();
+    }
+
+    public void setYemek2(String txt)
+    {
+        yemek2 = txt;
+        yemekler[1].setText(yemek2);
+        invalidate();
+    }
+
+    public void setYemek3(String txt)
+    {
+        yemek3 = txt;
+        yemekler[2].setText(yemek3);
+        invalidate();
+    }
+
+    public void setYemek4(String txt)
+    {
+        yemek4 = txt;
+        yemekler[3].setText(yemek4);
+        invalidate();
+    }
+
+    public void setYemeksayisi(int ys)
+    {
+        yemeksayisi = ys;
+        for(int i=0; i<yemeksayisi; i++) {
+            yemekler[i].setVisibility(VISIBLE);
+        }
+        for(int i=4; i>yemeksayisi; i--)
+        {
+            yemekler[i-1].setVisibility(GONE);
+        }
+
+        invalidate();
     }
 
     public MealView(Context context)

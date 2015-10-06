@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_actionbar"
@@ -28,6 +29,10 @@
             android:icon="@mipmap/ic_actionbar"
             android:label="@string/activity_main"
             android:theme="@style/AppTheme"></activity>
+
+
+        <receiver android:name=".Alarm"></receiver>
+
         <activity
             android:name=".Settings"
             android:icon="@mipmap/ic_actionbar"
@@ -47,21 +52,25 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Questions"
             android:label="@string/activity_questions"></activity>
         <activity
             android:name=".DietList"
-            android:label="@string/title_activity_diet_list"></activity>
+            android:label="@string/title_activity_diet_list">
+
+            </activity>
         <activity
             android:name=".Stats"
-            android:label="@string/title_activity_stats"></activity>
+            android:label="@string/title_activity_stats">
+
+        </activity>
         <activity
             android:name=".MealCalculator"
             android:label="@string/activity_meal_calculator"></activity>
@@ -74,6 +83,7 @@
         <activity
             android:name=".SignupActivity"
             android:label="@string/title_activity_signup"></activity>
+
     </application>
 
 </manifest>

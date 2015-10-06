@@ -13,6 +13,11 @@ public class DietList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet_list);
+
+        /*MealView mv = (MealView) findViewById(R.id.view4);
+        mv.setYemek1("aaaa");
+        mv.setYemek2("bbbb");
+        mv.setYemeksayisi(2);*/
     }
 
     @Override
