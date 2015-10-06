@@ -1,14 +1,24 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.InflateException;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -42,6 +52,7 @@ public class MealCalculator extends BaseViaDiabetActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_calculator);
+
         expListView = (ExpandableListView) findViewById(R.id.listView);
 
         LayoutInflater mInflater = LayoutInflater.from(this);
@@ -65,18 +76,18 @@ public class MealCalculator extends BaseViaDiabetActivity {
         actionBarSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent data=new Intent(Intent.ACTION_VIEW);
-                data.putExtra("Kalori",textBoxCalori.getText());
-                data.putExtra("Protein",textBoxProtein.getText());
-                data.putExtra("Yağ",textBoxFat.getText());
-                data.putExtra("Karbonhidrat",textBoxCarbonhydrade.getText());
-                setResult(0,data);
+                Intent data = new Intent(Intent.ACTION_VIEW);
+                data.putExtra("Kalori", textBoxCalori.getText());
+                data.putExtra("Protein", textBoxProtein.getText());
+                data.putExtra("Yağ", textBoxFat.getText());
+                data.putExtra("Karbonhidrat", textBoxCarbonhydrade.getText());
+                setResult(0, data);
                 finish();
             }
         });
 
-        super.mActionBar.setCustomView(mCustomView);
-        mActionBar.setDisplayShowCustomEnabled(true);
+        //super.mActionBar.setCustomView(mCustomView);
+        //mActionBar.setDisplayShowCustomEnabled(true);
 
         Resources res = this.getResources();
         Drawable devider = res.getDrawable(R.drawable.decorativeline);
@@ -310,8 +321,8 @@ public class MealCalculator extends BaseViaDiabetActivity {
                             "com.mycodeyourproject.senbuldiyabetkolaylassin:drawable/meal" + parent.getId(), null, null));
 
             // Get grouprow.xml file checkbox elements
-            TableLayout tableLayout = (TableLayout) convertView.findViewById(R.id.row);
-
+            final TableLayout tableLayout = (TableLayout) convertView.findViewById(R.id.row);
+            final CheckBox checkBox=(CheckBox)convertView.findViewById(R.id.checkbox);
             // Set CheckUpdateListener for CheckBox (see below CheckUpdateListener class)
             tableLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -320,6 +331,7 @@ public class MealCalculator extends BaseViaDiabetActivity {
                     View groupRow = LayoutInflater.from(getApplication()).inflate(R.layout.group_row, null);
                     TextView parentSummary = (TextView) groupRow.findViewById(R.id.text_summary_group);
                     if (child.isChecked()) {
+                        checkBox.setChecked(false);
                         child.setChecked(false);
                         parent.setTotalCal(parent.getTotalCal() - child.getCal());
                         parent.setTotalProtein(parent.getTotalProtein() - child.getProtein());
@@ -329,6 +341,7 @@ public class MealCalculator extends BaseViaDiabetActivity {
                                 " kJ, Kalori: " + parent.getTotalCal() + " cal");
                         parentSummary.setText(parent.getSummary());
                     } else {
+                        checkBox.setChecked(true);
                         child.setChecked(true);
                         parent.setTotalCal(parent.getTotalCal() + child.getCal());
                         parent.setTotalProtein(parent.getTotalProtein() + child.getProtein());
@@ -450,5 +463,43 @@ public class MealCalculator extends BaseViaDiabetActivity {
         }
         /***********************************************************************/
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_meal_calculator, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * On selecting action bar icons
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent data=new Intent(Intent.ACTION_VIEW);
+        // Take appropriate action for each action item click
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                data.putExtra("Kalori",textBoxCalori.getText());
+                data.putExtra("Protein",textBoxProtein.getText());
+                data.putExtra("Yağ",textBoxFat.getText());
+                data.putExtra("Karbonhidrat",textBoxCarbonhydrade.getText());
+                setResult(0,data);
+                finish();
+                return true;
+
+            case R.id.action_back:
+                data.putExtra("Kalori","0");
+                data.putExtra("Protein","0");
+                data.putExtra("Yağ","0");
+                data.putExtra("Karbonhidrat","0");
+                setResult(0,data);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -69,7 +69,7 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         Intent mIntent = new Intent(this, Alarm.class);
         final PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, mIntent, 0);
         final AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 15000, pendingIntent);
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3600000, pendingIntent);
     }
 
     private void populateAutoComplete() {

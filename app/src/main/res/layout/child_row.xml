@@ -34,5 +34,9 @@
                     android:textSize="12dip" android:layout_marginLeft="30dip"/>
             </TableRow>
         </TableLayout>
+        <CheckBox android:id="@+id/checkbox" android:focusable="false"
+            android:layout_alignParentRight="true" android:freezesText="false"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="5px" />
     </TableRow>
 </TableLayout>
