@@ -34,7 +34,7 @@ public class Alarm extends BroadcastReceiver{
                 };
 
         Log.e("index", ""+index);
-        createNotification(context, messages[index]);
+        createNotification2(context, messages[index]);
         if(++index == messages.length)
             index = 0;
     }
@@ -46,6 +46,7 @@ public class Alarm extends BroadcastReceiver{
 
         notificationBuilder.setContentText(msg);
         notificationBuilder.setSmallIcon(R.mipmap.ic_siringa);
+
         mIncrementalNotificationId = new Integer(mIncrementalNotificationId + 1);
         mNotificationManager.notify(mIncrementalNotificationId, notificationBuilder.build());
         /*NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
@@ -83,5 +84,21 @@ public class Alarm extends BroadcastReceiver{
         NotificationManager nm = (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
         nm.notify(0, notification);
         // END_INCLUDE(notify)*/
+    }
+
+    private void createNotification2(Context context, String msg) {
+
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_expanded);
+        contentView.setTextViewText(R.id.notifText, msg);
+        contentView.setTextViewText(R.id.notifTitle, "ViaDiabet");
+        Notification.Builder notificationBuilder = new Notification.Builder(context)
+                .setContentTitle("ViaDiabet").setContent(contentView);
+
+        notificationBuilder.setSmallIcon(R.mipmap.sanofi);
+        Notification notification = notificationBuilder.build();
+
+        mIncrementalNotificationId = mIncrementalNotificationId + 1;
+        mNotificationManager.notify(mIncrementalNotificationId, notification);
+
     }
 }
