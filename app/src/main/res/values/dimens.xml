@@ -8,8 +8,8 @@
     <dimen name="button_main_primary_margin">10dp</dimen>
     <dimen name="button_main_secondary_margin">5dp</dimen>
 
-    <dimen name="button_main_primary_height">80dp</dimen>
-    <dimen name="button_main_secondary_height">70dp</dimen>
+    <dimen name="button_main_primary_height">70dp</dimen>
+    <dimen name="button_main_secondary_height">60dp</dimen>
 
     <dimen name="layout_margin_top">10dp</dimen>
     <dimen name="layout_margin_bottom">10dp</dimen>

@@ -44,12 +44,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_meslek"
                 app:label="@string/meslek"
-                app:text="Medeni durum seçiniz"/>
+                app:text="Meslek seçiniz"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_medeni_durum"
-                app:label="@string/medeni_durum"/>
+                app:label="@string/medeni_durum"
+                app:text="Medeni durum seçiniz"/>
 
             <TextView
                 android:text="@string/life_style"
@@ -59,12 +60,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_uyanma_saati"
-                app:label="@string/uyanma_saati"/>
+                app:label="@string/uyanma_saati"
+                app:text="Sabah kalkış saatinizi seçiniz"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_uyuma_saati"
-                app:label="@string/uyuma_saati"/>
+                app:label="@string/uyuma_saati"
+                app:text="Yatma saatinizi seçiniz"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,12 +77,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_spor_sikligi"
-                app:label="@string/sport_cyclic"/>
+                app:label="@string/sport_cyclic"
+                app:text="Spor sıklığınızı seçiniz"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_spor_zamani"
-                app:label="@string/sport_time"/>
+                app:label="@string/sport_time"
+                app:text="Spor sürenizi seçiniz"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,12 +99,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_kahvalti_zamani"
-                app:label="@string/breakfast_time"/>
+                app:label="@string/breakfast_time"
+                app:text="Kahvaltı saatinizi seçiniz"/>
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_choose_breakfast"
-        android:text="@string/choose_breakfast"/>
+        android:text="@string/choose_breakfast"
+        android:background="@drawable/buttonstyle"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,12 +116,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
             android:id="@+id/spinner_ogle_yemegi_zamani"
-            app:label="@string/lunch_time"/>
+            app:label="@string/lunch_time"
+                app:text="Öğle yemeği saatinizi seçiniz"/>
             <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_choose_lunch"
-        android:text="@string/choose_lunch"/>
+        android:text="@string/choose_lunch"
+                android:background="@drawable/buttonstyle"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -124,12 +133,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_aksam_yemegi_zamani"
-                app:label="@string/dinner_time"/>
+                app:label="@string/dinner_time"
+                app:text="Akşam yemeği saatinizi seçiniz"/>
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_choose_dinner"
-        android:text="@string/choose_dinner"/>
+        android:text="@string/choose_dinner"
+        android:background="@drawable/buttonstyle"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,7 +165,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_choose_lovely_meals"
-            android:text="@string/button_choose_lovely_meals" android:layout_weight=".6"/>
+            android:text="@string/button_choose_lovely_meals" android:layout_weight=".6"
+            android:background="@drawable/buttonstyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -169,7 +181,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_choose_disliked_meals"
-            android:text="@string/button_choose_disliked_meals" android:layout_weight=".6"/>
+            android:text="@string/button_choose_disliked_meals"
+            android:layout_weight=".6"
+            android:background="@drawable/buttonstyle"/>
     </LinearLayout>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
         android:layout_width="wrap_content"
@@ -207,7 +221,8 @@
         android:layout_height="60dip"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/button_mainpage"
-        android:text="@string/complete_signup"/>
+        android:text="@string/complete_signup"
+        android:background="@drawable/buttonstyle"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

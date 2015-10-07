@@ -19,7 +19,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
     public Resources res;
     SpinnerModel tempValues = null;
     LayoutInflater inflater;
-
+    String defaultValue;
     /*************
      * CustomAdapter Constructor
      *****************/
@@ -65,7 +65,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
         if (position == 0) {
 
             // Default selected Spinner item
-            label.setText("Please select company");
+            label.setText(defaultValue);
         } else {
             // Set values for spinner each row
             label.setText(tempValues.getCompanyName());

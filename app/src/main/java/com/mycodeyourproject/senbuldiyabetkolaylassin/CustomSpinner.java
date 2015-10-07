@@ -57,6 +57,7 @@ public class CustomSpinner extends LinearLayout {
 
         // Create custom adapter object ( see below CustomAdapter.java )
         adapter = new CustomAdapter(getContext(), R.layout.spinner_rows, CustomListViewValuesArr, inflater);
+        adapter.defaultValue=text;
 
         // Set adapter to spinner
         SpinnerSample.setAdapter(adapter);

@@ -1,5 +1,6 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
+import android.app.ActionBar;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -17,12 +18,15 @@ import android.text.style.StyleSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.RemoteViews;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -78,26 +82,29 @@ public class ViaDiabet extends BaseViaDiabetActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_via_diabet);
+/*        TextView textView=new TextView(this);
+        textView.setText("VIADIABET");
+        android.support.v7.app.ActionBar.LayoutParams params=new android.support.v7.app.ActionBar.LayoutParams(120,30);
+        super.mActionBar.setCustomView(textView, params);
+        super.mActionBar.setDisplayShowCustomEnabled(true);*/
         setButtonListener();
     }
 
     // Call Back method  to get the Message form other Activity    override the method
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
 
         // check if the request code is same as what is passed  here it is 2
-        if(requestCode==0)
-        {
+        if (requestCode == 0) {
             // fetch the message String
-            String message=            data.getStringExtra("Kalori") + "kCal, "+
-            data.getStringExtra("Protein") + " kJ, " +
-            data.getStringExtra("Yağ") + " kFat, " +
-            data.getStringExtra("Karbonhidrat") + "kCal";
+            String message = data.getStringExtra("Kalori") + "kCal, " +
+                    data.getStringExtra("Protein") + " kJ, " +
+                    data.getStringExtra("Yağ") + " kFat, " +
+                    data.getStringExtra("Karbonhidrat") + "kCal";
             // Set the message string in textView
-            Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -187,33 +194,12 @@ public class ViaDiabet extends BaseViaDiabetActivity {
             case R.id.action_help:
                 Toast.makeText(this, R.string.action_help, Toast.LENGTH_LONG).show();
                 return true;
-            case R.id.action_twitter:
-                try {
-                    ApplicationInfo info = getPackageManager().getApplicationInfo("com.twitter.android", 0);
-                    PackageManager pm = getPackageManager();
-                    Intent twitter = pm.getLaunchIntentForPackage("com.twitter.android");
-                    startActivity(twitter);
-                } catch (PackageManager.NameNotFoundException e) {
-                    Toast.makeText(this, R.string.action_app_not_found, Toast.LENGTH_LONG).show();
-                    return false;
-                }
-                return true;
-
-            case R.id.action_facebook:
-                try {
-                    ApplicationInfo info = getPackageManager().getApplicationInfo("com.facebook.android", 0);
-                    PackageManager pm = getPackageManager();
-                    Intent facebook = pm.getLaunchIntentForPackage("com.facebook.android");
-                    startActivity(facebook);
-                } catch (PackageManager.NameNotFoundException e) {
-                    return false;
-                }
-                return true;
-            case R.id.action_updates:
-                Toast.makeText(this, R.string.action_check_updates, Toast.LENGTH_LONG).show();
-                return true;
             case R.id.action_logout:
                 Toast.makeText(this, R.string.action_logout, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.action_diet:
+                Intent intentDiet = new Intent(ViaDiabet.this, DietList.class);
+                startActivity(intentDiet);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

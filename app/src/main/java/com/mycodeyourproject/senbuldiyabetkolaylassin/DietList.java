@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class DietList extends AppCompatActivity {
+public class DietList extends BaseViaDiabetActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

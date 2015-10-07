@@ -7,6 +7,7 @@
         <attr name="unit" format="string"/>
         <attr name="android:textStyle"/>
         <attr name="android:src"/>
+        <attr name="button_image" format="integer"/>
         <attr name="meal_title" format="string"/>
         <attr name="yemeksayisi" format="integer"/>
         <attr name="yemek1" format="string"/>

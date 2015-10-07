@@ -9,12 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 
-public class InputData extends Activity
+public class InputData extends BaseViaDiabetActivity
 {
     private String array_spinner[];
 
@@ -22,6 +23,13 @@ public class InputData extends Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data);
+
+/*        TextView textView=new TextView(this);
+        textView.setText("VIADIABET");
+        android.support.v7.app.ActionBar.LayoutParams params=new android.support.v7.app.ActionBar.LayoutParams(120,30);
+        super.mActionBar.setCustomView(textView, params);
+        super.mActionBar.setDisplayShowCustomEnabled(true);*/
+
         Resources res = getResources();
         DateTimePicker dateTimePicker = (DateTimePicker)findViewById(R.id.input_date_time);
 

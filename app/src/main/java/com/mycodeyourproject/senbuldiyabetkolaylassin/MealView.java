@@ -1,14 +1,17 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -41,12 +44,12 @@ public class MealView extends LinearLayout
         LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.mealview,this,true);
 
-        TextView textView = (TextView)findViewById(R.id.textView18);
+        TextView textView = (TextView)findViewById(R.id.textView_label);
 
-        yemekler[0] = (TextView)findViewById(R.id.textView19);
-        yemekler[1] = (TextView)findViewById(R.id.textView20);
-        yemekler[2] = (TextView)findViewById(R.id.textView21);
-        yemekler[3] = (TextView)findViewById(R.id.textView22);
+        yemekler[0] = (TextView)findViewById(R.id.textView_meal1);
+        yemekler[1] = (TextView)findViewById(R.id.textView_meal2);
+        yemekler[2] = (TextView)findViewById(R.id.textView_meal3);
+        yemekler[3] = (TextView)findViewById(R.id.textView_meal4);
         TextView meal_title = (TextView)findViewById(R.id.meal_title);
         textView.setText(label);
         yemekler[0].setText(yemek1);
@@ -102,6 +105,12 @@ public class MealView extends LinearLayout
         }
 
         invalidate();
+    }
+
+    public void clickMealSelector(View view)
+    {
+        Intent intent=new Intent(getContext(),MealCalculator.class);
+        getContext().startActivity(intent);
     }
 
     public MealView(Context context)

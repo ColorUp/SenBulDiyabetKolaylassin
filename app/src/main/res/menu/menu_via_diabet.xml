@@ -1,18 +1,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".ViaDiabet">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ViaDiabet">
 
     <!-- My Info -->
     <item android:id="@+id/action_my_info"
         android:icon="@mipmap/ic_my_info"
         android:title="@string/action_my_info"
-        app:showAsAction="ifRoom|withText"/>
+        app:showAsAction="always"/>
 
     <!-- Logs -->
     <item android:id="@+id/action_logs"
         android:icon="@mipmap/ic_logs"
         android:title="@string/action_logs"
-        app:showAsAction="ifRoom|withText"/>
+        app:showAsAction="always"/>
+
+    <!-- Diets -->
+    <item android:id="@+id/action_diet"
+        android:icon="@mipmap/ic_diet"
+        android:title="@string/action_diet"
+        app:showAsAction="always"/>
 
     <!-- Tools -->
     <item android:id="@+id/action_tools"
@@ -29,18 +36,6 @@
     <!-- Help -->
     <item android:id="@+id/action_help"
         android:title="@string/action_help"/>
-
-    <!-- Twitter -->
-    <item android:id="@+id/action_twitter"
-        android:title="@string/action_twitter"/>
-
-    <!-- Facebook -->
-    <item android:id="@+id/action_facebook"
-        android:title="@string/action_facebook"/>
-
-    <!-- Check updates -->
-    <item android:id="@+id/action_updates"
-        android:title="@string/action_check_updates"/>
 
     <!-- Logout -->
     <item android:id="@+id/action_logout"

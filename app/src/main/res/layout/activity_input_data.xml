@@ -33,6 +33,30 @@
         app:text="@string/zero"
         app:unit="@string/unity_iu"
         android:id="@+id/imagetextbox_insuline"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_weight"
+        app:label="@string/text_weight"
+        app:hint="@string/zero"
+        app:unit="@string/unity_weight"
+        android:id="@+id/imagetextbox_weight"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_blood_drop"
+        app:label="@string/text_hb1ac"
+        app:text="@string/zero"
+        app:unit="@string/unity_hb1ac"
+        android:id="@+id/imagetextbox_hb1ac"/>
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_colesterol"
+        app:label="@string/text_colestrol"
+        app:text="@string/zero"
+        app:unit="@string/unity_colestrol"
+        android:id="@+id/imagetextbox_colestrol"/>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

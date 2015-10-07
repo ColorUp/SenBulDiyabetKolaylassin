@@ -33,9 +33,10 @@
     <string name="button_calculator">Besin Değerleri</string>
     <string name="button_lines">Çizelgeler</string>
     <string name="button_graphs">Grafikler</string>
-    <string name="button_remainders">Bildirimler</string>
+    <string name="button_remainders">Hatırlatıcı</string>
     <string name="button_database">Veri Bankası</string>
     <string name="text_last_days_view">daha sık ölç</string>
+    <string name="last_data">Son Veri</string>
 
     <!-- Login & Sign Up -->
     <string name="username">Kullanıcı Adı</string>
@@ -66,11 +67,7 @@
 
     <!-- Input Data -->
     <string name="text_date_time">Date Time</string>
-    <string name="text_glicose">Glicose</string>
-    <string name="text_carbonhydrade">Carbonhydrade</string>
-    <string name="text_insuline">Insuline</string>
     <string name="zero">0</string>
-    <string name="text_category">Category</string>
 
     <!-- Settings -->
     <string name="checkbox_auto_update">Auto Update</string>
@@ -160,6 +157,7 @@
     <!-- Action Bar action items -->
     <string name="action_my_info">Bilgilerim</string>
     <string name="action_logs">Veri Bankası</string>
+    <string name="action_diet">Diyetim</string>
     <string name="action_contacts">Arkadaşlar</string>
     <string name="action_help">Yardım</string>
     <string name="action_check_updates">Güncellemeler</string>
@@ -183,7 +181,17 @@
     <string name="select_Category">Select Company</string>
 
     <!-- Input Data -->
-    <string name="input_date_time">Veri Tarih ve Saatini Giriniz</string>
+    <string name="input_date_time">Tarih ve Saat</string>
+    <string name="text_glicose">Glikoz</string>
+    <string name="text_carbonhydrade">Karbonhidrat</string>
+    <string name="text_insuline">İnsülin</string>
+    <string name="text_category">Kategori</string>
+    <string name="text_colestrol">Kolesterol</string>
+    <string name="text_weight">Ağırlık</string>
+    <string name="text_hb1ac">HbA1c</string>
+    <string name="unity_colestrol">mg/dL</string>
+    <string name="unity_weight">kg</string>
+    <string name="unity_hb1ac">%</string>
 
     <string-array name="array_name">
         <item>Seçiniz</item>
