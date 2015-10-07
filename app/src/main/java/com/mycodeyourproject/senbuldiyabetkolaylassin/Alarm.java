@@ -25,16 +25,16 @@ public class Alarm extends BroadcastReceiver{
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         messages = new String[]
                 {
-                        "Bugün hiç şekerini ölçtün mü? Bu aralar sık olarak takip etmende yarar var",
-                        "Bol bol suyundan içmeyi unutma. Biliyorsun günde en az 2 lt su tüketmelisin",
-                        "Hadi yemeklerinden tuzu çıkar! günde bir çay kaşığı kadar tuz yeter, unutma",
-                        "Çavdar ekmeği veya tam buğday ekmeğinin çok sağlıklı olduğunu unutma...",
-                        "Iyyykkk... Yağlı yemek yemeyelim sakın...",
-                        "Havucu yemeklerimizde dikkatli ve ölçülü tüketmemiz gerektiğini biliyor musunuz? -Agah Burak DEMİRKAN",
+                        "Bugün hiç şekerini ölçtün mü?\nBu aralar sık olarak takip etmende yarar var",
+                        "Bol bol suyundan içmeyi unutma\nBiliyorsun günde en az 2 lt su tüketmelisin",
+                        "Hadi yemeklerinden tuzu çıkar!\nGünde bir çay kaşığı kadar tuz yeter, unutma",
+                        "Çavdar ekmeği veya tam buğday ekmeğinin\nçok sağlıklı olduğunu unutma...",
+                        "Iyyykkk... \nYağlı yemek yemeyelim sakın...",
+                        "Havucu yemeklerimizde dikkatli ve ölçülü tüketmemiz\ngerektiğini biliyor musunuz? -Agah Burak DEMİRKAN",
                 };
 
         Log.e("index", ""+index);
-        createNotification(context, messages[index]);
+        createNotification2(context, messages[index]);
         if(++index == messages.length)
             index = 0;
     }
@@ -46,9 +46,10 @@ public class Alarm extends BroadcastReceiver{
 
         notificationBuilder.setContentText(msg);
         notificationBuilder.setSmallIcon(R.mipmap.ic_siringa);
+
         mIncrementalNotificationId = new Integer(mIncrementalNotificationId + 1);
         mNotificationManager.notify(mIncrementalNotificationId, notificationBuilder.build());
-        /*NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         // END_INCLUDE(notificationCompat)
 
         //Create Intent to launch this Activity again if the notification is clicked.
@@ -74,14 +75,35 @@ public class Alarm extends BroadcastReceiver{
             // Inflate and set the layout for the expanded notification view
             RemoteViews expandedView =
                     new RemoteViews(context.getPackageName(), R.layout.notification_expanded);
-            expandedView.setTextViewText(R.id.notifTV, msg);
+            //expandedView.setTextViewText(R.id.notifTV, msg);
             notification.bigContentView = expandedView;
-            Log.e("yeeeeee", "neeeeeeeeee");
 
         }
         // END_INCLUDE(customLayout)
         NotificationManager nm = (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
         nm.notify(0, notification);
-        // END_INCLUDE(notify)*/
+        // END_INCLUDE(notify)
+    }
+
+    private void createNotification2(Context context, String msg) {
+
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_expanded);
+        contentView.setTextViewText(R.id.notifText, msg);
+        //contentView.setTextViewText(R.id.notifTitle, "ViaDiabet");
+        Notification.Builder notificationBuilder = new Notification.Builder(context)
+                .setContentTitle("ViaDiabet").setContent(contentView);
+
+        Intent i = new Intent(context, ViaDiabet.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent intent = PendingIntent.getActivity(context, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.setContentIntent(intent);
+
+        notificationBuilder.setSmallIcon(R.mipmap.sanofi);
+        Notification notification = notificationBuilder.build();
+
+        mIncrementalNotificationId = mIncrementalNotificationId + 1;
+        mNotificationManager.notify(mIncrementalNotificationId, notification);
+
     }
 }
