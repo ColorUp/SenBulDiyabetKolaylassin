@@ -22,50 +22,35 @@ public class Stats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
         BarChart mBarChart = (BarChart) findViewById(R.id.barchart);
-        //mBarChart.setFixedBarWidth(true);
+        mBarChart.setContentDescription("Description");
 
         ArrayList<BarValue> barValues = new ArrayList<>();
-        float prev = 5f;
-        Random random = new Random();
-        for(int i=0; i<10; i++)
-        {
-            float newVal = prev + random.nextFloat();
-            prev = newVal;
-            barValues.add(new BarValue(newVal,""+i+".10", 0xFF123456));
+
+        barValues.add(new BarValue(1310,"02.10.2015", 0xFF123456));
+        barValues.add(new BarValue(1800,"03.10.2015", 0xFF123456));
+        barValues.add(new BarValue(922,"04.10.2015", 0xFF123456));
+        barValues.add(new BarValue(1296, "05.10.2015", 0xFF123456));
+        barValues.add(new BarValue(1105, "06.10.2015", 0xFF123456));
+
+
+        for(int i=0; i<barValues.size(); i++)
             addNewBar(barValues.get(i), mBarChart);
-        }
 
-        mBarChart.startAnimation();
+        BarChart mBarChart2 = (BarChart) findViewById(R.id.barchart2);
+        mBarChart.setContentDescription("Description");
 
-        PieChart mPieChart = (PieChart) findViewById(R.id.piechart);
+        ArrayList<BarValue> barValues2 = new ArrayList<>();
 
-        mPieChart.addPieSlice(new PieModel("Freetime", 15, Color.parseColor("#FE6DA8")));
-        mPieChart.addPieSlice(new PieModel("Sleep", 25, Color.parseColor("#56B7F1")));
-        mPieChart.addPieSlice(new PieModel("Work", 35, Color.parseColor("#CDA67F")));
-        mPieChart.addPieSlice(new PieModel("Eating", 9, Color.parseColor("#FED70E")));
+        barValues2.add(new BarValue(6,"02.10.2015", 0xFF123456));
+        barValues2.add(new BarValue(2,"03.10.2015", 0xFF123456));
+        barValues2.add(new BarValue(3,"04.10.2015", 0xFF123456));
+        barValues2.add(new BarValue(0,"05.10.2015", 0xFF123456));
+        barValues2.add(new BarValue(0, "06.10.2015", 0xFF123456));
+        barValues2.add(new BarValue(4, "06.10.2015", 0xFF123456));
 
-        mPieChart.startAnimation();
 
-        ValueLineChart mCubicValueLineChart = (ValueLineChart) findViewById(R.id.cubiclinechart);
-
-        ValueLineSeries series = new ValueLineSeries();
-        series.setColor(0xFF56B7F1);
-
-        series.addPoint(new ValueLinePoint("Jan", 2.4f));
-        series.addPoint(new ValueLinePoint("Feb", 10f));
-        series.addPoint(new ValueLinePoint("Mar", .4f));
-        series.addPoint(new ValueLinePoint("Apr", 1.2f));
-        series.addPoint(new ValueLinePoint("Mai", 2.6f));
-        series.addPoint(new ValueLinePoint("Jun", 4.0f));
-        series.addPoint(new ValueLinePoint("Jul", 3.5f));
-        series.addPoint(new ValueLinePoint("Aug", 2.4f));
-        series.addPoint(new ValueLinePoint("Sep", 2.4f));
-        series.addPoint(new ValueLinePoint("Oct", 3.4f));
-        series.addPoint(new ValueLinePoint("Nov", .4f));
-        series.addPoint(new ValueLinePoint("Dec", 1.3f));
-
-        mCubicValueLineChart.addSeries(series);
-        mCubicValueLineChart.startAnimation();
+        for(int i=0; i<barValues2.size(); i++)
+            addNewBar(barValues2.get(i), mBarChart2);
 
 
     }
