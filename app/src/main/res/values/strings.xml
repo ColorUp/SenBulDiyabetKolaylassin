@@ -203,5 +203,6 @@
     <string name="custom_notification">Şekerini ölç!</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="facebook_app_id">817672744967667</string>
+    <string name="title_activity_send_report">Rapor Gönder</string>
 
 </resources>
