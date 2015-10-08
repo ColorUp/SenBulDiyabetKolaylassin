@@ -132,7 +132,7 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         buttonStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViaDiabet.this, Stats.class);
+                Intent intent = new Intent(ViaDiabet.this, Graphs.class);
                 startActivity(intent);
             }
         });
