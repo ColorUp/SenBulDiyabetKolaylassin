@@ -44,7 +44,11 @@ public class SendReport extends AppCompatActivity {
     }
 
     public void buttonAction(View view) {
-        email = ((EditText) findViewById(R.id.mailEdittext)).getText().toString();
+
+        EditText txtEmail = (EditText) findViewById(R.id.report_email).findViewById(R.id.textbox_editText);
+        EditText txtPhone = (EditText) findViewById(R.id.report_phonenumber).findViewById(R.id.textbox_editText);
+        email = txtEmail.getText().toString();
+        String raporText="Karbonhidrat : 115 kCal       30.07.2015 14:53\nKalori : 85 kCal              30.07.2015 14:53";
         if (view.getId() == R.id.mailButton) {
             String TO = "agahburakdemirkan@yahoo.com";
             String[] CC = {""};
@@ -55,7 +59,7 @@ public class SendReport extends AppCompatActivity {
             emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{ TO});
             emailIntent.putExtra(Intent.EXTRA_CC, CC);
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "ViaDiabet Rapor");
-            emailIntent.putExtra(Intent.EXTRA_TEXT, ((EditText) findViewById(R.id.raporText)).getText().toString()+"\n"+email);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, raporText+"\n"+email);
 
             try {
                 startActivity(Intent.createChooser(emailIntent, "Send mail..."));
@@ -69,9 +73,8 @@ public class SendReport extends AppCompatActivity {
         {
             SmsManager smsManager = SmsManager.getDefault();
             String message = "#ViaDiabet :\n";
-            EditText raporET = (EditText) findViewById(R.id.raporText);
-            message += raporET.getText().toString() + "\n" + email;
-            smsManager.sendTextMessage("+905075042570", null, message, null, null);
+            message += raporText + "\n" + email;
+            smsManager.sendTextMessage(txtPhone.getText().toString(), null, message, null, null);
             finish();
         }
     }

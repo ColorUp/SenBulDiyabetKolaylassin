@@ -135,7 +135,8 @@
         android:layout_height="wrap_content"
         app:hint="@string/email_edittext"
         android:inputType="text"
-        app:label="@string/email"/>
+        app:label="@string/email"
+        android:id="@+id/report_email"/>
 
     <Button
         android:layout_width="fill_parent"
@@ -155,7 +156,8 @@
         android:layout_height="wrap_content"
         app:hint="@string/phonenumber_edittext"
         android:inputType="text"
-        app:label="@string/phonenumber"/>
+        app:label="@string/phonenumber"
+        android:id="@+id/report_phonenumber"/>
 
     <Button
         android:layout_width="fill_parent"
