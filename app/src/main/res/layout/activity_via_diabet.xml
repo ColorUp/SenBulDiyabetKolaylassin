@@ -155,53 +155,45 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/button_main_primary_height"
-                android:layout_marginLeft="@dimen/button_main_primary_margin"
-                android:layout_marginRight="@dimen/button_main_primary_margin"
-                android:layout_marginBottom="@dimen/button_main_primary_margin"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/button_save_data"
                 android:id="@+id/button_save_data"
-                android:layout_weight=".5"
-                android:background="@drawable/buttonstyle"/>
+                android:background="@drawable/buttonstyle"
+                android:layout_weight=".2"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/button_main_primary_height"
-                android:layout_marginLeft="@dimen/button_main_primary_margin"
-                android:layout_marginRight="@dimen/button_main_primary_margin"
-                android:layout_marginBottom="@dimen/button_main_primary_margin"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/button_calculator"
                 android:id="@+id/button_calculator"
-                android:layout_weight=".5"
-                android:background="@drawable/buttonstyle"/>
+                android:background="@drawable/buttonstyle"
+                android:layout_weight=".2"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/button_main_primary_height"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/button_lines"
+                android:id="@+id/button_lines"
+                android:background="@drawable/buttonstyle"
+                android:layout_weight=".2"/>
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/button_main_primary_height"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/button_graphs"
+                android:id="@+id/button_graphs"
+                android:background="@drawable/buttonstyle"
+                android:layout_weight=".2"/>
         </LinearLayout>
-    <LinearLayout
-        android:id="@+id/layout_graphs"
-        android:layout_below="@+id/layout_input_data"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/button_main_primary_height"
-            android:layout_marginLeft="@dimen/button_main_primary_margin"
-            android:layout_marginRight="@dimen/button_main_primary_margin"
-            android:layout_marginBottom="@dimen/button_main_primary_margin"
-            android:text="@string/button_lines"
-            android:id="@+id/button_lines"
-            android:layout_weight=".5"
-            android:background="@drawable/buttonstyle"/>
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/button_main_primary_height"
-            android:layout_marginLeft="@dimen/button_main_primary_margin"
-            android:layout_marginRight="@dimen/button_main_primary_margin"
-            android:layout_marginBottom="@dimen/button_main_primary_margin"
-            android:text="@string/button_graphs"
-            android:id="@+id/button_graphs"
-            android:layout_weight=".5"
-            android:background="@drawable/buttonstyle"/>
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_database"
         android:layout_below="@+id/layout_graphs"

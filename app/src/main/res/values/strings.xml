@@ -30,7 +30,7 @@
     <string name="text_auto_comment">HEY! Şekerini</string>
     <string name="button_save_data">Veri Girişi</string>
     <string name="button_reports">Rapor Gönder</string>
-    <string name="button_calculator">Besin Değerleri</string>
+    <string name="button_calculator">Besinler</string>
     <string name="button_lines">Çizelgeler</string>
     <string name="button_graphs">Grafikler</string>
     <string name="button_remainders">Hatırlatıcı</string>

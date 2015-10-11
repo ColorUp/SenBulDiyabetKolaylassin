@@ -10,6 +10,7 @@ import java.util.Map;
  * Created by Burak on 26.08.2015.
  */
 public class DataTransferObjects {
+
     public static class User {
         public long id = 0;
         public String username = "";
@@ -19,6 +20,7 @@ public class DataTransferObjects {
         public String turkishId = "";
         public String name = "";
         public String surname = "";
+        public Date recorddate = new Date();
 
         Map<String, String> getUserObject() {
             Map<String, String> user = DatabaseQuery.GetParameterList("USER");
@@ -29,15 +31,12 @@ public class DataTransferObjects {
 
             user.put("USERNAME", username.trim());
             user.put("PASSWORD", password.trim());
-
-            DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-            String date = df.format(dateOfBirth);
-            user.put("BIRTHOFDATE", "1987-03-03");
-
+            user.put("BIRTHOFDATE", Converter.DateToString(dateOfBirth));
             user.put("GENDER", String.valueOf(gender));
             user.put("TURKISHID", turkishId.trim());
             user.put("NAME", name);
             user.put("SURNAME", surname);
+            user.put("RECORDDATE", Converter.DateTimeToString(recorddate));
 
             return user;
         }
@@ -70,6 +69,7 @@ public class DataTransferObjects {
             user.remove("TURKISHID");
             user.remove("NAME");
             user.remove("SURNAME");
+            user.remove("RECORDDATE");
 
             List<Map<Object, Object>> userList = DatabaseQuery.Select("USER", user);
             Map<Object, Object> userValues = null;
@@ -100,6 +100,7 @@ public class DataTransferObjects {
             user.remove("TURKISHID");
             user.remove("NAME");
             user.remove("SURNAME");
+            user.remove("RECORDDATE");
 
             List<Map<Object, Object>> userList = DatabaseQuery.Select("USER", user);
             Map<Object, Object> userValues = null;
@@ -112,6 +113,136 @@ public class DataTransferObjects {
             }
 
             return false;
+        }
+    }
+
+
+    public static class UserLifeStyle {
+        public long id = 0;
+        public String userName = "";
+        public Float height = 0f;
+        public Float weight = 0f;
+        public byte profession = 0;
+        public byte maritalStatus = 0;
+        public Date wakeUpTime = new Date();
+        public Date sleepTime = new Date();
+        public boolean hasSportActivity = false;
+        public byte sportSmartness = 0;
+        public Date sportTime = new Date();
+        public boolean snackAfterBreakfast = false;
+        public Date breakfastTime = new Date();
+        public boolean snackAfterLunch = false;
+        public Date lunchTime = new Date();
+        public boolean snackAfterDinner = false;
+        public Date dinnerTime = new Date();
+        public boolean hasJourney = false;
+        public Float dailyWaterDrinks = 0f;
+        public boolean isSmoking = false;
+        public boolean hasAllergic = false;
+        public boolean useMedicine = false;
+        public String information = "";
+
+        Map<String, String> getUserLifeStyleObject() {
+            Map<String, String> userLifeStyle = DatabaseQuery.GetParameterList("USERLIFESTYLE");
+            if (id == 0)
+                userLifeStyle.put("ID", "NULL");
+            else
+                userLifeStyle.put("ID", String.valueOf(id));
+
+            userLifeStyle.put("USERNAME", userName.trim());
+            userLifeStyle.put("HEIGHT", String.valueOf(height));
+            userLifeStyle.put("WEIGHT", String.valueOf(weight));
+            userLifeStyle.put("PROFESSION", String.valueOf(profession));
+            userLifeStyle.put("MARITALSTATUS", String.valueOf(maritalStatus));
+            userLifeStyle.put("WAKEUPTIME", Converter.TimeToString(wakeUpTime));
+            userLifeStyle.put("SLEEPTIME", Converter.TimeToString(sleepTime));
+            userLifeStyle.put("HASSPORTACTIVITY", Converter.BooleanToString(hasSportActivity));
+            userLifeStyle.put("SPORTSMARTNESS", String.valueOf(sportSmartness));
+            userLifeStyle.put("SPORTTIME", Converter.TimeToString(sportTime));
+            userLifeStyle.put("HASJOURNEY", Converter.BooleanToString(hasJourney));
+            userLifeStyle.put("BREAKFASTTIME", Converter.TimeToString(breakfastTime));
+            userLifeStyle.put("SNACKAFTERBREAKFAST", Converter.BooleanToString(snackAfterBreakfast));
+            userLifeStyle.put("LUNCHTIME", Converter.TimeToString(lunchTime));
+            userLifeStyle.put("SNACKAFTERLUNCH", Converter.BooleanToString(snackAfterLunch));
+            userLifeStyle.put("DINNERTIME", Converter.TimeToString(dinnerTime));
+            userLifeStyle.put("SNACKAFTERDINNER", Converter.BooleanToString(snackAfterDinner));
+            userLifeStyle.put("DAILYWATERDRINKS", String.valueOf(dailyWaterDrinks));
+            userLifeStyle.put("ISSMOKING", Converter.BooleanToString(isSmoking));
+            userLifeStyle.put("HASALLERGIC", Converter.BooleanToString(hasAllergic));
+            userLifeStyle.put("USEMEDICINE", Converter.BooleanToString(useMedicine));
+            userLifeStyle.put("INFORMATION", information);
+
+            return userLifeStyle;
+        }
+
+        UserLifeStyle(String usernameInput, Float heightInput, Float weightInput, Byte professionInput,
+                      Byte maritalStatusInput, Date wakeUpTimeInput, Date sleepTimeInput, boolean hasSportActivityInput,
+                      Byte sportSmartnessInput, Date sportTimeInput, boolean snackAfterBreakfastInput,
+                      Date breakfastTimeInput, boolean snackAfterLunchInput, Date lunchTimeInput, boolean snackAfterDinnerInput,
+                      Date dinnerTimeInput, boolean hasJourneyInput, Float dailyWaterDrinksInput, boolean isSmokingInput,
+                      boolean hasAllergicInput, boolean useMedicineInput, String informationInput) {
+
+            userName = usernameInput;
+            height = heightInput;
+            weight = weightInput;
+            profession = professionInput;
+            maritalStatus = maritalStatusInput;
+            wakeUpTime = wakeUpTimeInput;
+            sleepTime = sleepTimeInput;
+            hasSportActivity = hasSportActivityInput;
+            sportSmartness = sportSmartnessInput;
+            sportTime = sportTimeInput;
+            snackAfterBreakfast = snackAfterBreakfastInput;
+            breakfastTime = breakfastTimeInput;
+            snackAfterLunch = snackAfterLunchInput;
+            lunchTime = lunchTimeInput;
+            snackAfterDinner = snackAfterDinnerInput;
+            dinnerTime = dinnerTimeInput;
+            hasJourney = hasJourneyInput;
+            dailyWaterDrinks = dailyWaterDrinksInput;
+            isSmoking = isSmokingInput;
+            hasAllergic = hasAllergicInput;
+            useMedicine = useMedicineInput;
+            information = informationInput;
+        }
+
+        public static List<Map<Object, Object>> getUserLifeStyleList(String userName) {
+            if (userName.contentEquals("") || userName == null)
+                return null;
+
+            Map<String, String> userLifeStyle = DatabaseQuery.GetParameterList("USERLIFESTYLE");
+            if (userName == null)
+                userLifeStyle.remove("USERNAME");
+            else
+                userLifeStyle.put("USERNAME", userName.trim());
+
+            userLifeStyle.remove("ID");
+            userLifeStyle.remove("USERNAME");
+            userLifeStyle.remove("HEIGHT");
+            userLifeStyle.remove("WEIGHT");
+            userLifeStyle.remove("PROFESSION");
+            userLifeStyle.remove("MARITALSTATUS");
+            userLifeStyle.remove("WAKEUPTIME");
+            userLifeStyle.remove("SLEEPTIME");
+            userLifeStyle.remove("HASSPORTACTIVITY");
+            userLifeStyle.remove("SPORTSMARTNESS");
+            userLifeStyle.remove("SPORTTIME");
+            userLifeStyle.remove("HASJOURNEY");
+            userLifeStyle.remove("BREAKFASTTIME");
+            userLifeStyle.remove("SNACKAFTERBREAKFAST");
+            userLifeStyle.remove("LUNCHTIME");
+            userLifeStyle.remove("SNACKAFTERLUNCH");
+            userLifeStyle.remove("DINNERTIME");
+            userLifeStyle.remove("SNACKAFTERDINNER");
+            userLifeStyle.remove("DAILYWATERDRINKS");
+            userLifeStyle.remove("ISSMOKING");
+            userLifeStyle.remove("HASALLERGIC");
+            userLifeStyle.remove("USEMEDICINE");
+            userLifeStyle.remove("INFORMATION");
+
+            List<Map<Object, Object>> userlifestyleList = DatabaseQuery.Select("USERLIFESTYLE", userLifeStyle);
+
+            return userlifestyleList;
         }
     }
 }
