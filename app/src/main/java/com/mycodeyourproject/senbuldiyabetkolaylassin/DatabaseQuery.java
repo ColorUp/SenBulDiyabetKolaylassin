@@ -83,33 +83,32 @@ public class DatabaseQuery
         String columnStr = phpData.StartAsyncTask(urlTableColumns);
         String[] columns = columnStr.split(",");
 
-        if(condition!=null)
-        {
-            conditions = parametersToString(condition, "{0}:{1},");
-            url = Extensions.Format("{0}&conditions={1}", url, conditions);
-            String dataList = phpData.StartAsyncTask(url);
+        if(condition!=null) {
+            if(condition.size()!=0) {
+                conditions = parametersToString(condition, "{0}:{1},");
+                url = Extensions.Format("{0}&conditions={1}", url, conditions);
+            }
+                String dataList = phpData.StartAsyncTask(url);
 
-            if(dataList.contentEquals(""))
-                return null;
+                if (dataList.contentEquals(""))
+                    return null;
 
-            String[] rows=dataList.split("\n");
+                String[] rows = dataList.split("<br>");
 
-            List<Map<Object,Object>> result = new ArrayList<Map<Object, Object>>();
-            Map<Object,Object> row=new LinkedHashMap<>();
+                List<Map<Object, Object>> result = new ArrayList<Map<Object, Object>>();
 
-            for (int i=0; i<rows.length;i++)
-            {
-                String[] rowValues=rows[i].split(",");
-                for (int j=0; j<columns.length; j++)
-                {
-                    row.put(columns[j],rowValues[j]);
+                for (int i = 0; i < rows.length; i++) {
+                    Map<Object, Object> row = new LinkedHashMap<>();
+                    String[] rowValues = rows[i].split(",");
+                    for (int j = 0; j < columns.length; j++) {
+                        row.put(columns[j], rowValues[j]);
+                    }
+
+                    result.add(row);
                 }
 
-                result.add(row);
+                return result;
             }
-
-            return result;
-        }
         return null;
     }
 

@@ -7,23 +7,23 @@ import java.util.ArrayList;
  */
 public class Parent {
 
-    private int id;
+    private long id;
     private String name;
     private String summary;
     private boolean checked;
-    private int totalCal;
-    private int totalFat;
-    private int totalCarbonhydrade;
-    private int totalProtein;
+    private float totalCal;
+    private float totalFat;
+    private float totalCarbonhydrade;
+    private float totalProtein;
 
     // ArrayList to store child objects
     private ArrayList<Child> children;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -52,36 +52,36 @@ public class Parent {
         this.checked = checked;
     }
 
-    public int getTotalCal() {
+    public float getTotalCal() {
         return totalCal;
     }
 
-    public void setTotalCal(int totalCal) {
+    public void setTotalCal(float totalCal) {
         this.totalCal = totalCal;
     }
 
-    public int getTotalFat() {
+    public float getTotalFat() {
         return totalFat;
     }
 
-    public void setTotalFat(int totalFat) {
+    public void setTotalFat(float totalFat) {
         this.totalFat = totalFat;
     }
 
-    public int getTotalProtein() {
+    public float getTotalProtein() {
         return totalProtein;
     }
 
-    public void setTotalProtein(int
+    public void setTotalProtein(float
                                         totalProtein) {
         this.totalProtein = totalProtein;
     }
 
-    public int getTotalCarbonhydrade() {
+    public float getTotalCarbonhydrade() {
         return totalCarbonhydrade;
     }
 
-    public void setTotalCarbonhydrade(int totalCarbonhydrade) {
+    public void setTotalCarbonhydrade(float totalCarbonhydrade) {
         this.totalCarbonhydrade = totalCarbonhydrade;
     }
 
