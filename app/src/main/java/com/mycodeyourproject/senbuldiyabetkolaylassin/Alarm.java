@@ -34,7 +34,7 @@ public class Alarm extends BroadcastReceiver{
                 };
 
         Log.e("index", ""+index);
-        createNotification2(context, messages[index]);
+        createNotification4(context, messages[index]);
         if(++index == messages.length)
             index = 0;
     }
@@ -106,4 +106,49 @@ public class Alarm extends BroadcastReceiver{
         mNotificationManager.notify(mIncrementalNotificationId, notification);
 
     }
+
+    private void createNotification3(Context context, String msg) {
+
+        //contentView.setTextViewText(R.id.notifTitle, "ViaDiabet");
+
+        Intent i = new Intent(context, ViaDiabet.class);
+        PendingIntent intent = PendingIntent.getActivity(context, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        Notification.Builder notificationBuilder = new Notification.Builder(context)
+                .setContentTitle("ViaDiabet");
+        notificationBuilder.addAction(R.mipmap.ic_action_direction, "Yes", intent);
+        notificationBuilder.addAction(R.mipmap.ic_action_refresh, "No", intent);
+
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        notificationBuilder.setContentIntent(intent);
+
+        notificationBuilder.setSmallIcon(R.mipmap.sanofi);
+        Notification notification = notificationBuilder.build();
+
+        mIncrementalNotificationId = mIncrementalNotificationId + 1;
+        mNotificationManager.notify(mIncrementalNotificationId, notification);
+
+    }
+
+    private void createNotification4(Context context, String msg) {
+
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
+        Notification.Builder notificationBuilder = new Notification.Builder(context)
+                .setContentTitle("ViaDiabet");
+
+        Intent i = new Intent(context, ViaDiabet.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent intent = PendingIntent.getActivity(context, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.setContentIntent(intent);
+
+        notificationBuilder.setSmallIcon(R.mipmap.sanofi);
+        Notification notification = notificationBuilder.build();
+
+        mIncrementalNotificationId = mIncrementalNotificationId + 1;
+        mNotificationManager.notify(mIncrementalNotificationId, notification);
+
+    }
+
 }
