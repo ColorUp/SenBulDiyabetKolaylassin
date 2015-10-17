@@ -115,9 +115,9 @@ public class Alarm extends BroadcastReceiver{
         PendingIntent intent = PendingIntent.getActivity(context, 0, i,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         Notification.Builder notificationBuilder = new Notification.Builder(context)
-                .setContentTitle("ViaDiabet");
-        notificationBuilder.addAction(R.mipmap.ic_action_direction, "Yes", intent);
-        notificationBuilder.addAction(R.mipmap.ic_action_refresh, "No", intent);
+                .setContentTitle("Bugün yemekte yoğurt yedin mi?");
+        notificationBuilder.addAction(R.mipmap.tick, "Evet", intent);
+        notificationBuilder.addAction(R.mipmap.nocross, "Hayır", intent);
 
         i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
@@ -135,7 +135,7 @@ public class Alarm extends BroadcastReceiver{
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
         Notification.Builder notificationBuilder = new Notification.Builder(context)
-                .setContentTitle("ViaDiabet");
+                .setContentTitle("Bugün yemekte yoğurt yedin mi?");
 
         Intent i = new Intent(context, ViaDiabet.class);
         i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
