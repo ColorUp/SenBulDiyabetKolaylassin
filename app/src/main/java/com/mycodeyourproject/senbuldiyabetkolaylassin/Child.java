@@ -4,19 +4,19 @@ package com.mycodeyourproject.senbuldiyabetkolaylassin;
  * Created by Burak on 05.10.2015.
  */
 public class Child {
-    private int id;
+    private long id;
     private String name;
     private String summary;
     private boolean checked;
-    private int cal;
-    private int fat;
-    private int protein;
+    private float cal;
+    private float fat;
+    private float protein;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,27 +45,27 @@ public class Child {
         this.checked = checked;
     }
 
-    public int getCal() {
+    public float getCal() {
         return cal;
     }
 
-    public void setCal(int cal) {
+    public void setCal(float cal) {
         this.cal = cal;
     }
 
-    public int getFat() {
+    public float getFat() {
         return fat;
     }
 
-    public void setFat(int fat) {
+    public void setFat(float fat) {
         this.fat = fat;
     }
 
-    public int getProtein() {
+    public float getProtein() {
         return protein;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(float protein) {
         this.protein = protein;
     }
 }

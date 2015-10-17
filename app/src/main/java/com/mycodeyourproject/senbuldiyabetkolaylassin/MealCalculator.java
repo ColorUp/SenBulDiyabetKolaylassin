@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class MealCalculator extends BaseViaDiabetActivity {
     ArrayList<Parent> list;
@@ -58,21 +59,21 @@ public class MealCalculator extends BaseViaDiabetActivity {
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.actionbar_with_buttons, null);
 
-        actionBarBack=(Button)mCustomView.findViewById(R.id.actionbar_back_button);
+        actionBarBack = (Button) mCustomView.findViewById(R.id.actionbar_back_button);
         actionBarBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent data=new Intent(Intent.ACTION_VIEW);
-                data.putExtra("Kalori","0");
-                data.putExtra("Protein","0");
-                data.putExtra("Yağ","0");
+                Intent data = new Intent(Intent.ACTION_VIEW);
+                data.putExtra("Kalori", "0");
+                data.putExtra("Protein", "0");
+                data.putExtra("Yağ", "0");
                 data.putExtra("Karbonhidrat", "0");
                 setResult(0, data);
                 finish();
             }
         });
 
-        actionBarSave=(Button)mCustomView.findViewById(R.id.actionbar_save_button);
+        actionBarSave = (Button) mCustomView.findViewById(R.id.actionbar_save_button);
         actionBarSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +105,7 @@ public class MealCalculator extends BaseViaDiabetActivity {
         expListView.setDividerHeight(1);
         registerForContextMenu(expListView);
 
-        buildDummyData();
+        buildMealCalculatorData();
 
         // Adding ArrayList data to ExpandableListView values
         loadHosts(list);
@@ -116,121 +117,39 @@ public class MealCalculator extends BaseViaDiabetActivity {
     private ArrayList<Parent> parents;
 
 
-    private void buildDummyData() {
-        // Creating ArrayList of type parent class to store parent class objects
+    private void buildMealCalculatorData() {
         list = new ArrayList<Parent>();
-        for (int i = 1; i < 4; i++) {
-            //Create parent class object
+
+        List<Map<Object, Object>> kategoriler = DataTransferObjects.MealCategory.getMealCategoryList(Long.MIN_VALUE);
+
+        for (int i = 0; i < kategoriler.size(); i++) {
             final Parent parent = new Parent();
+            Map<Object, Object> kategori = kategoriler.get(i);
 
-            // Set values in parent class object
-            if (i == 1) {
-                parent.setId(i);
-                parent.setName("Hamur İşleri");
-                parent.setTotalCal(0);
-                parent.setTotalCarbonhydrade(0);
-                parent.setTotalFat(0);
-                parent.setTotalProtein(0);
-                parent.setChildren(new ArrayList<Child>());
+            parent.setId(Long.valueOf(kategori.get("ID").toString()));
+            parent.setName(kategori.get("NAME").toString());
+            parent.setTotalCal(0);
+            parent.setTotalCarbonhydrade(0);
+            parent.setTotalFat(0);
+            parent.setTotalProtein(0);
+            parent.setChildren(new ArrayList<Child>());
 
-                // Create Child class object
-                final Child child = new Child();
-                child.setId(i);
-                child.setName("Ekmek");
-                child.setCal(33);
-                child.setFat(5);
-                child.setProtein(55);
+            List<Map<Object, Object>> kategoriYemekleri = DataTransferObjects.Meal.getMealList(parent.getId());
 
-                //Add Child class object to parent class object
-                parent.getChildren().add(child);
+            if(kategoriYemekleri!=null) {
+                for (int j = 0; j < kategoriYemekleri.size(); j++) {
+                    final Child child = new Child();
+                    Map<Object, Object> yemek = kategoriYemekleri.get(i);
+                    child.setId(Long.valueOf(yemek.get("ID").toString()));
+                    child.setName(yemek.get("NAME").toString());
+                    child.setCal(Float.valueOf(yemek.get("CALORI").toString()));
+                    child.setFat(Float.valueOf(yemek.get("FAT").toString()));
+                    child.setProtein(Float.valueOf(yemek.get("PROTEIN").toString()));
 
-                final Child child1 = new Child();
-                child1.setId(i);
-                child1.setName("Poğaça");
-                child1.setCal(33);
-                child1.setFat(65);
-                child1.setProtein(15);
-                parent.getChildren().add(child1);
-
-                final Child child2 = new Child();
-                child2.setId(i);
-                child2.setName("Simit");
-                child2.setCal(133);
-                child2.setFat(15);
-                child2.setProtein(5);
-                parent.getChildren().add(child2);
-            } else if (i == 2) {
-                parent.setId(i);
-                parent.setName("Meyveler");
-                parent.setTotalCal(0);
-                parent.setTotalCarbonhydrade(0);
-                parent.setTotalFat(0);
-                parent.setTotalProtein(0);
-                parent.setChildren(new ArrayList<Child>());
-
-                // Create Child class object
-                final Child child = new Child();
-                child.setId(i);
-                child.setName("Elma");
-                child.setCal(55);
-                child.setFat(12);
-                child.setProtein(52);
-
-                //Add Child class object to parent class object
-                parent.getChildren().add(child);
-
-                final Child child1 = new Child();
-                child1.setId(i);
-                child1.setName("Muz");
-                child1.setCal(23);
-                child1.setFat(7);
-                child1.setProtein(18);
-                parent.getChildren().add(child1);
-
-                final Child child2 = new Child();
-                child2.setId(i);
-                child2.setName("Çilek");
-                child2.setCal(19);
-                child2.setFat(45);
-                child2.setProtein(13);
-                parent.getChildren().add(child2);
-            } else if (i == 3) {
-                parent.setId(i);
-                parent.setName("Salatalar");
-                parent.setTotalCal(0);
-                parent.setTotalCarbonhydrade(0);
-                parent.setTotalFat(0);
-                parent.setTotalProtein(0);
-                parent.setChildren(new ArrayList<Child>());
-
-                // Create Child class object
-                final Child child = new Child();
-                child.setId(i);
-                child.setName("Sezar Salata");
-                child.setCal(19);
-                child.setFat(45);
-                child.setProtein(13);
-
-                //Add Child class object to parent class object
-                parent.getChildren().add(child);
-
-                final Child child1 = new Child();
-                child1.setId(i);
-                child1.setName("Mevsim Salata");
-                child1.setCal(19);
-                child1.setFat(45);
-                child1.setProtein(13);
-                parent.getChildren().add(child1);
-
-                final Child child2 = new Child();
-                child2.setId(i);
-                child2.setName("Çoban Salata");
-                child2.setCal(19);
-                child2.setFat(45);
-                child2.setProtein(13);
-                parent.getChildren().add(child2);
+                    //Add Child class object to parent class object
+                    parent.getChildren().add(child);
+                }
             }
-
             //Adding Parent class object to ArrayList
             list.add(parent);
         }
@@ -322,49 +241,58 @@ public class MealCalculator extends BaseViaDiabetActivity {
 
             // Get grouprow.xml file checkbox elements
             final TableLayout tableLayout = (TableLayout) convertView.findViewById(R.id.row);
-            final CheckBox checkBox=(CheckBox)convertView.findViewById(R.id.checkbox);
+            final CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.checkbox);
             // Set CheckUpdateListener for CheckBox (see below CheckUpdateListener class)
             tableLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    View groupRow = LayoutInflater.from(getApplication()).inflate(R.layout.group_row, null);
-                    TextView parentSummary = (TextView) groupRow.findViewById(R.id.text_summary_group);
-                    if (child.isChecked()) {
-                        checkBox.setChecked(false);
-                        child.setChecked(false);
-                        parent.setTotalCal(parent.getTotalCal() - child.getCal());
-                        parent.setTotalProtein(parent.getTotalProtein() - child.getProtein());
-                        parent.setTotalFat(parent.getTotalFat() - child.getFat());
-                        parent.setSummary("K.Hidrat: " + parent.getTotalCarbonhydrade() +
-                                " gr, Yağ: " + parent.getTotalFat() + " kJ, Protein: " + parent.getTotalProtein() +
-                                " kJ, Kalori: " + parent.getTotalCal() + " cal");
-                        parentSummary.setText(parent.getSummary());
-                    } else {
-                        checkBox.setChecked(true);
-                        child.setChecked(true);
-                        parent.setTotalCal(parent.getTotalCal() + child.getCal());
-                        parent.setTotalProtein(parent.getTotalProtein() + child.getProtein());
-                        parent.setTotalFat(parent.getTotalFat() + child.getFat());
-                        parent.setSummary("K.Hidrat: " + parent.getTotalCarbonhydrade() +
-                                " gr, Yağ: " + parent.getTotalFat() + " kJ, Protein: " + parent.getTotalProtein() +
-                                " kJ, Kalori: " + parent.getTotalCal() + " cal");
-                        parentSummary.setText(parent.getSummary());
-                    }
+                    runOnUiThread(new Runnable() {
 
-                    float calori = 0;
-                    float protein = 0;
-                    float fat = 0;
-                    for (int i = 0; i < list.size(); i++) {
-                        Parent parent = list.get(i);
-                        calori = calori + parent.getTotalCal();
-                        protein = protein + parent.getTotalProtein();
-                        fat = fat + parent.getTotalFat();
-                    }
+                        @Override
+                        public void run() {
 
-                    textBoxCalori.setText(String.valueOf(calori) + " kCal");
-                    textBoxProtein.setText(String.valueOf(protein) + " gr");
-                    textBoxFat.setText(String.valueOf(fat) + " kJ");
+                            View groupRow = LayoutInflater.from(getApplication()).inflate(R.layout.group_row, null);
+                            TextView parentSummary = (TextView) groupRow.findViewById(R.id.text_summary_group);
+
+                            if (child.isChecked()) {
+                                checkBox.setChecked(false);
+                                child.setChecked(false);
+                                parent.setTotalCal(parent.getTotalCal() - child.getCal());
+                                parent.setTotalProtein(parent.getTotalProtein() - child.getProtein());
+                                parent.setTotalFat(parent.getTotalFat() - child.getFat());
+                                parent.setSummary("K.Hidrat: " + parent.getTotalCarbonhydrade() +
+                                        " gr, Yağ: " + parent.getTotalFat() + " kJ, Protein: " + parent.getTotalProtein() +
+                                        " kJ, Kalori: " + parent.getTotalCal() + " cal");
+                                parentSummary.setText(parent.getSummary());
+                            } else {
+                                checkBox.setChecked(true);
+                                child.setChecked(true);
+                                parent.setTotalCal(parent.getTotalCal() + child.getCal());
+                                parent.setTotalProtein(parent.getTotalProtein() + child.getProtein());
+                                parent.setTotalFat(parent.getTotalFat() + child.getFat());
+                                parent.setSummary("K.Hidrat: " + parent.getTotalCarbonhydrade() +
+                                        " gr, Yağ: " + parent.getTotalFat() + " kJ, Protein: " + parent.getTotalProtein() +
+                                        " kJ, Kalori: " + parent.getTotalCal() + " cal");
+                                parentSummary.setText(parent.getSummary());
+                            }
+
+                            float calori = 0;
+                            float protein = 0;
+                            float fat = 0;
+                            for (int i = 0; i < list.size(); i++) {
+                                Parent parent = list.get(i);
+                                calori = calori + parent.getTotalCal();
+                                protein = protein + parent.getTotalProtein();
+                                fat = fat + parent.getTotalFat();
+                            }
+
+                            textBoxCalori.setText(String.valueOf(calori) + " kCal");
+                            textBoxProtein.setText(String.valueOf(protein) + " gr");
+                            textBoxFat.setText(String.valueOf(fat) + " kJ");
+                        }
+                    });
+
                 }
             });
 
@@ -465,7 +393,6 @@ public class MealCalculator extends BaseViaDiabetActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -478,24 +405,24 @@ public class MealCalculator extends BaseViaDiabetActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent data=new Intent(Intent.ACTION_VIEW);
+        Intent data = new Intent(Intent.ACTION_VIEW);
         // Take appropriate action for each action item click
         switch (item.getItemId()) {
             case R.id.action_save:
-                data.putExtra("Kalori",textBoxCalori.getText());
-                data.putExtra("Protein",textBoxProtein.getText());
-                data.putExtra("Yağ",textBoxFat.getText());
-                data.putExtra("Karbonhidrat",textBoxCarbonhydrade.getText());
-                setResult(0,data);
+                data.putExtra("Kalori", textBoxCalori.getText());
+                data.putExtra("Protein", textBoxProtein.getText());
+                data.putExtra("Yağ", textBoxFat.getText());
+                data.putExtra("Karbonhidrat", textBoxCarbonhydrade.getText());
+                setResult(0, data);
                 finish();
                 return true;
 
             case R.id.action_back:
-                data.putExtra("Kalori","0");
-                data.putExtra("Protein","0");
-                data.putExtra("Yağ","0");
-                data.putExtra("Karbonhidrat","0");
-                setResult(0,data);
+                data.putExtra("Kalori", "0");
+                data.putExtra("Protein", "0");
+                data.putExtra("Yağ", "0");
+                data.putExtra("Karbonhidrat", "0");
+                setResult(0, data);
                 finish();
                 return true;
             default:
