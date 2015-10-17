@@ -19,7 +19,7 @@ public class Alarm extends BroadcastReceiver{
     private NotificationManager mNotificationManager;
     private Integer mIncrementalNotificationId = Integer.valueOf(0);
     private String messages[];
-    private static int index = 0;
+    private static int index = 5;
     @Override
     public void onReceive(Context context, Intent ıntent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -30,11 +30,11 @@ public class Alarm extends BroadcastReceiver{
                         "Hadi yemeklerinden tuzu çıkar!\nGünde bir çay kaşığı kadar tuz yeter, unutma",
                         "Çavdar ekmeği veya tam buğday ekmeğinin\nçok sağlıklı olduğunu unutma...",
                         "Iyyykkk... \nYağlı yemek yemeyelim sakın...",
-                        "Havucu yemeklerimizde dikkatli ve ölçülü tüketmemiz\ngerektiğini biliyor musunuz? -Agah Burak DEMİRKAN",
+                        "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?"
                 };
 
         Log.e("index", ""+index);
-        createNotification4(context, messages[index]);
+        createNotification3(context, messages[index]);
         if(++index == messages.length)
             index = 0;
     }

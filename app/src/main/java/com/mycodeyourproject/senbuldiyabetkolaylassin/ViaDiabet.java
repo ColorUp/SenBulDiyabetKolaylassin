@@ -208,7 +208,8 @@ public class ViaDiabet extends BaseViaDiabetActivity {
 
     public void showNotif(View v)
     {
-        createNotification();
+        Intent newIntent = new Intent(ViaDiabet.this, SendReport.class);
+        startActivity(newIntent);
     }
 
     private void createNotification() {

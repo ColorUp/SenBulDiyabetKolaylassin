@@ -24,6 +24,7 @@ public class Stats extends AppCompatActivity {
         BarChart mBarChart = (BarChart) findViewById(R.id.barchart);
         mBarChart.setContentDescription("Description");
 
+
         ArrayList<BarValue> barValues = new ArrayList<>();
 
         barValues.add(new BarValue(1310,"02.10.2015", 0xFF123456));
@@ -46,7 +47,7 @@ public class Stats extends AppCompatActivity {
         barValues2.add(new BarValue(3,"04.10.2015", 0xFF123456));
         barValues2.add(new BarValue(0,"05.10.2015", 0xFF123456));
         barValues2.add(new BarValue(0, "06.10.2015", 0xFF123456));
-        barValues2.add(new BarValue(4, "06.10.2015", 0xFF123456));
+        barValues2.add(new BarValue(4, "07.10.2015", 0xFF123456));
 
 
         for(int i=0; i<barValues2.size(); i++)
