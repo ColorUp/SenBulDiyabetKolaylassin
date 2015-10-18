@@ -7,10 +7,10 @@
     android:paddingTop="10dp">
         <TextView
             android:id="@+id/radiobutton_textview"
-            android:layout_width="fill_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="?android:attr/label"
-            android:singleLine="true"
+            android:singleLine="false"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:paddingBottom ="10dp"

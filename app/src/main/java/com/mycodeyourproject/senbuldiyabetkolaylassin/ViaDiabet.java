@@ -29,42 +29,41 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class ViaDiabet extends BaseViaDiabetActivity {
     public final static String MESAJ = "com.mycodeyourproject.senbuldiyabetkolaylassin.MESAJ";
 
     private void setInitialValues() {
         SimpleDateFormat sdfDate = new SimpleDateFormat((getString(R.string.date_format)));
-        SimpleDateFormat sdfTime = new SimpleDateFormat((getString(R.string.time_format)));
+        SimpleDateFormat sdfDateTime = new SimpleDateFormat(getString(R.string.date_format) +" " + getString(R.string.time_format));
 
-        TextView lastCheckBlood = (TextView) findViewById(R.id.text_last_check_blood);
-        lastCheckBlood.setText(getString(R.string.number_zero));
+        //Veritabanından verilerin hepsi okunur
+        List<Map<Object, Object>> userDataList = DataTransferObjects.UserDatalog.getUserDatalogList("agah");
 
-        TextView lastCheckDate = (TextView) findViewById(R.id.text_last_check_date);
-        lastCheckDate.setText(sdfDate.format(Calendar.getInstance().getTime()));
+        Comparator<Object> cmp = new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return Integer.valueOf(((Map<Object, Object>) o1).get("ID").toString()).compareTo(Integer.valueOf(((Map<Object, Object>) o2).get("ID").toString()));
+            }
+        };
 
-        TextView lastCheckInsulinDate = (TextView) findViewById(R.id.text_last_check_insulin_date);
-        lastCheckInsulinDate.setText(sdfDate.format(Calendar.getInstance().getTime()));
-        TextView autoCommentTime = (TextView) findViewById(R.id.text_auto_comment_time);
-        autoCommentTime.setText(sdfTime.format(Calendar.getInstance().getTime()));
+        Map<Object, Object> lastData = Collections.max(userDataList, cmp);
 
-        TextView lastCheckInsuline = (TextView) findViewById(R.id.text_last_check_insulin);
+        TextView autoCommentTime = (TextView) findViewById(R.id.auto_comment_time);
+        autoCommentTime.setText(sdfDateTime.format(Calendar.getInstance().getTime()));
 
-        String firstString = getString(R.string.number_zero);
-        String secondString = getString(R.string.unity_insuline);
-
-        SpannableStringBuilder stringBuilder = new SpannableStringBuilder(firstString + secondString);
-        stringBuilder.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, firstString.length(),
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        stringBuilder.setSpan(new ForegroundColorSpan(Color.rgb(255, 0, 0)), firstString.length(),
-                firstString.length() + secondString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        lastCheckInsuline.setText(stringBuilder);
-
-        TextView autoComment = (TextView) findViewById(R.id.text_auto_comment);
+        TextView autoComment = (TextView) findViewById(R.id.auto_comment);
 
         String firstComment = getString(R.string.auto_comment_hey);
         String secondComment = getString(R.string.auto_comment_need_more_values);
@@ -75,6 +74,56 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         commentBuilder.setSpan(new ForegroundColorSpan(Color.rgb(255, 0, 0)), firstComment.length(),
                 firstComment.length() + secondComment.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         autoComment.setText(commentBuilder);
+
+        String mgDecilitre = getResources().getString(R.string.unity_mg_decilitre);
+        String calori = "kCal";
+        String gram = getResources().getString(R.string.unity_gram);
+        String insuline = getResources().getString(R.string.unity_insuline);
+        String kilogram = "kg";
+
+        String lastDataDateTime = lastData.get("DATETIME").toString();
+        Date date;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            date = simpleDateFormat.parse(lastDataDateTime);
+        } catch (ParseException ex) {
+            date = new Date();
+        }
+
+        TextView lastCheckBlood = (TextView) findViewById(R.id.text_last_check_blood);
+        lastCheckBlood.setText(String.valueOf(Math.round(Float.parseFloat(lastData.get("GLUCOSE").toString()))));
+        TextView lastCheckBloodDate = (TextView) findViewById(R.id.text_last_check_date);
+        lastCheckBloodDate.setText(sdfDate.format(date));
+        TextView lastCheckInsulinDate = (TextView) findViewById(R.id.text_last_check_insulin_date);
+        lastCheckInsulinDate.setText(sdfDate.format(date));
+        TextView lastInsuline = (TextView) findViewById(R.id.text_insulin);
+        lastInsuline.setText(Extensions.Format("{0} {1}", lastData.get("INSULINE").toString(), insuline));
+
+        TextView lastDataCarbonhydrade = (TextView) findViewById(R.id.statistic_last_data_carbonhydrade);
+        lastDataCarbonhydrade.setText(Extensions.Format("{0} {1}", lastData.get("CARBONHYDRADE").toString(), gram));
+        TextView lastDataCarbonhydradeDateTime = (TextView) findViewById(R.id.statistic_last_data_carbonhydrade_date_time);
+        lastDataCarbonhydradeDateTime.setText(lastData.get("DATETIME").toString());
+        TextView lastDataCalori = (TextView) findViewById(R.id.statistic_last_data_calori);
+        lastDataCalori.setText(Extensions.Format("{0} {1}", lastData.get("CALORI").toString(), calori));
+        TextView lastDataCaloriDateTime = (TextView) findViewById(R.id.statistic_last_data_calori_date_time);
+        lastDataCaloriDateTime.setText(lastData.get("DATETIME").toString());
+        TextView lastDataGlucose = (TextView) findViewById(R.id.statistic_last_data_glucose);
+        lastDataGlucose.setText(Extensions.Format("{0} {1}", lastData.get("GLUCOSE").toString(), mgDecilitre));
+        TextView lastDataGlucoseDateTime = (TextView) findViewById(R.id.statistic_last_data_glucose_date_time);
+        lastDataGlucoseDateTime.setText(lastData.get("DATETIME").toString());
+        TextView lastDataWeight = (TextView) findViewById(R.id.statistic_last_data_weight);
+        lastDataWeight.setText(Extensions.Format("{0} {1}", lastData.get("WEIGHT").toString(), kilogram));
+        TextView totalRecord = (TextView) findViewById(R.id.statistic_total_record);
+        totalRecord.setText(String.valueOf(userDataList.size()));
+        TextView totalDailyGlicoseRecord = (TextView) findViewById(R.id.statistic_daily_total_glicose_record);
+
+        int glucoseCount = 0;
+        for (int i = 0; i == userDataList.size(); i++) {
+            if (Float.parseFloat(userDataList.get(i).get("GLUCOSE").toString()) > 0)
+                glucoseCount++;
+        }
+
+        totalDailyGlicoseRecord.setText(String.valueOf(glucoseCount));
     }
 
     @Override
@@ -87,6 +136,8 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         android.support.v7.app.ActionBar.LayoutParams params=new android.support.v7.app.ActionBar.LayoutParams(120,30);
         super.mActionBar.setCustomView(textView, params);
         super.mActionBar.setDisplayShowCustomEnabled(true);*/
+
+        setInitialValues();
         setButtonListener();
     }
 
@@ -220,8 +271,7 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         //Create Intent to launch this Activity again if the notification is clicked.
         Intent i = new Intent(this, ViaDiabet.class);
         i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent intent = PendingIntent.getActivity(this, 0, i,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent intent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(intent);
         // END_INCLUDE(intent)
 

@@ -23,7 +23,6 @@
     <string name="text_last_check">Son Kontrol</string>
     <string name="text_last_check_blood">243</string>
     <string name="text_last_check_date">30.07.2015</string>
-    <string name="text_insulin">12 uIU/mL</string>
     <string name="text_last_check_insulin">Son İnsülin</string>
     <string name="text_insulin_unit">uIU/mL</string>
     <string name="text_auto_comment_time">30.07.2015 10:18</string>
@@ -189,15 +188,7 @@
     <string name="text_colestrol">Kolesterol</string>
     <string name="text_weight">Ağırlık</string>
     <string name="text_hb1ac">HbA1c</string>
-    <string name="unity_colestrol">mg/dL</string>
-    <string name="unity_weight">kg</string>
-    <string name="unity_hb1ac">%</string>
 
-    <string-array name="array_name">
-        <item>Seçiniz</item>
-        <item>Item Two</item>
-        <item>Item Three</item>
-    </string-array>
     <string name="title_activity_diet_list">DietList</string>
     <string name="title_activity_stats">Stats</string>
     <string name="custom_notification">Şekerini ölç!</string>
@@ -205,5 +196,4 @@
     <string name="facebook_app_id">817672744967667</string>
     <string name="title_activity_send_report">Rapor Gönder</string>
     <string name="title_activity_graphs">Graphs</string>
-
 </resources>

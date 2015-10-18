@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_name">
+        <item>Seçiniz</item>
+        <item>Item Two</item>
+        <item>Item Three</item>
+    </string-array>
+
+    <string-array name="medenidurum">
+        <item>Evli</item>
+        <item>Bekar</item>
+    </string-array>
+
+    <string-array name="meslekler">
+        <item>Bakan, Milletvekili</item>
+        <item>Bankacı</item>
+        <item>Bayi</item>
+        <item>Boyacı, Elektrikçi, Tesisatçı, Tamirci, Marangoz</item>
+        <item>Çiftçi-Besici</item>
+        <item>Diğer</item>
+        <item>Muhasebeci, Mali Müşavir</item>
+        <item>İşçi</item>
+        <item>Kuaför, Berber, Güzellik Uzmanı</item>
+        <item>Kuyumcu, Sarraf</item>
+        <item>Diğer Sağlık Personeli</item>
+        <item>Mühendis</item>
+        <item>Menajer, Yapımcı, Yönetmen</item>
+        <item>Müteahhit</item>
+        <item>Noter</item>
+        <item>Organizatör</item>
+        <item>Öğretmen</item>
+        <item>Pazarlamacı, Reprezant</item>
+        <item>Pilot, Kaptan</item>
+        <item>Programcı, Sistemci, Analist, Yazılımcı</item>
+        <item>Güvenlik Görevlisi</item>
+        <item>İşsiz</item>
+        <item>Laborant, Biyolog, Radyolog</item>
+        <item>Memur, Kamu Görevlisi</item>
+        <item>Din Görevlisi</item>
+        <item>Emlak Komisyoncusu</item>
+        <item>Esnaf</item>
+        <item>Öğrenci</item>
+        <item>Polis</item>
+        <item>Rehber, Tur Operatörü</item>
+        <item>Sporcu, Antrenör</item>
+        <item>Tacir</item>
+        <item>Tıp Doktoru</item>
+        <item>Eczacı</item>
+        <item>Ekonomist, Finans Uzmanı, Borsacı</item>
+        <item>Emekli</item>
+        <item>Ev Hanımı</item>
+        <item>Garson, Komi, Hizmetli, Müstahdem</item>
+        <item>Gazeteci, Televizyoncu, Muhabir, Kameraman</item>
+        <item>Akademisyen</item>
+        <item>Asker (TSK Üyeleri)</item>
+        <item>Avukat</item>
+        <item>Reklamcı</item>
+        <item>Sanatçı</item>
+        <item>Sekreter</item>
+        <item>Serbest Meslek</item>
+        <item>Sigortacı</item>
+        <item>Şoför(Taksi,dolmuş,minibüs)</item>
+        <item>Hat Sahibi</item>
+        <item>Host, Hostes, Kabin Görevlisi</item>
+        <item>Tasarımcı, Grafiker</item>
+        <item>Veteriner</item>
+        <item>Yan Gelir Sahibi</item>
+        <item>Yönetici</item>
+        <item>Sanayici</item>
+        <item>Diplomat</item>
+        <item>Yazar</item>
+        <item>Lokantacı</item>
+        <item>Terzi</item>
+        <item>Zabıta</item>
+        <item>Psikolog</item>
+        <item>Kasap</item>
+        <item>Psikolojik Danışman/Rehber</item>
+        <item>Aşçı</item>
+        <item>Fırıncı</item>
+        <item>Ormancı</item>
+        <item>Balıkçı</item>
+        <item>Diş Hekimi</item>
+        <item>Hakim, Savcı</item>
+        <item>Mimar</item>
+        <item>Bürokrat</item>
+        <item>Danışman, Müşavir</item>
+        <item>İşçi(Mevsimlik</item>
+        <item>İşçi(Tekstil,inşaat)</item>
+        <item>İşportacı, Pazarcı</item>
+        <item>Şoför(Diğer)</item>
+        <item>Teknisyen</item>
+    </string-array>
+
+    <string-array name="sporsikliklari">
+        <item>Günlük</item>
+        <item>Üç günde</item>
+        <item>Hafta içi</item>
+        <item>Hafta sonu</item>
+        <item>Haftalık</item>
+        <item>İki haftada</item>
+        <item>Aylık</item>
+    </string-array>
+</resources>

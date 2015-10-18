@@ -4,4 +4,9 @@
     <string name="unity_mg_decilitre">mg/dL</string>
     <string name="unity_gram">gram</string>
     <string name="unity_iu">IU</string>
+    <string name="unity_colesterol">mg/dL</string>
+    <string name="unity_weight">kg</string>
+    <string name="unity_hb1ac">%</string>
+    <string name="unity_meter">cm</string>
+    <string name="unity_leter">Lt</string>
 </resources>

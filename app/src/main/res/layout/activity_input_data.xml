@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_blood_drop"
         app:label="@string/text_glicose"
-        app:text="@string/zero"
+        app:hint="@string/zero"
         app:unit="@string/unity_mg_decilitre"
         android:id="@+id/imagetextbox_glicose"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_apple"
         app:label="@string/text_carbonhydrade"
-        app:text="@string/zero"
+        app:hint="@string/zero"
         app:unit="@string/unity_gram"
         android:id="@+id/imagetextbox_carbonhydrade"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_siringa"
         app:label="@string/text_insuline"
-        app:text="@string/zero"
+        app:hint="@string/zero"
         app:unit="@string/unity_iu"
         android:id="@+id/imagetextbox_insuline"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_blood_drop"
         app:label="@string/text_hb1ac"
-        app:text="@string/zero"
+        app:hint="@string/zero"
         app:unit="@string/unity_hb1ac"
         android:id="@+id/imagetextbox_hb1ac"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
@@ -54,28 +54,13 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_colesterol"
         app:label="@string/text_colestrol"
-        app:text="@string/zero"
-        app:unit="@string/unity_colestrol"
+        app:hint="@string/zero"
+        app:unit="@string/unity_colesterol"
         android:id="@+id/imagetextbox_colestrol"/>
-    <LinearLayout
+    <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_category"
-        android:id="@+id/image_category"
-        android:layout_weight="1.5"/>
-    <TextView
-        style="@style/textViewStyle"
-        android:text="@string/text_category"
-        android:id="@+id/text_category"
-        android:layout_weight=".4"/>
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner_category"
-        android:layout_weight=".3"/>
-    </LinearLayout>
+        app:label="@string/text_category"
+        app:text="Kategori seçiniz"
+        android:id="@+id/spinner_category"/>
 </LinearLayout>

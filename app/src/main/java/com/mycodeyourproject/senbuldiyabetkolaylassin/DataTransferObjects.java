@@ -140,6 +140,7 @@ public class DataTransferObjects {
         public boolean hasAllergic = false;
         public boolean useMedicine = false;
         public String information = "";
+        public boolean hasAlcohol=false;
 
         Map<String, String> getUserLifeStyleObject() {
             Map<String, String> userLifeStyle = DatabaseQuery.GetParameterList("USERLIFESTYLE");
@@ -170,6 +171,7 @@ public class DataTransferObjects {
             userLifeStyle.put("HASALLERGIC", Converter.BooleanToString(hasAllergic));
             userLifeStyle.put("USEMEDICINE", Converter.BooleanToString(useMedicine));
             userLifeStyle.put("INFORMATION", information);
+            userLifeStyle.put("HASALCOHOL", Converter.BooleanToString(hasAlcohol));
 
             return userLifeStyle;
         }
@@ -179,7 +181,7 @@ public class DataTransferObjects {
                       Byte sportSmartnessInput, Date sportTimeInput, boolean snackAfterBreakfastInput,
                       Date breakfastTimeInput, boolean snackAfterLunchInput, Date lunchTimeInput, boolean snackAfterDinnerInput,
                       Date dinnerTimeInput, boolean hasJourneyInput, Float dailyWaterDrinksInput, boolean isSmokingInput,
-                      boolean hasAllergicInput, boolean useMedicineInput, String informationInput) {
+                      boolean hasAllergicInput, boolean useMedicineInput, String informationInput, boolean hasAlcoholInput) {
 
             userName = usernameInput;
             height = heightInput;
@@ -203,6 +205,7 @@ public class DataTransferObjects {
             hasAllergic = hasAllergicInput;
             useMedicine = useMedicineInput;
             information = informationInput;
+            hasAlcohol=hasAlcoholInput;
         }
 
         public static List<Map<Object, Object>> getUserLifeStyleList(String userName) {
@@ -237,6 +240,7 @@ public class DataTransferObjects {
             userLifeStyle.remove("HASALLERGIC");
             userLifeStyle.remove("USEMEDICINE");
             userLifeStyle.remove("INFORMATION");
+            userLifeStyle.remove("HASALCOHOL");
 
             List<Map<Object, Object>> userlifestyleList = DatabaseQuery.Select("USERLIFESTYLE", userLifeStyle);
 
@@ -356,6 +360,7 @@ public class DataTransferObjects {
             userDatalog.remove("COLESTEROL");
             userDatalog.remove("CATEGORY");
             userDatalog.remove("CALORI");
+            userDatalog.remove("DATETIME");
 
             List<Map<Object, Object>> userDatalogList = DatabaseQuery.Select("USERDATALOG", userDatalog);
 

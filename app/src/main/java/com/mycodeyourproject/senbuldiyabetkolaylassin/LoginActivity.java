@@ -51,8 +51,7 @@ import java.util.List;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends FragmentActivity implements LoaderCallbacks<Cursor>
-{
+public class LoginActivity extends FragmentActivity implements LoaderCallbacks<Cursor> {
     private UserLoginTask mAuthTask = null;
 
     private EditText mPasswordView;
@@ -77,22 +76,19 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         getLoaderManager().initLoader(0, null, this);
     }
 
-    public void fbLogin(View v)
-    {
+    public void fbLogin(View v) {
         finish();
         Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
         startActivity(intent);
     }
 
-    public void KayitOl(View v) throws URISyntaxException, IOException
-    {
+    public void KayitOl(View v) throws URISyntaxException, IOException {
         finish();
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
 
-    public void GirisYap(View v) throws URISyntaxException, IOException
-    {
+    public void GirisYap(View v) throws URISyntaxException, IOException {
         EditText txtUserName = (EditText) findViewById(R.id.login_username).findViewById(R.id.textbox_editText);
         EditText txtPassword = (EditText) findViewById(R.id.login_password).findViewById(R.id.textbox_editText);
 
@@ -105,13 +101,11 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
             return;
         }
 
-        if(DataTransferObjects.User.UserIsValid(txtUserName.getText().toString(),txtPassword.getText().toString())) {
+        if (DataTransferObjects.User.UserIsValid(txtUserName.getText().toString(), txtPassword.getText().toString())) {
             finish();
             Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
             startActivity(intent);
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "Kullanıcı adı ve şifrenizi kontrol ediniz!", Toast.LENGTH_LONG).show();
             return;
         }
@@ -246,4 +240,3 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         }
     }
 }
-

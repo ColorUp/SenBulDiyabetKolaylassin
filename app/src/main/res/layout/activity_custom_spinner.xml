@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp">
         <TextView
@@ -17,7 +17,8 @@
             android:textSize="16dp"
             android:singleLine="true"
             android:textStyle="bold"
-            android:layout_weight=".8"/>
+            android:layout_weight=".8"
+            android:layout_gravity="bottom"/>
         <Spinner
             android:id="@+id/spinner"
             android:drawSelectorOnTop="true"
@@ -26,5 +27,5 @@
             android:prompt="?android:attr/text"
             android:layout_weight=".6"
             android:background="@drawable/edittextstyle"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center"/>
 </LinearLayout>

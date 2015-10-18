@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Burak on 10.09.2015.
@@ -27,37 +29,35 @@ public class CustomSpinner extends LinearLayout {
      *************/
     public ArrayList<SpinnerModel> CustomListViewValuesArr = new ArrayList<SpinnerModel>();
     CustomAdapter adapter;
-    CustomSpinner spinner = null;
-    Spinner SpinnerSample=null;
-    String text="";
+    Spinner SpinnerSample = null;
+    String text = "";
 
-    public CustomSpinner(Context context, AttributeSet attrs)
-    {
+    public CustomSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        TypedArray typedArray=context.obtainStyledAttributes(attrs, R.styleable.TextBox, 0, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TextBox, 0, 0);
         String label = typedArray.getString(R.styleable.TextBox_label);
-        text=typedArray.getString(R.styleable.TextBox_text);
+        text = typedArray.getString(R.styleable.TextBox_text);
         typedArray.recycle();
 
         setOrientation(LinearLayout.HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
 
-        LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.activity_custom_spinner, this, true);
 
-        TextView textView = (TextView)findViewById(R.id.custom_spinner_textView);
+        TextView textView = (TextView) findViewById(R.id.custom_spinner_textView);
         SpinnerSample = (Spinner) findViewById(R.id.spinner);
 
         textView.setText(label);
         SpinnerSample.setPrompt(text);
 
         // Set data in arraylist
-        setListData();
+        setListData(label);
 
         // Create custom adapter object ( see below CustomAdapter.java )
         adapter = new CustomAdapter(getContext(), R.layout.spinner_rows, CustomListViewValuesArr, inflater);
-        adapter.defaultValue=text;
+        adapter.defaultValue = text;
 
         // Set adapter to spinner
         SpinnerSample.setAdapter(adapter);
@@ -66,40 +66,44 @@ public class CustomSpinner extends LinearLayout {
         SpinnerSample.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View v, int position, long id) {
-                // your code here
+                SpinnerSample.setPrompt(String.valueOf(id));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 SpinnerSample.setPrompt(text); //Default text atar
             }
-
         });
     }
 
-    public CustomSpinner(Context context)
-    {
+    public CustomSpinner(Context context) {
         this(context, null);
     }
 
     /******
      * Function to set data in ArrayList
      *************/
-    public void setListData() {
+    public void setListData(String label) {
+        String[] array = new String[0];
+        switch (label) {
+            case "Meslek":
+                array = getResources().getStringArray(R.array.meslekler);
+                break;
+            case "Medeni Durum":
+                array = getResources().getStringArray(R.array.medenidurum);
+                break;
+            case "Sıklık":
+                array = getResources().getStringArray(R.array.sporsikliklari);
+                break;
+        }
+        final SpinnerModel defaultValue = new SpinnerModel();
+        defaultValue.setCompanyName(text);
 
-        // Now i have taken static values by loop.
-        // For further inhancement we can take data by webservice / json / xml;
-
-        for (int i = 0; i < 11; i++) {
-
-            final SpinnerModel sched = new SpinnerModel();
-
-            /******* Firstly take data in model object ******/
-            sched.setCompanyName("Company " + i);
-            sched.setImage("image1");
-
-            /******** Take Model Object in ArrayList **********/
-            CustomListViewValuesArr.add(sched);
+        CustomListViewValuesArr.add(defaultValue);
+        for (int i = 0; i < array.length; i++) {
+            final SpinnerModel spinnerModel = new SpinnerModel();
+            spinnerModel.setCompanyName(array[i]);
+            CustomListViewValuesArr.add(spinnerModel);
         }
     }
 }

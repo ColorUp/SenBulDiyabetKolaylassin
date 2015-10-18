@@ -82,7 +82,7 @@
                 android:id="@+id/signup_surname"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.RadioButtonTwoItems
                 android:id="@+id/signup_gender"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:text="Erkek,Kadın"
                 app:label="@string/gender"/>

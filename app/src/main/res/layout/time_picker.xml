@@ -5,7 +5,7 @@
     android:paddingBottom="10dp"
     android:paddingTop="10dp">
     <TextView
-        android:id="@+id/datetimepicker_textView"
+        android:id="@+id/timepicker_textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -18,7 +18,7 @@
         android:textStyle="bold"
         android:layout_weight=".5"/>
     <EditText
-        android:id="@+id/datetimepicker_editText"
+        android:id="@+id/timepicker_editText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="?android:attr/hint"

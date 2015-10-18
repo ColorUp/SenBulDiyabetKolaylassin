@@ -2,16 +2,23 @@
   <dictionary name="Burak">
     <words>
       <w>besinler</w>
+      <w>burak</w>
+      <w>calori</w>
       <w>choosen</w>
       <w>erkek</w>
       <w>giris</w>
+      <w>insuline</w>
       <w>kadın</w>
       <w>kaydet</w>
       <w>kayit</w>
+      <w>maritalstatus</w>
       <w>meslek</w>
       <w>mycodeyourproject</w>
       <w>senbuldiyabetkolaylassin</w>
       <w>signup</w>
+      <w>sleeptime</w>
+      <w>viadiabet</w>
+      <w>wakeuptime</w>
     </words>
   </dictionary>
 </component>

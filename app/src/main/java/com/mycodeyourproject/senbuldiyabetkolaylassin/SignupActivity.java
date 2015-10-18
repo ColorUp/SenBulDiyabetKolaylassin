@@ -90,24 +90,12 @@ public class SignupActivity extends BaseViaDiabetActivity {
         int choosenGender = Enums.GetGenderNumber(selectedGender.getText().toString());
         Date birthDate = Converter.StringToDate(txtBirthOfDate.getText().toString());
 
-/*        DataTransferObjects.User newUser = new DataTransferObjects.User(txtUserName.getText().toString(), txtPassword.getText().toString(),
-                birthDate, choosenGender, txtTurkishId.getText().toString(), txtName.getText().toString(), txtSurname.getText().toString());
-
-        Map<String, String> userObject = newUser.getUserObject();
-
-        boolean result = DatabaseQuery.Insert("USER", userObject);
-
-        if (result)
-            Toast.makeText(this, "Başarılı", Toast.LENGTH_LONG).show();
-        else
-            Toast.makeText(this, "Başarısız", Toast.LENGTH_LONG).show();*/
-
         finish();
         Intent intent = new Intent(SignupActivity.this, Questions.class);
-        intent.putExtra("UserName", txtUserName.getText().toString());
+        intent.putExtra("User", txtUserName.getText().toString());
         intent.putExtra("Password", txtPassword.getText().toString());
-        intent.putExtra("BirthDate", birthDate);
-        intent.putExtra("Gender", choosenGender);
+        intent.putExtra("BirthDate", txtBirthOfDate.getText().toString());
+        intent.putExtra("Gender", selectedGender.getText().toString());
         intent.putExtra("TurkishId", txtTurkishId.getText().toString());
         intent.putExtra("Name", txtName.getText().toString());
         intent.putExtra("Surname", txtSurname.getText().toString());

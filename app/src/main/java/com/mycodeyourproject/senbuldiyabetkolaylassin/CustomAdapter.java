@@ -14,29 +14,20 @@ import java.util.ArrayList;
 
 /***** Adapter class extends with ArrayAdapter ******/
 public class CustomAdapter extends ArrayAdapter<String> {
-
     private ArrayList data;
     public Resources res;
     SpinnerModel tempValues = null;
     LayoutInflater inflater;
     String defaultValue;
+
     /*************
      * CustomAdapter Constructor
      *****************/
-    public CustomAdapter(
-            Context context,
-            int textViewResourceId,
-            ArrayList objects,
-            LayoutInflater inflate
-    ) {
+    public CustomAdapter(Context context, int textViewResourceId, ArrayList objects, LayoutInflater inflate) {
         super(context, textViewResourceId, objects);
 
-        /********** Take passed values **********/
         data = objects;
-
-        /***********  Layout inflator to call external xml layout () **********************/
         inflater = inflate;
-
     }
 
     @Override
@@ -51,7 +42,6 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     // This funtion called for each row ( Called data.size() times )
     public View getCustomView(int position, View convertView, ViewGroup parent) {
-
         /********** Inflate spinner_rows.xml file for each row ( Defined below ) ************/
         View row = inflater.inflate(R.layout.spinner_rows, parent, false);
 
@@ -60,7 +50,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
         tempValues = (SpinnerModel) data.get(position);
 
         TextView label = (TextView) row.findViewById(R.id.spinner_row_name);
-        ImageView companyLogo = (ImageView) row.findViewById(R.id.spinner_row_image);
+        //ImageView companyLogo = (ImageView) row.findViewById(R.id.spinner_row_image);
 
         if (position == 0) {
 
@@ -69,7 +59,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
         } else {
             // Set values for spinner each row
             label.setText(tempValues.getCompanyName());
-            companyLogo.setImageResource(R.drawable.image1);
+            //companyLogo.setImageResource(R.drawable.image1);
         }
 
         return row;

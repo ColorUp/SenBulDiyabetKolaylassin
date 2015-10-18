@@ -73,42 +73,45 @@ public class DatabaseQuery
         return dbResult;
     }
 
-    public static List<Map<Object,Object>> Select(String table, Map<String,String> condition)
-    {
+    public static List<Map<Object,Object>> Select(String table, Map<String,String> condition) {
         url = Extensions.Format("{0}sql={1}&table={2}", dbUrl, Enums.PhpSqlOperation.SELECT.getStatusCode(), table);
         String urlTableColumns = Extensions.Format("{0}sql={1}&table={2}", dbUrl, Enums.PhpSqlOperation.TABLE.getStatusCode(), table);
         String conditions = "";
-        String dbResult="";
+        String dbResult = "";
 
         String columnStr = phpData.StartAsyncTask(urlTableColumns);
         String[] columns = columnStr.split(",");
 
-        if(condition!=null) {
-            if(condition.size()!=0) {
+        if (condition != null) {
+            if (condition.size() != 0) {
                 conditions = parametersToString(condition, "{0}:{1},");
                 url = Extensions.Format("{0}&conditions={1}", url, conditions);
             }
-                String dataList = phpData.StartAsyncTask(url);
+            String dataList = phpData.StartAsyncTask(url);
 
-                if (dataList.contentEquals(""))
-                    return null;
+            if (dataList.contentEquals(""))
+                return null;
 
-                String[] rows = dataList.split("<br>");
+            String[] rows = dataList.split("<br>");
 
-                List<Map<Object, Object>> result = new ArrayList<Map<Object, Object>>();
+            List<Map<Object, Object>> result = new ArrayList<Map<Object, Object>>();
 
-                for (int i = 0; i < rows.length; i++) {
-                    Map<Object, Object> row = new LinkedHashMap<>();
-                    String[] rowValues = rows[i].split(",");
-                    for (int j = 0; j < columns.length; j++) {
+            for (int i = 0; i < rows.length; i++) {
+                Map<Object, Object> row = new LinkedHashMap<>();
+                String[] rowValues = rows[i].split(",");
+                for (int j = 0; j < columns.length; j++) {
+                    try {
                         row.put(columns[j], rowValues[j]);
+                    } catch (Exception ex) {
+                        row.put(columns[j], "");
                     }
-
-                    result.add(row);
                 }
 
-                return result;
+                result.add(row);
             }
+
+            return result;
+        }
         return null;
     }
 
