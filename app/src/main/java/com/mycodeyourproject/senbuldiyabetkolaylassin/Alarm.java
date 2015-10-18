@@ -109,21 +109,22 @@ public class Alarm extends BroadcastReceiver{
 
     private void createNotification3(Context context, String msg) {
 
-        //contentView.setTextViewText(R.id.notifTitle, "ViaDiabet");
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
 
         Intent i = new Intent(context, ViaDiabet.class);
         PendingIntent intent = PendingIntent.getActivity(context, 0, i,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         Notification.Builder notificationBuilder = new Notification.Builder(context)
-                .setContentTitle("Bugün yemekte yoğurt yedin mi?");
-        notificationBuilder.addAction(R.mipmap.tick, "Evet", intent);
-        notificationBuilder.addAction(R.mipmap.nocross, "Hayır", intent);
+                .setContentTitle("Son şeker değerin?").setContent(contentView);
+        notificationBuilder.addAction(R.mipmap.d80100, "", intent);
+        notificationBuilder.addAction(R.mipmap.d120200, "", intent);
+        notificationBuilder.addAction(R.mipmap.d200plus, "", intent);
 
         i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         notificationBuilder.setContentIntent(intent);
 
-        notificationBuilder.setSmallIcon(R.mipmap.sanofi);
+        notificationBuilder.setSmallIcon(R.mipmap.tick);
         Notification notification = notificationBuilder.build();
 
         mIncrementalNotificationId = mIncrementalNotificationId + 1;
