@@ -19,7 +19,7 @@ public class Alarm extends BroadcastReceiver{
     private NotificationManager mNotificationManager;
     private Integer mIncrementalNotificationId = Integer.valueOf(0);
     private String messages[];
-    private static int index = 0;
+    private static int index = 5;
     @Override
     public void onReceive(Context context, Intent ıntent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -30,11 +30,11 @@ public class Alarm extends BroadcastReceiver{
                         "Hadi yemeklerinden tuzu çıkar!\nGünde bir çay kaşığı kadar tuz yeter, unutma",
                         "Çavdar ekmeği veya tam buğday ekmeğinin\nçok sağlıklı olduğunu unutma...",
                         "Iyyykkk... \nYağlı yemek yemeyelim sakın...",
-                        "Havucu yemeklerimizde dikkatli ve ölçülü tüketmemiz\ngerektiğini biliyor musunuz? -Agah Burak DEMİRKAN",
+                        "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?"
                 };
 
         Log.e("index", ""+index);
-        createNotification2(context, messages[index]);
+        createNotification3(context, messages[index]);
         if(++index == messages.length)
             index = 0;
     }
@@ -106,4 +106,50 @@ public class Alarm extends BroadcastReceiver{
         mNotificationManager.notify(mIncrementalNotificationId, notification);
 
     }
+
+    private void createNotification3(Context context, String msg) {
+
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
+
+        Intent i = new Intent(context, ViaDiabet.class);
+        PendingIntent intent = PendingIntent.getActivity(context, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        Notification.Builder notificationBuilder = new Notification.Builder(context)
+                .setContentTitle("Son şeker değerin?").setContent(contentView);
+        notificationBuilder.addAction(R.mipmap.d80100, "", intent);
+        notificationBuilder.addAction(R.mipmap.d120200, "", intent);
+        notificationBuilder.addAction(R.mipmap.d200plus, "", intent);
+
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        notificationBuilder.setContentIntent(intent);
+
+        notificationBuilder.setSmallIcon(R.mipmap.tick);
+        Notification notification = notificationBuilder.build();
+
+        mIncrementalNotificationId = mIncrementalNotificationId + 1;
+        mNotificationManager.notify(mIncrementalNotificationId, notification);
+
+    }
+
+    private void createNotification4(Context context, String msg) {
+
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
+        Notification.Builder notificationBuilder = new Notification.Builder(context)
+                .setContentTitle("Bugün yemekte yoğurt yedin mi?");
+
+        Intent i = new Intent(context, ViaDiabet.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent intent = PendingIntent.getActivity(context, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.setContentIntent(intent);
+
+        notificationBuilder.setSmallIcon(R.mipmap.sanofi);
+        Notification notification = notificationBuilder.build();
+
+        mIncrementalNotificationId = mIncrementalNotificationId + 1;
+        mNotificationManager.notify(mIncrementalNotificationId, notification);
+
+    }
+
 }
