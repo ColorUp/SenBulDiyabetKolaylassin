@@ -17,12 +17,36 @@ import android.widget.RemoteViews;
 public class Alarm extends BroadcastReceiver{
 
     private NotificationManager mNotificationManager;
+    Notification notification = null;
     private Integer mIncrementalNotificationId = Integer.valueOf(0);
     private String messages[];
     private static int index = 5;
     @Override
-    public void onReceive(Context context, Intent ıntent) {
+    public void onReceive(Context context, Intent intent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if(intent.getAction()!=null)
+        {
+            DataTransferObjects.UserDatalog userDatalog;
+            String act = intent.getAction().toString();
+            if(act.equals("m_1"))
+            {
+                Log.e("M1", "M1");
+                userDatalog = new DataTransferObjects.UserDatalog("agah",120f, 0f,0f, 0f,0f, 0f,0, 0f);
+                mNotificationManager.cancelAll();
+            }else if(act.equals("m_2"))
+            {
+                Log.e("M2", "M2");
+                userDatalog = new DataTransferObjects.UserDatalog("agah",200f, 0f,0f, 0f,0f, 0f,0, 0f);
+                mNotificationManager.cancelAll();
+            }else if(act.equals("m_3"))
+            {
+                Log.e("M3", "M3");
+                userDatalog = new DataTransferObjects.UserDatalog("agah",250f, 0f,0f, 0f,0f, 0f,0, 0f);
+                mNotificationManager.cancelAll();
+            }
+
+            return;
+        }
         messages = new String[]
                 {
                         "Bugün hiç şekerini ölçtün mü?\nBu aralar sık olarak takip etmende yarar var",
@@ -112,20 +136,30 @@ public class Alarm extends BroadcastReceiver{
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
 
         Intent i = new Intent(context, ViaDiabet.class);
-        PendingIntent intent = PendingIntent.getActivity(context, 0, i,
-                PendingIntent.FLAG_UPDATE_CURRENT);
         Notification.Builder notificationBuilder = new Notification.Builder(context)
                 .setContentTitle("Son şeker değerin?").setContent(contentView);
-        notificationBuilder.addAction(R.mipmap.d80100, "", intent);
-        notificationBuilder.addAction(R.mipmap.d120200, "", intent);
-        notificationBuilder.addAction(R.mipmap.d200plus, "", intent);
+
+        Intent m_1 = new Intent();
+        m_1.setAction("m_1");
+        PendingIntent intent1 = PendingIntent.getBroadcast(context, 9999, m_1, PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.addAction(R.mipmap.d80100, "", intent1);
+
+        Intent m_2 = new Intent();
+        m_2.setAction("m_2");
+        PendingIntent intent2 = PendingIntent.getBroadcast(context, 9999, m_2, PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.addAction(R.mipmap.d120200, "", intent2);
+
+        Intent m_3 = new Intent();
+        m_3.setAction("m_3");
+        PendingIntent intent3 = PendingIntent.getBroadcast(context, 9999, m_3, PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.addAction(R.mipmap.d200plus, "", intent3);
 
         i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-        notificationBuilder.setContentIntent(intent);
+        //notificationBuilder.setContentIntent(intent);
 
         notificationBuilder.setSmallIcon(R.mipmap.tick);
-        Notification notification = notificationBuilder.build();
+        notification = notificationBuilder.build();
 
         mIncrementalNotificationId = mIncrementalNotificationId + 1;
         mNotificationManager.notify(mIncrementalNotificationId, notification);
@@ -151,5 +185,7 @@ public class Alarm extends BroadcastReceiver{
         mNotificationManager.notify(mIncrementalNotificationId, notification);
 
     }
+
+
 
 }

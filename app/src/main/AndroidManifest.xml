@@ -31,7 +31,13 @@
             android:label="@string/activity_main"
             android:theme="@style/AppTheme" />
 
-        <receiver android:name=".Alarm" />
+        <receiver android:name=".Alarm">
+            <intent-filter>
+                <action android:name="m_1"/>
+                <action android:name="m_2"/>
+                <action android:name="m_3"/>
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name=".Settings"
