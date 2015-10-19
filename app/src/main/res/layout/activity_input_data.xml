@@ -16,7 +16,8 @@
         app:label="@string/text_glicose"
         app:hint="@string/zero"
         app:unit="@string/unity_mg_decilitre"
-        android:id="@+id/imagetextbox_glicose"/>
+        android:id="@+id/imagetextbox_glicose"
+        android:inputType="numberDecimal"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,8 @@
         app:label="@string/text_carbonhydrade"
         app:hint="@string/zero"
         app:unit="@string/unity_gram"
-        android:id="@+id/imagetextbox_carbonhydrade"/>
+        android:id="@+id/imagetextbox_carbonhydrade"
+        android:inputType="numberDecimal"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -32,7 +34,8 @@
         app:label="@string/text_insuline"
         app:hint="@string/zero"
         app:unit="@string/unity_iu"
-        android:id="@+id/imagetextbox_insuline"/>
+        android:id="@+id/imagetextbox_insuline"
+        android:inputType="numberDecimal"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -40,7 +43,8 @@
         app:label="@string/text_weight"
         app:hint="@string/zero"
         app:unit="@string/unity_weight"
-        android:id="@+id/imagetextbox_weight"/>
+        android:id="@+id/imagetextbox_weight"
+        android:inputType="numberDecimal"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -48,7 +52,8 @@
         app:label="@string/text_hb1ac"
         app:hint="@string/zero"
         app:unit="@string/unity_hb1ac"
-        android:id="@+id/imagetextbox_hb1ac"/>
+        android:id="@+id/imagetextbox_hb1ac"
+        android:inputType="numberDecimal"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -56,7 +61,8 @@
         app:label="@string/text_colestrol"
         app:hint="@string/zero"
         app:unit="@string/unity_colesterol"
-        android:id="@+id/imagetextbox_colestrol"/>
+        android:id="@+id/imagetextbox_colestrol"
+        android:inputType="numberDecimal"/>
     <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

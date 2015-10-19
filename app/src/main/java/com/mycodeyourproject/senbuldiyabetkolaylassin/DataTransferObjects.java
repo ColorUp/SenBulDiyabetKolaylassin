@@ -2,6 +2,7 @@ package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -251,7 +252,7 @@ public class DataTransferObjects {
     public static class UserMeal {
         public long id = 0;
         public String userName = "";
-        public byte type = 0;
+        public int type = 0;
         public long mealId = 0;
 
         Map<String, String> getUserMealObject() {
@@ -268,7 +269,7 @@ public class DataTransferObjects {
             return userMeal;
         }
 
-        UserMeal(String usernameInput, Byte typeInput, long mealIdInput) {
+        UserMeal(String usernameInput, int typeInput, long mealIdInput) {
             userName = usernameInput;
             type = typeInput;
             mealId = mealIdInput;
@@ -322,6 +323,10 @@ public class DataTransferObjects {
             userDatalog.put("COLESTEROL", String.valueOf(colesterol));
             userDatalog.put("CATEGORY", String.valueOf(category));
             userDatalog.put("CALORI", String.valueOf(calori));
+
+            Date recordDate= Calendar.getInstance().getTime();
+
+            userDatalog.put("DATETIME", Converter.DateToString(recordDate));
 
             return userDatalog;
         }

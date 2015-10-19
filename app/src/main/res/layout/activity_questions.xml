@@ -23,7 +23,8 @@ android:layout_height="match_parent">
             app:label="@string/height"
             app:hint="@string/zero"
             app:unit="@string/unity_meter"
-            android:id="@+id/imagetextbox_height"/>
+            android:id="@+id/imagetextbox_height"
+            android:inputType="number"/>
         <com.mycodeyourproject.senbuldiyabetkolaylassin.ImageTextBox
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -31,7 +32,8 @@ android:layout_height="match_parent">
             app:label="@string/weight"
             app:hint="@string/zero"
             app:unit="@string/unity_weight"
-            android:id="@+id/imagetextbox_weight"/>
+            android:id="@+id/imagetextbox_weight"
+            android:inputType="numberDecimal"/>
         <com.mycodeyourproject.senbuldiyabetkolaylassin.CustomSpinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -144,7 +146,8 @@ android:layout_height="match_parent">
             app:label="@string/water"
             app:hint="@string/zero"
             app:unit="@string/unity_leter"
-            android:id="@+id/imagetextbox_water"/>
+            android:id="@+id/imagetextbox_water"
+            android:inputType="numberDecimal"/>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

@@ -30,7 +30,7 @@ public class Converter {
 
     public static String DateToString(Date date) {
         String dateStr = "";
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         dateStr = df.format(date);
 
         return dateStr;

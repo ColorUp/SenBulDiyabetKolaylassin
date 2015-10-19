@@ -13,7 +13,7 @@ public class Parent {
     private boolean checked;
     private float totalCal;
     private float totalFat;
-    private float totalCarbonhydrade;
+    //private float totalCarbonhydrade;
     private float totalProtein;
 
     // ArrayList to store child objects
@@ -77,6 +77,7 @@ public class Parent {
         this.totalProtein = totalProtein;
     }
 
+/*
     public float getTotalCarbonhydrade() {
         return totalCarbonhydrade;
     }
@@ -84,6 +85,7 @@ public class Parent {
     public void setTotalCarbonhydrade(float totalCarbonhydrade) {
         this.totalCarbonhydrade = totalCarbonhydrade;
     }
+*/
 
     // ArrayList to store child objects
     public ArrayList<Child> getChildren() {

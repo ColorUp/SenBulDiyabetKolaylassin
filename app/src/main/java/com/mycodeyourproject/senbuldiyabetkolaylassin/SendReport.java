@@ -64,7 +64,7 @@ public class SendReport extends AppCompatActivity {
             try {
                 startActivity(Intent.createChooser(emailIntent, "Send mail..."));
                 finish();
-                Log.e("Finished sending email...", "");
+                Log.e("Finished sending email.", "");
             } catch (android.content.ActivityNotFoundException ex) {
                 Toast.makeText(SendReport.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
             }

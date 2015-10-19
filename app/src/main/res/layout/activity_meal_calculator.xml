@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MealCalculator">
-    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
+<!--    <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:label="@string/carbonhydrade"
         app:text="@string/zero"
-        android:id="@+id/textbox_carbonhydrade"/>
+        android:id="@+id/textbox_carbonhydrade"/>-->
     <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

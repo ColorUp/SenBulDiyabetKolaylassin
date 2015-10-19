@@ -12,12 +12,14 @@ import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
@@ -70,6 +72,16 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         final AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         int interval = 3600000;
         manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 15000, pendingIntent);
+
+/*        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String userValue = sharedPref.getString(getString(R.string.signeduser), "");
+
+        if (userValue.matches("") == false)
+        {
+            finish();
+            Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
+            startActivity(intent);
+        }*/
     }
 
     private void populateAutoComplete() {
@@ -102,6 +114,11 @@ public class LoginActivity extends FragmentActivity implements LoaderCallbacks<C
         }
 
         if (DataTransferObjects.User.UserIsValid(txtUserName.getText().toString(), txtPassword.getText().toString())) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(getString(R.string.signeduser), txtUserName.getText().toString().trim());
+            editor.commit();
+
             finish();
             Intent intent = new Intent(LoginActivity.this, ViaDiabet.class);
             startActivity(intent);

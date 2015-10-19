@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -80,6 +81,7 @@ public class Questions extends BaseViaDiabetActivity {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(Questions.this,MealCalculator.class);
+                intent.putExtra("MealSelector",1);
                 startActivity(intent);
             }
         });
@@ -88,6 +90,7 @@ public class Questions extends BaseViaDiabetActivity {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(Questions.this,MealCalculator.class);
+                intent.putExtra("MealSelector",2);
                 startActivity(intent);
             }
         });
@@ -96,6 +99,7 @@ public class Questions extends BaseViaDiabetActivity {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(Questions.this,MealCalculator.class);
+                intent.putExtra("MealSelector",3);
                 startActivity(intent);
             }
         });
@@ -104,6 +108,7 @@ public class Questions extends BaseViaDiabetActivity {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(Questions.this,MealCalculator.class);
+                intent.putExtra("MealSelector",4);
                 startActivity(intent);
             }
         });
@@ -112,11 +117,12 @@ public class Questions extends BaseViaDiabetActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Questions.this, MealCalculator.class);
+                intent.putExtra("MealSelector",5);
                 startActivity(intent);
             }
         });
 
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userValue = sharedPref.getString(getString(R.string.signeduser), "");
 
         if (userValue.matches("") == false)
@@ -243,7 +249,7 @@ public class Questions extends BaseViaDiabetActivity {
             } else
                 Toast.makeText(this, "Başarısız Kullanıcı Tanımı", Toast.LENGTH_LONG).show();
 
-            SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString(getString(R.string.signeduser), userIntent.getStringExtra("User"));
             editor.commit();

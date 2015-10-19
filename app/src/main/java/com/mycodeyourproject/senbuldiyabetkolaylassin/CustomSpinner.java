@@ -95,6 +95,9 @@ public class CustomSpinner extends LinearLayout {
             case "Sıklık":
                 array = getResources().getStringArray(R.array.sporsikliklari);
                 break;
+            case "Kategori":
+                array=getResources().getStringArray(R.array.array_categories);
+                break;
         }
         final SpinnerModel defaultValue = new SpinnerModel();
         defaultValue.setCompanyName(text);

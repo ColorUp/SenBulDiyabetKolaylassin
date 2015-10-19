@@ -23,6 +23,7 @@ public class ImageTextBox extends LinearLayout
         Drawable src=typedArray.getDrawable(R.styleable.TextBox_android_src);
         Integer srcButtonInteger=typedArray.getInteger(R.styleable.TextBox_button_image, 0);
         String hint=typedArray.getString(R.styleable.TextBox_hint);
+        int inputType=typedArray.getInt(R.styleable.TextBox_android_inputType, 0);
 
         Drawable srcButton=getResources().getDrawable(R.drawable.buttonstyle);
 
@@ -61,6 +62,7 @@ public class ImageTextBox extends LinearLayout
         textView.setText(label);
         editText.setText(text);
         editText.setHint(hint);
+        editText.setInputType(inputType);
         textViewUnit.setText(unit);
         button.setBackgroundDrawable(srcButton);
         if(srcButtonInteger==0)

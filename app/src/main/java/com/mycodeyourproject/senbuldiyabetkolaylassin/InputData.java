@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,20 +72,23 @@ public class InputData extends BaseViaDiabetActivity {
 
                 ArrayList<View> views = new ArrayList<View>();
                 views.add(txtInputDate);
-                views.add(txtGlicose);
-                views.add(txtCarbonhydrade);
-                views.add(txtInsuline);
-                views.add(txtWeight);
-                views.add(txtHb1ac);
-                views.add(txtColesterol);
-                views.add(category);
+                views.add(txtGlicose);          //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
+                views.add(txtCarbonhydrade);    //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
+                views.add(txtInsuline);         //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
+                views.add(txtWeight);           //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
+                views.add(txtHb1ac);            //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
+                views.add(txtColesterol);       //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
+                views.add(category);            //Bu kontroller silinirse obje oluşturulurken null kontrolü gerekir
 
                 if (Controls.ControlViewValues(views, getResources())) {
                     Toast.makeText(this, "Girişlerinizi kontrol ediniz!", Toast.LENGTH_LONG).show();
                     return false;
                 }
 
-                DataTransferObjects.UserDatalog userDatalog = new DataTransferObjects.UserDatalog("agah",
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                String userValue = sharedPref.getString(getString(R.string.signeduser), "");
+
+                DataTransferObjects.UserDatalog userDatalog = new DataTransferObjects.UserDatalog(userValue,
                         Float.valueOf(txtGlicose.getText().toString()), Float.valueOf(txtCarbonhydrade.getText().toString()),
                         Float.valueOf(txtInsuline.getText().toString()), Float.valueOf(txtWeight.getText().toString()),
                         Float.valueOf(txtHb1ac.getText().toString()), Float.valueOf(txtColesterol.getText().toString()),

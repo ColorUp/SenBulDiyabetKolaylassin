@@ -4,12 +4,15 @@ import android.app.ActionBar;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -48,8 +51,11 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         SimpleDateFormat sdfDate = new SimpleDateFormat((getString(R.string.date_format)));
         SimpleDateFormat sdfDateTime = new SimpleDateFormat(getString(R.string.date_format) +" " + getString(R.string.time_format));
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String userValue = sharedPref.getString(getString(R.string.signeduser), "");
+
         //Veritabanından verilerin hepsi okunur
-        List<Map<Object, Object>> userDataList = DataTransferObjects.UserDatalog.getUserDatalogList("agah");
+        List<Map<Object, Object>> userDataList = DataTransferObjects.UserDatalog.getUserDatalogList(userValue);
 
         Comparator<Object> cmp = new Comparator<Object>() {
             @Override
@@ -246,7 +252,11 @@ public class ViaDiabet extends BaseViaDiabetActivity {
                 Toast.makeText(this, R.string.action_help, Toast.LENGTH_LONG).show();
                 return true;
             case R.id.action_logout:
-                Toast.makeText(this, R.string.action_logout, Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.clear().apply();
+                finish();
+                System.exit(0);
                 return true;
             case R.id.action_diet:
                 Intent intentDiet = new Intent(ViaDiabet.this, DietList.class);
@@ -330,13 +340,4 @@ public class ViaDiabet extends BaseViaDiabetActivity {
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         Toast.makeText(this,getResources().getString(R.string.preferences_saved),Toast.LENGTH_LONG).show();
     }*/
-
-//    public void GonderMesaj(View view)
-//    {
-//        Intent intent = new Intent(this, DisplayMessageActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.veri_girisi);
-//        String message = editText.getText().toString();
-//        intent.putExtra(MESAJ, message);
-//        startActivity(intent);
-//    }
 }

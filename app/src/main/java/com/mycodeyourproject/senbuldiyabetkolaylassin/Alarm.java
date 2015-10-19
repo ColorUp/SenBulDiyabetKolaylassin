@@ -6,7 +6,9 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -28,23 +30,27 @@ public class Alarm extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         DataTransferObjects.UserDatalog userDatalog = null;
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        String userValue = sharedPref.getString(context.getString(R.string.signeduser), "");
+
         if(intent.getAction()!=null)
         {
             String act = intent.getAction().toString();
             if(act.equals("m_1"))
             {
                 Log.e("M1", "M1");
-                userDatalog = new DataTransferObjects.UserDatalog("agah",120f, 0f,0f, 0f,0f, 0f,0, 0f);
+                userDatalog = new DataTransferObjects.UserDatalog(userValue,120f, 0f,0f, 0f,0f, 0f,0, 0f);
                 mNotificationManager.cancelAll();
             }else if(act.equals("m_2"))
             {
                 Log.e("M2", "M2");
-                userDatalog = new DataTransferObjects.UserDatalog("agah",200f, 0f,0f, 0f,0f, 0f,0, 0f);
+                userDatalog = new DataTransferObjects.UserDatalog(userValue,200f, 0f,0f, 0f,0f, 0f,0, 0f);
                 mNotificationManager.cancelAll();
             }else if(act.equals("m_3"))
             {
                 Log.e("M3", "M3");
-                userDatalog = new DataTransferObjects.UserDatalog("agah",300f, 0f,0f, 0f,0f, 0f,0, 0f);
+                userDatalog = new DataTransferObjects.UserDatalog(userValue,300f, 0f,0f, 0f,0f, 0f,0, 0f);
                 mNotificationManager.cancelAll();
             }
             Map<String, String> userDatalogObject = userDatalog.getUserDatalogObject();

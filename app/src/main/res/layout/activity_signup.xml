@@ -69,14 +69,14 @@
             <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType="text"
                 app:hint="@string/name_edittext"
                 app:label="@string/name"
                 android:id="@+id/signup_name"/>
             <com.mycodeyourproject.senbuldiyabetkolaylassin.TextBox
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType="text"
                 app:hint="@string/surname_edittext"
                 app:label="@string/surname"
                 android:id="@+id/signup_surname"/>

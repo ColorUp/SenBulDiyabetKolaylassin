@@ -27,7 +27,7 @@ public class TextBox extends LinearLayout
         String label = typedArray.getString(R.styleable.TextBox_label);
         String text=typedArray.getString(R.styleable.TextBox_text);
         String hint=typedArray.getString(R.styleable.TextBox_hint);
-        boolean inType = typedArray.getBoolean(R.styleable.TextBox_intype, false);
+        int inputType=typedArray.getInt(R.styleable.TextBox_android_inputType,0);
         typedArray.recycle();
 
         setOrientation(LinearLayout.HORIZONTAL);
@@ -41,8 +41,7 @@ public class TextBox extends LinearLayout
         textView.setText(label);
         editText.setText(text);
         editText.setHint(hint);
-        if(inType)
-            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        editText.setInputType(inputType);
     }
 
     public TextBox(Context context)
