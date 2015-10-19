@@ -23,7 +23,7 @@ public class Alarm extends BroadcastReceiver{
     Notification notification = null;
     private Integer mIncrementalNotificationId = Integer.valueOf(0);
     private String messages[];
-    private static int index = 5, type = 3;
+    private static int index = 5, type = 2;
     @Override
     public void onReceive(Context context, Intent intent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -66,7 +66,7 @@ public class Alarm extends BroadcastReceiver{
                         "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?"
                 };
 
-        Log.e("index", "" + index);
+        Log.e("type", "" + type);
         if(type == 2)
         {
             createNotification2(context, messages[index]);
@@ -79,6 +79,8 @@ public class Alarm extends BroadcastReceiver{
         {
             createNotification4(context, messages[index]);
         }
+        if(++type == 5)
+            type = 2;
     }
 
     private void createNotification(Context context, String msg) {
@@ -185,6 +187,7 @@ public class Alarm extends BroadcastReceiver{
     }
 
     private void createNotification4(Context context, String msg) {
+        Log.e("lelele", "lololo");
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
         Notification.Builder notificationBuilder = new Notification.Builder(context)
@@ -194,6 +197,8 @@ public class Alarm extends BroadcastReceiver{
         i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent intent = PendingIntent.getActivity(context, 0, i,
                 PendingIntent.FLAG_UPDATE_CURRENT);
+        notificationBuilder.addAction(R.mipmap.tick, "", intent);
+        notificationBuilder.addAction(R.mipmap.nocross, "", intent);
         notificationBuilder.setContentIntent(intent);
 
         notificationBuilder.setSmallIcon(R.mipmap.sanofi);
