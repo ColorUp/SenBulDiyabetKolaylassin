@@ -1,6 +1,7 @@
 <resources>
     <declare-styleable name="TextBox">
         <attr name="text" format="string"/>
+        <attr name="intype" format="boolean"/>
         <attr name="label" format="string"/>
         <attr name="hint" format="string"/>
         <attr name="android:inputType"/>

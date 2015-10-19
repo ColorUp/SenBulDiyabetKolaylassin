@@ -39,6 +39,7 @@
             android:inputType="textPassword"
             app:hint="@string/password_edittext"
             app:label="@string/password"
+            app:intype="true"
             android:id="@+id/login_password"/>
         <LinearLayout
             android:layout_width="fill_parent"

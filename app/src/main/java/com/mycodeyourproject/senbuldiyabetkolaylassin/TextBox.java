@@ -4,7 +4,9 @@ import android.content.res.AssetManager;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
+import android.text.InputType;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,7 @@ public class TextBox extends LinearLayout
         String label = typedArray.getString(R.styleable.TextBox_label);
         String text=typedArray.getString(R.styleable.TextBox_text);
         String hint=typedArray.getString(R.styleable.TextBox_hint);
+        boolean inType = typedArray.getBoolean(R.styleable.TextBox_intype, false);
         typedArray.recycle();
 
         setOrientation(LinearLayout.HORIZONTAL);
@@ -38,6 +41,8 @@ public class TextBox extends LinearLayout
         textView.setText(label);
         editText.setText(text);
         editText.setHint(hint);
+        if(inType)
+            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
 
     public TextBox(Context context)
