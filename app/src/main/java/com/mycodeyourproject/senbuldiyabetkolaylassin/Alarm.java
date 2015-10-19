@@ -10,6 +10,9 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
+
+import java.util.Map;
 
 /**
  * Created by Onculy on 6.10.2015.
@@ -20,13 +23,13 @@ public class Alarm extends BroadcastReceiver{
     Notification notification = null;
     private Integer mIncrementalNotificationId = Integer.valueOf(0);
     private String messages[];
-    private static int index = 5;
+    private static int index = 5, type = 3;
     @Override
     public void onReceive(Context context, Intent intent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        DataTransferObjects.UserDatalog userDatalog = null;
         if(intent.getAction()!=null)
         {
-            DataTransferObjects.UserDatalog userDatalog;
             String act = intent.getAction().toString();
             if(act.equals("m_1"))
             {
@@ -41,9 +44,15 @@ public class Alarm extends BroadcastReceiver{
             }else if(act.equals("m_3"))
             {
                 Log.e("M3", "M3");
-                userDatalog = new DataTransferObjects.UserDatalog("agah",250f, 0f,0f, 0f,0f, 0f,0, 0f);
+                userDatalog = new DataTransferObjects.UserDatalog("agah",300f, 0f,0f, 0f,0f, 0f,0, 0f);
                 mNotificationManager.cancelAll();
             }
+            Map<String, String> userDatalogObject = userDatalog.getUserDatalogObject();
+            boolean result = DatabaseQuery.Insert("USERDATALOG", userDatalogObject);
+            if (result)
+                Toast.makeText(context, "Başarılı", Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(context, "Başarısız", Toast.LENGTH_LONG).show();
 
             return;
         }
@@ -57,10 +66,19 @@ public class Alarm extends BroadcastReceiver{
                         "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?"
                 };
 
-        Log.e("index", ""+index);
-        createNotification3(context, messages[index]);
-        if(++index == messages.length)
-            index = 0;
+        Log.e("index", "" + index);
+        if(type == 2)
+        {
+            createNotification2(context, messages[index]);
+        }else if(type == 3)
+        {
+            createNotification3(context, messages[index]);
+            if(++index == messages.length)
+                index = 0;
+        }else if(type == 4)
+        {
+            createNotification4(context, messages[index]);
+        }
     }
 
     private void createNotification(Context context, String msg) {
