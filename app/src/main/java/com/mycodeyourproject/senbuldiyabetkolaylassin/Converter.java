@@ -28,6 +28,15 @@ public class Converter {
         return boolStr;
     }
 
+    public static String StringDateTimeToStringDate(String dateTime) {
+        Date date = StringToDate(dateTime);
+        String dateStr = "";
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        dateStr = df.format(date);
+
+        return dateStr;
+    }
+
     public static String DateToString(Date date) {
         String dateStr = "";
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
