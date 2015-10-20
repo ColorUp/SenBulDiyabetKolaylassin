@@ -90,7 +90,7 @@ public class Alarm extends BroadcastReceiver{
         {
             createNotification4(context, messages[index]);
         }
-        if(++type == 11)
+        if(++type == 4)
             type = 2;
     }
 
