@@ -1,8 +1,11 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import org.eazegraph.lib.charts.BarChart;
 import org.eazegraph.lib.charts.PieChart;
@@ -13,6 +16,8 @@ import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class Stats extends AppCompatActivity {
@@ -23,6 +28,12 @@ public class Stats extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
         BarChart mBarChart = (BarChart) findViewById(R.id.barchart);
         mBarChart.setContentDescription("Description");
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String userValue = sharedPref.getString(getString(R.string.signeduser), "");
+
+        //Veritabanından verilerin hepsi okunur
+        List<Map<Object, Object>> userDataList = DataTransferObjects.UserDatalog.getUserDatalogList(userValue);
 
 
         ArrayList<BarValue> barValues = new ArrayList<>();
@@ -40,14 +51,28 @@ public class Stats extends AppCompatActivity {
         BarChart mBarChart2 = (BarChart) findViewById(R.id.barchart2);
         mBarChart.setContentDescription("Description");
 
-        ArrayList<BarValue> barValues2 = new ArrayList<>();
+        ArrayList<String> dates = new ArrayList<>();
+        ArrayList<Integer> values = new ArrayList<>();
 
-        barValues2.add(new BarValue(6,"02.10.2015", 0xFF123456));
-        barValues2.add(new BarValue(2,"03.10.2015", 0xFF123456));
-        barValues2.add(new BarValue(3,"04.10.2015", 0xFF123456));
-        barValues2.add(new BarValue(0,"05.10.2015", 0xFF123456));
-        barValues2.add(new BarValue(0, "06.10.2015", 0xFF123456));
-        barValues2.add(new BarValue(4, "07.10.2015", 0xFF123456));
+        for(int i=0; i<userDataList.size(); i++)
+        {
+            Map<Object, Object> row = userDataList.get(i);
+            String date = Converter.StringDateTimeToStringDate(row.get("DATETIME").toString());
+            if(dates.contains(date))
+            {
+                int index = dates.indexOf(date);
+                values.set(index, values.get(index) +1);
+            }else
+            {
+                dates.add(date);
+                values.add(1);
+            }
+        }
+
+        ArrayList<BarValue> barValues2 = new ArrayList<>();
+        for (int i=0; i<dates.size(); i++)
+            barValues2.add(new BarValue(values.get(i), dates.get(i), 0xFF123456));
+
 
 
         for(int i=0; i<barValues2.size(); i++)

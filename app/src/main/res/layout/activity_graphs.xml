@@ -20,17 +20,18 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/piechart"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="260dp"
                 android:padding="8dp"
                 app:egLegendTextSize="18sp"
                 app:egUsePieRotation="true"
-                app:egValueTextSize="36sp"/>
+                app:egValueTextSize="36sp"
+                android:layout_marginTop="20dp" />
 
             <org.eazegraph.lib.charts.ValueLineChart
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/cubiclinechart"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 app:egUseCubic="true"
                 app:egUseOverlapFill="true"
                 app:egCurveSmoothness="0.4"

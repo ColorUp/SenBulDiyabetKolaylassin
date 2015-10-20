@@ -72,7 +72,6 @@ public class Alarm extends BroadcastReceiver{
                         "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?"
                 };
 
-        Log.e("type", "" + type);
         if(type == 2)
         {
             createNotification2(context, messages[index]);
@@ -193,7 +192,6 @@ public class Alarm extends BroadcastReceiver{
     }
 
     private void createNotification4(Context context, String msg) {
-        Log.e("lelele", "lololo");
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_et);
         Notification.Builder notificationBuilder = new Notification.Builder(context)

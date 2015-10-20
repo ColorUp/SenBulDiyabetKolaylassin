@@ -481,6 +481,23 @@ public class DataTransferObjects {
             imageName = imageNameInput;
         }
 
+        public static List<Map<Object, Object>> getMealList() {
+            Map<String, String> meal = DatabaseQuery.GetParameterList("MEAL");
+
+            meal.remove("MEALCATEGORYID");
+            meal.remove("ID");
+            meal.remove("NAME");
+            meal.remove("CALORI");
+            meal.remove("FAT");
+            meal.remove("PROTEIN");
+            meal.remove("CARBONHYDRADE");
+            meal.remove("IMAGE");
+
+            List<Map<Object, Object>> mealList = DatabaseQuery.Select("MEAL", meal);
+
+            return mealList;
+        }
+
         public static List<Map<Object, Object>> getMealList(Long mealCategoryId) {
             if (mealCategoryId == Long.MIN_VALUE)
                 return null;

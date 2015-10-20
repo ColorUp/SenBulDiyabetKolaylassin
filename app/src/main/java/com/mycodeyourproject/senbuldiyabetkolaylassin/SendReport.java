@@ -1,7 +1,9 @@
 package com.mycodeyourproject.senbuldiyabetkolaylassin;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -11,6 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 
 public class SendReport extends AppCompatActivity {
     String email;
@@ -48,7 +55,46 @@ public class SendReport extends AppCompatActivity {
         EditText txtEmail = (EditText) findViewById(R.id.report_email).findViewById(R.id.textbox_editText);
         EditText txtPhone = (EditText) findViewById(R.id.report_phonenumber).findViewById(R.id.textbox_editText);
         email = txtEmail.getText().toString();
-        String raporText="Karbonhidrat : 115 kCal       30.07.2015 14:53\nKalori : 85 kCal              30.07.2015 14:53";
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String userValue = sharedPref.getString(getString(R.string.signeduser), "");
+        Map<Object, Object> user = DataTransferObjects.User.GetUser(userValue);
+        String name="", surname="";
+
+        String raporText="";
+        if(user != null)
+        {
+            name = user.get("NAME").toString();
+            surname = user.get("SURNAME").toString();
+
+            List<Map<Object, Object>> userDataList = DataTransferObjects.UserDatalog.getUserDatalogList(userValue);
+
+            Comparator<Object> cmp = new Comparator<Object>() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    return Integer.valueOf(((Map<Object, Object>) o1).get("ID").toString()).compareTo(Integer.valueOf(((Map<Object, Object>) o2).get("ID").toString()));
+                }
+            };
+
+            int glucoseCount = 0;
+            for (int i = 0; i < userDataList.size(); i++) {
+                if (Float.parseFloat(userDataList.get(i).get("GLUCOSE").toString()) > 0)
+                    glucoseCount++;
+            }
+
+            Map<Object, Object> lastData = Collections.max(userDataList, cmp);
+
+
+            raporText += (name+" "+surname+"\n\n");
+            raporText += ("Kan Şekeri : " + lastData.get("GLUCOSE").toString() +"\n\n");
+            raporText += ("İstatistikler : " + "\n");
+            raporText += ("Toplam kayıt : "+userDataList.size()+"\n\n");
+            raporText += ("Günlük şeker ölçüm sayısı: "+glucoseCount+"\n");
+
+        }else
+        {
+            Log.e("NULL", "NULL");
+        }
         if (view.getId() == R.id.mailButton) {
             String TO = "agahburakdemirkan@yahoo.com";
             String[] CC = {""};
@@ -56,10 +102,11 @@ public class SendReport extends AppCompatActivity {
 
             emailIntent.setData(Uri.parse("mailto:"));
             emailIntent.setType("text/plain");
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{ TO});
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{TO});
             emailIntent.putExtra(Intent.EXTRA_CC, CC);
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "ViaDiabet Rapor");
-            emailIntent.putExtra(Intent.EXTRA_TEXT, raporText+"\n"+email);
+            Log.e("raporttext", raporText);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, raporText);
 
             try {
                 startActivity(Intent.createChooser(emailIntent, "Send mail..."));
@@ -73,7 +120,7 @@ public class SendReport extends AppCompatActivity {
         {
             SmsManager smsManager = SmsManager.getDefault();
             String message = "#ViaDiabet :\n";
-            message += raporText + "\n" + email;
+            message += raporText;
             smsManager.sendTextMessage(txtPhone.getText().toString(), null, message, null, null);
             finish();
         }

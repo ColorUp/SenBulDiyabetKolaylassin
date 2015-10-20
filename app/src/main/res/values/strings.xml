@@ -190,10 +190,10 @@
     <string name="text_hb1ac">HbA1c</string>
 
     <string name="title_activity_diet_list">DietList</string>
-    <string name="title_activity_stats">Stats</string>
+    <string name="title_activity_stats">İstatistikler</string>
     <string name="custom_notification">Şekerini ölç!</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="facebook_app_id">817672744967667</string>
     <string name="title_activity_send_report">Rapor Gönder</string>
-    <string name="title_activity_graphs">Graphs</string>
+    <string name="title_activity_graphs">Grafikler</string>
 </resources>

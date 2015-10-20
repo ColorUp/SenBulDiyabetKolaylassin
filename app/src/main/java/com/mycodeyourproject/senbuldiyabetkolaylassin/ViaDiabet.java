@@ -124,7 +124,7 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         TextView totalDailyGlicoseRecord = (TextView) findViewById(R.id.statistic_daily_total_glicose_record);
 
         int glucoseCount = 0;
-        for (int i = 0; i == userDataList.size(); i++) {
+        for (int i = 0; i < userDataList.size(); i++) {
             if (Float.parseFloat(userDataList.get(i).get("GLUCOSE").toString()) > 0)
                 glucoseCount++;
         }

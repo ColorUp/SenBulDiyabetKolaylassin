@@ -17,26 +17,54 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <org.eazegraph.lib.charts.BarChart
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/barchart"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="256dp"
-                android:padding="10dp"
-                app:egFixedBarWidth="true"
-                app:egBarWidth="20dp"
-                app:egLegendHeight="40dp"/>
+                android:layout_height="match_parent">
 
-            <org.eazegraph.lib.charts.BarChart
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/barchart2"
+                <org.eazegraph.lib.charts.BarChart
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/barchart"
+                    android:layout_width="match_parent"
+                    android:layout_height="256dp"
+                    android:padding="10dp"
+                    app:egFixedBarWidth="true"
+                    app:egBarWidth="20dp"
+                    app:egLegendHeight="40dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Günlük Kalori Tüketimi"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="right|top"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </FrameLayout>
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="256dp"
-                android:padding="10dp"
-                app:egFixedBarWidth="true"
-                app:egBarWidth="20dp"
-                app:egLegendHeight="40dp"/>
-            
+                android:layout_height="match_parent">
+
+                <org.eazegraph.lib.charts.BarChart
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/barchart2"
+                    android:layout_width="match_parent"
+                    android:layout_height="256dp"
+                    android:padding="10dp"
+                    app:egFixedBarWidth="true"
+                    app:egBarWidth="20dp"
+                    app:egLegendHeight="40dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Günlük Şeker Ölçümü"
+                    android:id="@+id/textView3"
+                    android:layout_gravity="right|top"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </FrameLayout>
+
 
         </LinearLayout>
     </ScrollView>
