@@ -11,7 +11,7 @@ import java.util.Date;
 public class Converter {
     public static Date StringToDate(String string) {
         Date birthDate = null;
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
             birthDate = format.parse(string.toString());
         } catch (ParseException e) {
@@ -31,7 +31,7 @@ public class Converter {
     public static String StringDateTimeToStringDate(String dateTime) {
         Date date = StringToDate(dateTime);
         String dateStr = "";
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat df = new SimpleDateFormat("MM-dd");
         dateStr = df.format(date);
 
         return dateStr;
