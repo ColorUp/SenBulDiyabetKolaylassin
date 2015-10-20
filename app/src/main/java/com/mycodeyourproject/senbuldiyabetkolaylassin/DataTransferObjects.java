@@ -53,6 +53,34 @@ public class DataTransferObjects {
             surname = surnameInput;
         }
 
+        public static Map<Object,Object> GetUser(String userName) {
+            if (userName.contentEquals("") || userName == null)
+                return null;
+
+            Map<String, String> user = DatabaseQuery.GetParameterList("USER");
+            if (userName == null)
+                user.remove("USERNAME");
+            else
+                user.put("USERNAME", userName.trim());
+
+            user.remove("ID");
+            user.remove("PASSWORD");
+            user.remove("BIRTHOFDATE");
+            user.remove("GENDER");
+            user.remove("TURKISHID");
+            user.remove("NAME");
+            user.remove("SURNAME");
+            user.remove("RECORDDATE");
+
+            List<Map<Object, Object>> userList = DatabaseQuery.Select("USER", user);
+            Map<Object, Object> userObject = null;
+            if (userList != null) {
+                userObject = userList.get(0);
+            }
+
+            return userObject;
+        }
+
         public static boolean UserNameIsValid(String userName) {
             if (userName.contentEquals("") || userName == null)
                 return false;
