@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bar_bg"
-    android:stretchColumns="1" android:paddingTop="0dip" android:layout_gravity="top"    >
+    android:stretchColumns="1" android:paddingTop="0dip" android:layout_gravity="top">
     <TableRow>
 <!--        <ImageView
             android:id="@+id/image"

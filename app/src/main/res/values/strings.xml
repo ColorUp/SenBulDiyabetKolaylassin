@@ -18,6 +18,7 @@
     <string name="action_compose">Yaz</string>
     <string name="action_search">Ara</string>
     <string name="btn_send_message">Send Message</string>
+    <string name="text_alldata">Tüm Veriler</string>
 
     <!-- ViaDiabet -->
     <string name="text_last_check">Son Kontrol</string>

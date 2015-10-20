@@ -53,6 +53,8 @@ public class MealCalculator extends BaseViaDiabetActivity {
     EditText textBoxFat;
     Integer type;
     String userValue;
+    Button actionBarSave;
+    Button actionBarBack;
     List<Map<Object,Object>> seciliYemekler;
 
     @Override
@@ -70,6 +72,34 @@ public class MealCalculator extends BaseViaDiabetActivity {
 
         Resources res = this.getResources();
         Drawable devider = res.getDrawable(R.drawable.decorativeline);
+
+        actionBarBack = (Button) mCustomView.findViewById(R.id.actionbar_back_button);
+        actionBarBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent data = new Intent(Intent.ACTION_VIEW);
+                data.putExtra("Kalori", "0");
+                data.putExtra("Protein", "0");
+                data.putExtra("Yağ", "0");
+                //data.putExtra("Karbonhidrat", "0");
+                setResult(0, data);
+                finish();
+            }
+        });
+
+        actionBarSave = (Button) mCustomView.findViewById(R.id.actionbar_save_button);
+        actionBarSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent data = new Intent(Intent.ACTION_VIEW);
+                data.putExtra("Kalori", textBoxCalori.getText());
+                data.putExtra("Protein", textBoxProtein.getText());
+                data.putExtra("Yağ", textBoxFat.getText());
+                //data.putExtra("Karbonhidrat", textBoxCarbonhydrade.getText());
+                setResult(0, data);
+                finish();
+            }
+        });
 
         //textBoxCarbonhydrade = (EditText) findViewById(R.id.textbox_carbonhydrade).findViewById(R.id.textbox_editText);
         textBoxProtein = (EditText) findViewById(R.id.textbox_protein).findViewById(R.id.textbox_editText);
@@ -89,15 +119,13 @@ public class MealCalculator extends BaseViaDiabetActivity {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userValue = sharedPref.getString(getString(R.string.signeduser), "");
 
-        seciliYemekler=new LinkedList<>();
-        List<Map<Object,Object>> yemekler= DataTransferObjects.UserMeal.getUserMealList(userValue);
+        seciliYemekler = new LinkedList<>();
+        List<Map<Object, Object>> yemekler = DataTransferObjects.UserMeal.getUserMealList(userValue);
 
-        if(yemekler!=null)
-            if(yemekler.size()>0)
-            {
-                for (int i=0;i<yemekler.size();i++)
-                {
-                    if(yemekler.get(i).get("TYPE").toString().matches(type.toString()))
+        if (yemekler != null)
+            if (yemekler.size() > 0) {
+                for (int i = 0; i < yemekler.size(); i++) {
+                    if (yemekler.get(i).get("TYPE").toString().matches(type.toString()))
                         seciliYemekler.add(yemekler.get(i));
                 }
             }
@@ -424,7 +452,7 @@ public class MealCalculator extends BaseViaDiabetActivity {
                 data.putExtra("Calori", textBoxCalori.getText());
                 data.putExtra("Protein", textBoxProtein.getText());
                 data.putExtra("Fat", textBoxFat.getText());
-                data.putExtra("Carbonhydrade", textBoxCarbonhydrade.getText());
+                //data.putExtra("Carbonhydrade", textBoxCarbonhydrade.getText());
                 setResult(0, data);
 
                 if (type != 0) {
@@ -452,7 +480,7 @@ public class MealCalculator extends BaseViaDiabetActivity {
                 data.putExtra("Calori", textBoxCalori.getText());
                 data.putExtra("Protein", textBoxProtein.getText());
                 data.putExtra("Fat", textBoxFat.getText());
-                data.putExtra("Carbonhydrade", textBoxCarbonhydrade.getText());
+                //data.putExtra("Carbonhydrade", textBoxCarbonhydrade.getText());
                 setResult(0, data);
 
                 finish();
