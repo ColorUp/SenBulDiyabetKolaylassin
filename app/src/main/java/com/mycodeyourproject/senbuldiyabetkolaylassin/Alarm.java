@@ -69,7 +69,13 @@ public class Alarm extends BroadcastReceiver{
                         "Hadi yemeklerinden tuzu çıkar!\nGünde bir çay kaşığı kadar tuz yeter, unutma",
                         "Çavdar ekmeği veya tam buğday ekmeğinin\nçok sağlıklı olduğunu unutma...",
                         "Iyyykkk... \nYağlı yemek yemeyelim sakın...",
-                        "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?"
+                        "Havucu yemeklerimizde ölçülü tüketmemiz\ngerektiğini biliyor musunuz?",
+                        "Bu hafta 1 kilo verebilir miyiz?\nNe dersin?",
+                        "Karnıbahar ve enginar!!!\nKan şekerini hızlı arttıran besinlermiş...",
+                        "Bugün 45 dakika en azından yürüyüş yapalım!",
+                        "Sabah sporu tüm gün zinde olmamızı\nsağlayacak. Hadi kalk!",
+                        "Uyanma zamanı! Hadi hemen güne başla.",
+                        "Bu aralar kilo vermiş olmalısın\nBir tartı bulup tartılalım"
                 };
 
         if(type == 2)
@@ -84,7 +90,7 @@ public class Alarm extends BroadcastReceiver{
         {
             createNotification4(context, messages[index]);
         }
-        if(++type == 5)
+        if(++type == 11)
             type = 2;
     }
 
