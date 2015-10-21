@@ -64,7 +64,10 @@ public class ViaDiabet extends BaseViaDiabetActivity {
             }
         };
 
-        Map<Object, Object> lastData = Collections.max(userDataList, cmp);
+        Map<Object, Object> lastData=null;
+        if(userDataList!=null)
+            if(userDataList.size()>0)
+        lastData = Collections.max(userDataList, cmp);
 
         TextView autoCommentTime = (TextView) findViewById(R.id.auto_comment_time);
         autoCommentTime.setText(sdfDateTime.format(Calendar.getInstance().getTime()));
@@ -87,7 +90,9 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         String insuline = getResources().getString(R.string.unity_insuline);
         String kilogram = "kg";
 
-        String lastDataDateTime = lastData.get("DATETIME").toString();
+        String lastDataDateTime="2015-10-21";
+        if(lastData!=null)
+        lastDataDateTime = lastData.get("DATETIME").toString();
         Date date;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -97,39 +102,72 @@ public class ViaDiabet extends BaseViaDiabetActivity {
         }
 
         TextView lastCheckBlood = (TextView) findViewById(R.id.text_last_check_blood);
+        if(lastData!=null)
         lastCheckBlood.setText(String.valueOf(Math.round(Float.parseFloat(lastData.get("GLUCOSE").toString()))));
+        else
+            lastCheckBlood.setText("0");
         TextView lastCheckBloodDate = (TextView) findViewById(R.id.text_last_check_date);
         lastCheckBloodDate.setText(sdfDate.format(date));
         TextView lastCheckInsulinDate = (TextView) findViewById(R.id.text_last_check_insulin_date);
         lastCheckInsulinDate.setText(sdfDate.format(date));
         TextView lastInsuline = (TextView) findViewById(R.id.text_insulin);
+        if(lastData!=null)
         lastInsuline.setText(Extensions.Format("{0} {1}", lastData.get("INSULINE").toString(), insuline));
+        else
+            lastInsuline.setText(Extensions.Format("{0} {1}", "0", insuline));
 
         TextView lastDataCarbonhydrade = (TextView) findViewById(R.id.statistic_last_data_carbonhydrade);
+        if(lastData!=null)
         lastDataCarbonhydrade.setText(Extensions.Format("{0} {1}", lastData.get("CARBONHYDRADE").toString(), gram));
+        else
+            lastDataCarbonhydrade.setText(Extensions.Format("{0} {1}", "0", gram));
         TextView lastDataCarbonhydradeDateTime = (TextView) findViewById(R.id.statistic_last_data_carbonhydrade_date_time);
+        if(lastData!=null)
         lastDataCarbonhydradeDateTime.setText(lastData.get("DATETIME").toString());
+        else
+        lastDataCarbonhydradeDateTime.setText(lastDataDateTime);
         TextView lastDataCalori = (TextView) findViewById(R.id.statistic_last_data_calori);
+        if(lastData!=null)
         lastDataCalori.setText(Extensions.Format("{0} {1}", lastData.get("CALORI").toString(), calori));
+        else
+            lastDataCalori.setText(Extensions.Format("{0} {1}", "0", calori));
         TextView lastDataCaloriDateTime = (TextView) findViewById(R.id.statistic_last_data_calori_date_time);
+        if(lastData!=null)
         lastDataCaloriDateTime.setText(lastData.get("DATETIME").toString());
+        else
+            lastDataCaloriDateTime.setText(lastDataDateTime);
         TextView lastDataGlucose = (TextView) findViewById(R.id.statistic_last_data_glucose);
+        if(lastData!=null)
         lastDataGlucose.setText(Extensions.Format("{0} {1}", lastData.get("GLUCOSE").toString(), mgDecilitre));
+        else
+            lastDataGlucose.setText(Extensions.Format("{0} {1}", "0", mgDecilitre));
         TextView lastDataGlucoseDateTime = (TextView) findViewById(R.id.statistic_last_data_glucose_date_time);
+        if(lastData!=null)
         lastDataGlucoseDateTime.setText(lastData.get("DATETIME").toString());
+        else
+            lastDataGlucoseDateTime.setText(lastDataDateTime);
         TextView lastDataWeight = (TextView) findViewById(R.id.statistic_last_data_weight);
+        if(lastData!=null)
         lastDataWeight.setText(Extensions.Format("{0} {1}", lastData.get("WEIGHT").toString(), kilogram));
+        else
+            lastDataWeight.setText(Extensions.Format("{0} {1}", "0", kilogram));
         TextView totalRecord = (TextView) findViewById(R.id.statistic_total_record);
+        if(userDataList!=null)
         totalRecord.setText(String.valueOf(userDataList.size()));
+        totalRecord.setText("0");
         TextView totalDailyGlicoseRecord = (TextView) findViewById(R.id.statistic_daily_total_glicose_record);
 
-        int glucoseCount = 0;
-        for (int i = 0; i < userDataList.size(); i++) {
-            if (Float.parseFloat(userDataList.get(i).get("GLUCOSE").toString()) > 0)
-                glucoseCount++;
-        }
+        if(userDataList!=null) {
+            int glucoseCount = 0;
+            for (int i = 0; i < userDataList.size(); i++) {
+                if (Float.parseFloat(userDataList.get(i).get("GLUCOSE").toString()) > 0)
+                    glucoseCount++;
+            }
 
-        totalDailyGlicoseRecord.setText(String.valueOf(glucoseCount));
+            totalDailyGlicoseRecord.setText(String.valueOf(glucoseCount));
+        }
+        else
+            totalDailyGlicoseRecord.setText("0");
     }
 
     @Override

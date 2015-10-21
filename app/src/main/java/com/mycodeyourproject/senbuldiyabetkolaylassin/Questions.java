@@ -59,6 +59,7 @@ public class Questions extends BaseViaDiabetActivity {
     RadioButton selectedMedicine;
     EditText txtComment;
     String userValue="";
+    String newUser="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,11 +123,15 @@ public class Questions extends BaseViaDiabetActivity {
             }
         });
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        userValue = sharedPref.getString(getString(R.string.signeduser), "");
+        Intent intent = getIntent();
+        newUser=intent.getStringExtra("User");
+        if(newUser==null||newUser.matches("")) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            userValue = sharedPref.getString(getString(R.string.signeduser), "");
 
-        if (userValue.matches("") == false)
-            getInitialValues(userValue);
+            if (userValue.matches("") == false)
+                getInitialValues(userValue);
+        }
     }
 
     private void setIniliazeItems() {
@@ -240,7 +245,9 @@ public class Questions extends BaseViaDiabetActivity {
             boolean result = DatabaseQuery.Insert("USER", userObject);
 
             if (result) {
-                boolean resultLifeStyle = DatabaseQuery.Insert("USERLIFESTYLE", userLifeStyle.getUserLifeStyleObject());
+                Map<String,String> userVal=userLifeStyle.getUserLifeStyleObject();
+                userVal.put("USERNAME", newUser.username);
+                boolean resultLifeStyle = DatabaseQuery.Insert("USERLIFESTYLE", userVal);
 
                 if (resultLifeStyle)
                     Toast.makeText(this, "Başarılı", Toast.LENGTH_LONG).show();
